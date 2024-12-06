@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace KiberOneLearningApp
+{
+    [CreateAssetMenu(menuName = "ScriptableObjects/New Tutorial Info", fileName = "Tutorial Info")]
+    public class TutorialData : ScriptableObject
+    {
+        [field: SerializeField] public List<SentenceData> Sentences { get; private set; }
+        
+        [Serializable]
+        public class SentenceData
+        {
+            [field : SerializeField] public Sprite Background { get; private set; }
+            [field : SerializeField] public Sprite CharacterIcon { get; private set; }
+            [field : SerializeField] public string Text { get; private set; }
+        }
+    }
+}
