@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace KiberOneLearningApp
 {
@@ -10,6 +11,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private TutorialData tutorialData;
+        [SerializeField] private TextMeshProUGUI replicNumberText;
 
         private int currentIdex = 0;
         
@@ -29,8 +31,9 @@ namespace KiberOneLearningApp
         private void ChangeReplic()
         {
             TutorialData.SentenceData currentSentance = tutorialData.Sentences[currentIdex++];
-            character.image = currentSentance.CharacterIcon;
-            background.image = currentSentance.Background;
+            replicNumberText.text = currentIdex + "/" + tutorialData.Sentences.Count + 1;
+            character.sprite = currentSentance.CharacterIcon;
+            background.sprite = currentSentance.Background;
             characterText.text = currentSentance.Text;
         }
     }
