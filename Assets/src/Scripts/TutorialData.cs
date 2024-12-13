@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace KiberOneLearningApp
 {
@@ -15,6 +16,8 @@ namespace KiberOneLearningApp
             [field : SerializeField] public Sprite Background { get; private set; }
             [field : SerializeField] public Sprite CharacterIcon { get; private set; }
             [field : SerializeField] public string Text { get; private set; }
+
+            [field : SerializeField] public VideoClip TutorialVideo { get; private set; }
         }
     }
 }

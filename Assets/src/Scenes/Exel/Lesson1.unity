@@ -282,18 +282,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4594413347668578931, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_fontAsset
+    - target: {fileID: 5832403035778102285, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_TargetCamera
       value: 
-      objectReference: {fileID: 11400000, guid: 059ded86c90cbab43b2ec7cafb351845, type: 2}
-    - target: {fileID: 4594413347668578931, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 059ded86c90cbab43b2ec7cafb351845, type: 2}
-    - target: {fileID: 7714013200362153697, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1371332221}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
