@@ -22,9 +22,9 @@ MonoBehaviour:
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <Text>k__BackingField: "\u041F\u0440\u0438\u0432\u0435\u0442! \u042D\u0442\u043E
       \u0442\u0435\u043A\u0441\u0442 2"
-    <TutorialVideo>k__BackingField: {fileID: 0}
+    <TutorialVideo>k__BackingField: {fileID: 32900000, guid: a340b0a1e74b6604d894e3c0fa532bf6, type: 3}
   - <Background>k__BackingField: {fileID: 21300000, guid: 3f3c6a4d29fd74644b7b086290ee94cd, type: 3}
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <Text>k__BackingField: "\u041F\u0440\u0438\u0432\u0435\u0442! \u042D\u0442\u043E
       \u0442\u0435\u043A\u0441\u0442 3"
-    <TutorialVideo>k__BackingField: {fileID: 0}
+    <TutorialVideo>k__BackingField: {fileID: 32900000, guid: c6d58a3e1f88152469b7147bc4e771ce, type: 3}
