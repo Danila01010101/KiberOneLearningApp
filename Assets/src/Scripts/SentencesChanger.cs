@@ -39,6 +39,7 @@ namespace KiberOneLearningApp
         {
             sentenceCounter.text = (currentIndex + 1) + "/" + tutorialData.Sentences.Count;
             character.sprite = sentenceData.CharacterIcon;
+            character.transform.localPosition = sentenceData.CharacterPosition;
             background.sprite = sentenceData.Background;
             characterText.text = sentenceData.Text;
             
