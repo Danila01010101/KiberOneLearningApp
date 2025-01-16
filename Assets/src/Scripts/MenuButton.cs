@@ -4,15 +4,9 @@ using UnityEngine.UIElements;
 
 namespace KiberOneLearningApp
 {
-    [RequireComponent(typeof(Button))]
     public class MenuButton : MonoBehaviour
     {
         private Button button;
-
-        private void Awake()
-        {
-            button = GetComponent<Button>();
-        }
 
         public void LoadMainScene() => SceneManager.LoadScene(SceneNaming.StartSceneName);
 
