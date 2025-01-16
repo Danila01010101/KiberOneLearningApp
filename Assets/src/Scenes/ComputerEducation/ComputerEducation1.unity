@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &206978363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7714013200362153698, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+  m_PrefabInstance: {fileID: 1592489695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437471279
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,10 +219,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1654209747767651686, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_Color.a
+    - target: {fileID: 1125699335604302261, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125699335604302261, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1125699335604302261, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 206978363}
+    - target: {fileID: 1125699335604302261, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654209747767651686, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023339901893970932, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: tutorialData
+      value: 
+      objectReference: {fileID: 11400000, guid: 333caedf5cdc19a41995ea6860ce9247, type: 2}
     - target: {fileID: 7714013200026943422, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_Sprite
       value: 
