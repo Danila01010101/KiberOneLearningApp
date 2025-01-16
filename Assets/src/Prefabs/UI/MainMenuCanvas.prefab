@@ -320,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7708314306733290507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1040,6 +1040,10 @@ PrefabInstance:
       value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4686411100958433243, guid: 8eb62d6f64a2c0d418e8d612e6d1e79b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 569e75d1c100cdd47ac88d3b1de38cf4, type: 2}
+    - target: {fileID: 4686411100958433243, guid: 8eb62d6f64a2c0d418e8d612e6d1e79b, type: 3}
       propertyPath: m_fontStyle
       value: 17
       objectReference: {fileID: 0}
@@ -1047,6 +1051,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 4686411100958433243, guid: 8eb62d6f64a2c0d418e8d612e6d1e79b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1688580448319402811, guid: 569e75d1c100cdd47ac88d3b1de38cf4, type: 2}
     - target: {fileID: 5499622844135788344, guid: 8eb62d6f64a2c0d418e8d612e6d1e79b, type: 3}
       propertyPath: m_Name
       value: Button blue
@@ -1304,13 +1312,37 @@ PrefabInstance:
       value: -375.79993
       objectReference: {fileID: 0}
     - target: {fileID: 2613644510797582029, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613644510797582029, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -187.90002
+      value: -203
       objectReference: {fileID: 0}
     - target: {fileID: 4686411100958433243, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
       propertyPath: m_text
       value: "\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043D\u0430\u044F
         \u0433\u0440\u0430\u043C\u043E\u0442\u043D\u043E\u0441\u0442\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686411100958433243, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
+      propertyPath: m_fontSize
+      value: 32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686411100958433243, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
+      propertyPath: m_margin.w
+      value: 42.18947
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686411100958433243, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
+      propertyPath: m_margin.x
+      value: -17.764069
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686411100958433243, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
+      propertyPath: m_margin.z
+      value: 58.843292
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686411100958433243, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499622844135788344, guid: 440502e97d00c904d8e87cc91234987a, type: 3}
       propertyPath: m_Name

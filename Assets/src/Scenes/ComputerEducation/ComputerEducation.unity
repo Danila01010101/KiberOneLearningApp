@@ -282,18 +282,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2244575390994342950, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_Color.b
-      value: 0.909804
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244575390994342950, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_Color.g
-      value: 0.62352943
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244575390994342950, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_Color.r
-      value: 0.38431376
-      objectReference: {fileID: 0}
     - target: {fileID: 2244575392629820136, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -382,91 +370,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: LessonSelectionDefaultCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1171878038}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenComputerEducationLesson
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: KiberOneLearningApp.MenuButton, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907727194998553, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1171878039}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenComputerEducationLesson
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: KiberOneLearningApp.MenuButton, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484907728627430306, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
---- !u!114 &1171878038 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776614926491223506, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-  m_PrefabInstance: {fileID: 1171878037}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25c649137085bb4b8cac63981f6e7c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1171878039 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5776614925226717545, guid: b324d7bef3ceec841b5f1f3d8de29150, type: 3}
-  m_PrefabInstance: {fileID: 1171878037}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25c649137085bb4b8cac63981f6e7c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
