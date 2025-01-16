@@ -8,6 +8,8 @@ namespace KiberOneLearningApp
     [CreateAssetMenu(menuName = "ScriptableObjects/New Tutorial Info", fileName = "Tutorial Info")]
     public class TutorialData : ScriptableObject
     {
+        [field: SerializeField] public string TutorialName { get; private set; }
+        [field: SerializeField] public Sprite DefaultBackground { get; private set; }
         [field: SerializeField] public List<SentenceData> Sentences { get; private set; }
         
         [Serializable]

@@ -44,12 +44,11 @@ namespace KiberOneLearningApp
 
             if (sentenceData.Background != null)
             {
-                background.color = Color.white;
                 background.sprite = sentenceData.Background;
             }
             else
             {
-                background.color = Color.clear;
+                background.sprite = tutorialData.DefaultBackground;
             }
             
             if (sentenceData.TutorialVideo != null)
