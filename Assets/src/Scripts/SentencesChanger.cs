@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -17,6 +16,8 @@ namespace KiberOneLearningApp
         [Header("Sentence buttons")]
         [SerializeField] private Button nextButton;
         [SerializeField] private Button backButton;
+        [SerializeField] private Sprite regularMoveForwardButtonImage;
+        [SerializeField] private Sprite preTaskButtonImage;
         [Header("Gif properties")]
         [SerializeField] private VideoPlayer player;
         [SerializeField] private Transform videoWindow;
@@ -43,14 +44,17 @@ namespace KiberOneLearningApp
             character.sprite = sentenceData.CharacterIcon;
             character.transform.localPosition = sentenceData.CharacterPosition;
             characterText.text = sentenceData.Text;
+            background.sprite = sentenceData.Background != null ? background.sprite = sentenceData.Background : background.sprite = tutorialData.DefaultBackground;
 
-            if (sentenceData.Background != null)
+            if (sentenceData.IsBeforeTask)
             {
-                background.sprite = sentenceData.Background;
+                nextButton.image.sprite = preTaskButtonImage;
+                nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "НАЧАТЬ ЗАДАНИЕ";
             }
             else
             {
-                background.sprite = tutorialData.DefaultBackground;
+                nextButton.image.sprite = regularMoveForwardButtonImage;
+                nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "ВПЕРЕД";
             }
             
             if (sentenceData.TutorialVideo != null)
