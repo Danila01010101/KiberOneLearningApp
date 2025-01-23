@@ -16,6 +16,7 @@ namespace KiberOneLearningApp
         public class SentenceData
         {
             [field : SerializeField] public Sprite Background { get; private set; }
+            [field : SerializeField] public bool IsBeforeTask { get; private set; }
             [field : SerializeField] public Sprite CharacterIcon { get; private set; }
             [field: SerializeField] public Vector3 CharacterPosition { get; private set; } = new Vector3(353, -195, 0);
             [field : SerializeField] public string Text { get; private set; }

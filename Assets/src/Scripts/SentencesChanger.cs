@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -12,7 +13,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private TutorialData tutorialData;
-        [SerializeField] private TextMeshProUGUI sentenceCounter;
+        [SerializeField] private Slider sentenceSlider;
         [Header("Sentence buttons")]
         [SerializeField] private Button nextButton;
         [SerializeField] private Button backButton;
@@ -37,7 +38,8 @@ namespace KiberOneLearningApp
 
         private void ShowSentence(TutorialData.SentenceData sentenceData)
         {
-            sentenceCounter.text = (currentIndex + 1) + "/" + tutorialData.Sentences.Count;
+            sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
+            Debug.Log(sentenceSlider.value);
             character.sprite = sentenceData.CharacterIcon;
             character.transform.localPosition = sentenceData.CharacterPosition;
             characterText.text = sentenceData.Text;
