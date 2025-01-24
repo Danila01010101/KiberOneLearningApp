@@ -10,6 +10,7 @@ namespace KiberOneLearningApp
     {
         [field: SerializeField] public string TutorialName { get; private set; }
         [field: SerializeField] public Sprite DefaultBackground { get; private set; }
+        [field: SerializeField] public List<TutorialData> Tasks { get; private set; }
         [field: SerializeField] public List<SentenceData> Sentences { get; private set; }
         
         [Serializable]

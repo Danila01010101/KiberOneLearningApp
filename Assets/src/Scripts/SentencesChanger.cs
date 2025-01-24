@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ namespace KiberOneLearningApp
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private TutorialData tutorialData;
         [SerializeField] private Slider sentenceSlider;
+        [SerializeField] private TaskWindow taskWindow;
         [Header("Sentence buttons")]
         [SerializeField] private Button nextButton;
         [SerializeField] private Button backButton;
@@ -27,10 +29,34 @@ namespace KiberOneLearningApp
         private GifOpener gifOpener;
         private int currentIndex = -1;
 
+        public string LessonName => tutorialData.TutorialName;
+
         private void Awake()
         {
             gifOpener = new GifOpener(player, videoWindow);
-            ShowNextSentence();
+            
+            if (tutorialData != null)
+                ShowNextSentence();
+
+            if (taskWindow != null)
+            {
+                taskWindow.SetTasksData(tutorialData.Tasks);
+                taskWindow.Initialize();
+            }
+        }
+        
+        public void ChangeSentence(TutorialData sentence)
+        {
+            tutorialData = sentence;
+            
+            if (tutorialData != null)
+            {
+                ShowNextSentence();
+            }
+            else
+            {
+                throw new Exception("No data setted before activation!");
+            }
         }
 
         private void ShowNextSentence() => ShowSentence(tutorialData.Sentences[++currentIndex]);

@@ -15,6 +15,9 @@ MonoBehaviour:
   <TutorialName>k__BackingField: "\u0417\u043D\u0430\u043A\u043E\u043C\u0441\u0442\u0432\u043E
     \u0441 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C"
   <DefaultBackground>k__BackingField: {fileID: 21300000, guid: 58b818674ea2acb4295a96742d36d838, type: 3}
+  <Tasks>k__BackingField:
+  - {fileID: 11400000}
+  - {fileID: 11400000}
   <Sentences>k__BackingField:
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
