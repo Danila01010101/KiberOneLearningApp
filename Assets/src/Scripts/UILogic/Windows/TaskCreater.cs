@@ -4,14 +4,14 @@ using KiberOneLearningApp;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TaskWindow : MonoBehaviour
+public class TaskCreater : MonoBehaviour
 {
     [SerializeField] private TMPro.TMP_Dropdown dropdown;
     [SerializeField] private Button startTaskButton;
     [SerializeField] private SentencesChanger sentencesChangerPrefab;
     
     private List<TutorialData> tasksData;
-    private List<SentencesChanger> spawnedTasksWindows = new List<SentencesChanger>();
+    private List<SentencesChanger> spawnedTaskWindows = new List<SentencesChanger>();
     private SentencesChanger currentTask;
     
     public void Initialize()
@@ -22,7 +22,7 @@ public class TaskWindow : MonoBehaviour
         {
             SentencesChanger newWindow = Instantiate(sentencesChangerPrefab, transform);
             newWindow.ChangeSentence(task);
-            spawnedTasksWindows.Add(newWindow);
+            spawnedTaskWindows.Add(newWindow);
             dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData() { text = task.TutorialName });
             newWindow.gameObject.SetActive(false);
         }
@@ -33,12 +33,12 @@ public class TaskWindow : MonoBehaviour
         this.tasksData = tasksData;
     }
 
-    private void OpenTaskWindow(int taskId)
+    public void OpenTaskWindow(int taskId)
     {
         if (currentTask != null)
             currentTask.gameObject.SetActive(false);
         
-        currentTask = spawnedTasksWindows[taskId];
+        currentTask = spawnedTaskWindows[taskId];
         currentTask.gameObject.SetActive(true);
     }
 

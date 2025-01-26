@@ -11,7 +11,15 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -1.0556641
       objectReference: {fileID: 0}
+    - target: {fileID: 1654209747767651686, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2700078857241407162, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939034084410688250, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -45,19 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -109,11 +117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018032, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -158,6 +166,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1206093902489525869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7352505668402384501, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+  m_PrefabInstance: {fileID: 8553937614809108504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419f273d7c90e214da390c7091374ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1747652841128967181 stripped
@@ -215,11 +234,10 @@ MonoBehaviour:
   characterText: {fileID: 5293720126268752491}
   tutorialData: {fileID: 0}
   sentenceSlider: {fileID: 7314242881398731218}
-  taskWindow: {fileID: 0}
+  taskCreater: {fileID: 0}
   nextButton: {fileID: 4329801439959879570}
   backButton: {fileID: 8731065037635641773}
-  regularMoveForwardButtonImage: {fileID: 21300000, guid: 040be0e474e09894ca320b08d9462cc8, type: 3}
-  preTaskButtonImage: {fileID: 21300000, guid: 28c51f93b6260224c867f45f411a0e85, type: 3}
+  openTaskButton: {fileID: 1206093902489525869}
   player: {fileID: 2757728374682690581}
   videoWindow: {fileID: 7733341111775869207}
   openGifButton: {fileID: 1747652841128967181}

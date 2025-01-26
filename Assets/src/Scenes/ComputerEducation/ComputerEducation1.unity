@@ -295,14 +295,6 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u041D\u0410\u0417\u0410\u0414"
       objectReference: {fileID: 0}
-    - target: {fileID: 1125699335604302260, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125699335604302260, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -502
-      objectReference: {fileID: 0}
     - target: {fileID: 1125699335604302261, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -323,13 +315,13 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5378207837615038356, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 150
+    - target: {fileID: 1654209747767651686, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5378207837615038356, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -502
+    - target: {fileID: 2939034084410688250, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5441520135749490400, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.x

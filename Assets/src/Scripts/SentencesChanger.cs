@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -14,12 +15,11 @@ namespace KiberOneLearningApp
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private TutorialData tutorialData;
         [SerializeField] private Slider sentenceSlider;
-        [SerializeField] private TaskWindow taskWindow;
+        [FormerlySerializedAs("taskWindow")] [SerializeField] private TaskCreater taskCreater;
         [Header("Sentence buttons")]
         [SerializeField] private Button nextButton;
         [SerializeField] private Button backButton;
-        [SerializeField] private Sprite regularMoveForwardButtonImage;
-        [SerializeField] private Sprite preTaskButtonImage;
+        [SerializeField] private OpenTaskButton openTaskButton;
         [Header("Gif properties")]
         [SerializeField] private VideoPlayer player;
         [SerializeField] private Transform videoWindow;
@@ -27,7 +27,10 @@ namespace KiberOneLearningApp
         [SerializeField] private Button closeGifButton;
 
         private GifOpener gifOpener;
+        private int currentTaskIndex;
         private int currentIndex = -1;
+        
+        public Action<int> OnTaskUnlocked;
 
         public string LessonName => tutorialData.TutorialName;
 
@@ -37,11 +40,14 @@ namespace KiberOneLearningApp
             
             if (tutorialData != null)
                 ShowNextSentence();
+            
+            if (openTaskButton != null)
+                openTaskButton.Initialize(this, taskCreater);
 
-            if (taskWindow != null)
+            if (taskCreater != null)
             {
-                taskWindow.SetTasksData(tutorialData.Tasks);
-                taskWindow.Initialize();
+                taskCreater.SetTasksData(tutorialData.Tasks);
+                taskCreater.Initialize();
             }
         }
         
@@ -72,15 +78,16 @@ namespace KiberOneLearningApp
             characterText.text = sentenceData.Text;
             background.sprite = sentenceData.Background != null ? background.sprite = sentenceData.Background : background.sprite = tutorialData.DefaultBackground;
 
-            if (sentenceData.IsBeforeTask)
+            if (sentenceData.IsBeforeTask && (nextButton.IsActive() || !openTaskButton.isActiveAndEnabled))
             {
-                nextButton.image.sprite = preTaskButtonImage;
-                nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "НАЧАТЬ ЗАДАНИЕ";
+                nextButton.gameObject.SetActive(false);
+                openTaskButton.gameObject.SetActive(true);
+                OnTaskUnlocked?.Invoke(currentTaskIndex);
             }
-            else
+            else if (!nextButton.IsActive() || openTaskButton.isActiveAndEnabled)
             {
-                nextButton.image.sprite = regularMoveForwardButtonImage;
-                nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "ВПЕРЕД";
+                nextButton.gameObject.SetActive(true);
+                openTaskButton.gameObject.SetActive(false);
             }
             
             if (sentenceData.TutorialVideo != null)
