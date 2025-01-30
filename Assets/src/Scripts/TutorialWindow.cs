@@ -1,21 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace KiberOneLearningApp
 {
-    public class TutorialWindow : MonoBehaviour
+    public class TutorialWindow : UIWindow
     {
-        // Start is called before the first frame update
-        void Start()
+        public override void Initialize()
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+             
         }
     }
 }

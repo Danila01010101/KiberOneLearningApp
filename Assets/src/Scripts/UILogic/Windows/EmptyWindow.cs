@@ -6,9 +6,14 @@ public class EmptyWindow : UIWindow
     [SerializeField] private UIWindow nextWindow;
     [SerializeField] private Button nextWindowButton;
     
+    private bool IsButtonExist => nextWindowButton != null;
+    
     public override void Initialize()
     {
-        nextWindowButton.onClick.AddListener(OpenNextWindow);
+        if (IsButtonExist)
+            nextWindowButton.onClick.AddListener(OpenNextWindow);
+        //else
+            //Debug.LogError("No Window Button Exist");
     }
 
     private void OpenNextWindow() => UIWindowManager.Show(nextWindow, true);
