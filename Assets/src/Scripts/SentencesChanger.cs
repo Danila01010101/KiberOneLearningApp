@@ -135,6 +135,8 @@ namespace KiberOneLearningApp
                 openGifButton.gameObject.SetActive(false);
             }
             
+            character.gameObject.SetActive(tutorialData.Sentences[currentIndex].HideCharacter == false);
+            
             //CheckIfSentenceLast();
         }
 
