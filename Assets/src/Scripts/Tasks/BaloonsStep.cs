@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace KiberOneLearningApp
 {
-    public class BaloonsStep : IStep
+    public class BaloonsStep : ITaskStep
     {
-        private List<GameObject> baloons;
-        
-        public Action StepCompleted { get; set; }
+        private List<DisableThisObjectOnClick> baloons;
 
-        public BaloonsStep(List<GameObject> baloons)
+        public static Action StepCompleted;
+
+        public BaloonsStep(List<DisableThisObjectOnClick> baloons)
         {
             this.baloons = baloons;
         }
@@ -21,7 +20,7 @@ namespace KiberOneLearningApp
             
             foreach (var baloon in baloons)
             {
-                if (baloon != null)
+                if (baloon.gameObject.activeSelf)
                 {
                     noBaloonsLeft = false;
                 }
@@ -35,7 +34,13 @@ namespace KiberOneLearningApp
 
         public void ResetStep()
         {
-            
+            foreach (var baloon in baloons)
+            {
+                if (baloon.gameObject.activeSelf == false)
+                {
+                    baloon.gameObject.SetActive(true);
+                }
+            }
         }
     }
 }

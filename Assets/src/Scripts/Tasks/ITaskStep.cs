@@ -2,9 +2,9 @@ using System;
 
 namespace KiberOneLearningApp
 {
-    public interface IStep
+    public interface ITaskStep
     {
-        Action StepCompleted { get; set; }
+        static Action StepCompleted { get; set; }
         void Update();
         void ResetStep();
     }

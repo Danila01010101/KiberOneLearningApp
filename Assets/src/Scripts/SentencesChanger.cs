@@ -30,6 +30,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Button closeGifButton;
 
         private GifOpener gifOpener;
+        private ITask task;
         private List<int> taskIndexes = new List<int>();
         private int currentTaskIndex;
         private int currentIndex = -1;
@@ -44,12 +45,6 @@ namespace KiberOneLearningApp
         private void Awake()
         {
             gifOpener = new GifOpener(player, videoWindow);
-            
-            if (tutorialData != null)
-                ShowNextSentence();
-            
-            if (openTaskButton != null)
-                openTaskButton.Initialize(this, taskCreator);
 
             if (taskCreator != null)
             {
@@ -58,12 +53,23 @@ namespace KiberOneLearningApp
                     if (tutorialData.Sentences[i].IsBeforeTask)
                         taskIndexes.Add(i);
                 }
-                
+
                 taskCreator.SetTasksData(tutorialData.Tasks, this);
             }
+
+            if (tutorialData != null)
+                ShowNextSentence();
+            
+            if (openTaskButton != null)
+                openTaskButton.Initialize(this, taskCreator);
         }
 
         public void ShowTaskWindow() => UIWindowManager.Show<TutorialWindow>();
+
+        public void SetTask(ITask newTask)
+        {
+            task = newTask;
+        }
         
         public void ChangeSentence(TutorialData sentence)
         {
@@ -94,6 +100,9 @@ namespace KiberOneLearningApp
 
         private void ShowSentence(TutorialData.SentenceData sentenceData)
         {
+            if (task != null)
+                task.OpenNextStep();
+
             sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
             Debug.Log(sentenceSlider.value);
             character.sprite = sentenceData.CharacterIcon;
