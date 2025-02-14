@@ -28,7 +28,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Transform videoWindow;
         [SerializeField] private Button openGifButton;
         [SerializeField] private Button closeGifButton;
-
+            
         private GifOpener gifOpener;
         private ITask task;
         private List<int> taskIndexes = new List<int>();
@@ -105,7 +105,15 @@ namespace KiberOneLearningApp
 
             sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
             Debug.Log(sentenceSlider.value);
-            character.sprite = sentenceData.CharacterIcon;
+
+            if (sentenceData.CharacterIcon != null)
+            {
+                character.color = Color.white;
+                character.sprite = sentenceData.CharacterIcon;
+            }
+            else
+                character.color = Color.clear;
+                    
             character.transform.localPosition = sentenceData.CharacterPosition;
             characterText.text = sentenceData.Text;
             background.sprite = sentenceData.Background != null ? background.sprite = sentenceData.Background : background.sprite = tutorialData.DefaultBackground;
