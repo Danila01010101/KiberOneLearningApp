@@ -6,8 +6,9 @@ namespace KiberOneLearningApp
 {
     public class DisableThisObjectOnClick : MonoBehaviour
     {
-        [SerializeField]
         private KeyCode keyCode = KeyCode.Mouse0;
+
+        public void SetKeyCode(KeyCode keyCode) => this.keyCode = keyCode;
         
         private void Update()
         {

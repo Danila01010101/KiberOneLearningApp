@@ -2,17 +2,18 @@ using System;
 using System.Collections.Generic;
 using KiberOneLearningApp;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class TaskCreator : MonoBehaviour
 {
     [SerializeField] private TMPro.TMP_Dropdown dropdown;
     [SerializeField] private Button startTaskButton;
-    [SerializeField] private SentencesChanger sentencesChangerPrefab;
+    [FormerlySerializedAs("sentencesChangerPrefab")] [SerializeField] private TaskWindow tutorialWindowPrefab;
     
-    private List<TutorialData> tutorialData;
+    private List<TutorialData> tasksData;
     private List<SentencesChanger> spawnedTutorialWindows = new List<SentencesChanger>();
-    private List<MouseTask> spawnedTasksWindows = new List<MouseTask>();
+    private List<ITask> spawnedTasksWindows = new List<ITask>();
     private List<bool> completedTasks = new List<bool>();
     private SentencesChanger currentTask;
     private SentencesChanger mainSentenceChanger;
@@ -26,14 +27,14 @@ public class TaskCreator : MonoBehaviour
         dropdown.options.Clear();
 
         /*
-        for (int i = 0; i < tutorialData.Count; i++)
+        for (int i = 0; i < tasksData.Count; i++)
         {
-            SentencesChanger newWindow = Instantiate(sentencesChangerPrefab, transform);
-            newWindow.ChangeSentence(tutorialData[i]);
+            TaskWindow newWindow = Instantiate(tutorialWindowPrefab, transform);
+            newWindow.SetNewData(tasksData[i], );
 
-            if (tutorialData[i].TaskForThisSentence != null)
+            if (tasksData[i].TaskForThisSentence != null)
             {
-                var spawnedTask = Instantiate(tutorialData[i].TaskForThisSentence, newWindow.transform);
+                var spawnedTask = Instantiate(tasksData[i].TaskForThisSentence, newWindow.transform);
                 spawnedTasksWindows.Add(spawnedTask);
                 newWindow.SetTask(spawnedTask);
             }
@@ -41,7 +42,7 @@ public class TaskCreator : MonoBehaviour
             spawnedTutorialWindows.Add(newWindow);
             newWindow.OnTaskSolved += DetectTaskCompleted;
             completedTasks.Add(false);
-            dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData() { text = tutorialData[i].TutorialName });
+            dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData() { text = tasksData[i].TutorialName });
             newWindow.gameObject.SetActive(false);
         }
         */
@@ -49,7 +50,7 @@ public class TaskCreator : MonoBehaviour
 
     public void SetTasksData(List<TutorialData> tasksData, SentencesChanger mainSentenceChanger)
     {
-        this.tutorialData = tasksData;
+        this.tasksData = tasksData;
         this.mainSentenceChanger = mainSentenceChanger;
         SpawnTasks();
     }

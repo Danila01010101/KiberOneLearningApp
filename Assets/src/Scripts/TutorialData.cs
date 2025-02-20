@@ -11,7 +11,6 @@ namespace KiberOneLearningApp
         [field: SerializeField] public string TutorialName { get; private set; }
         [field: SerializeField] public Sprite DefaultBackground { get; private set; }
         [field: SerializeField] public Sprite DefaultText { get; private set; }
-        [field: SerializeField] public MouseTask TaskForThisSentence { get; private set; }
         [field: SerializeField] public List<TutorialData> Tasks { get; private set; }
         [field: SerializeField] public List<SentenceData> Sentences { get; private set; }
         
@@ -20,11 +19,11 @@ namespace KiberOneLearningApp
         {
             [field : SerializeField] public Sprite Background { get; private set; }
             [field : SerializeField] public bool IsBeforeTask { get; private set; }
+            [field: SerializeField] public BasicTask TaskForThisSentence { get; private set; }
             [field : SerializeField] public bool HideCharacter { get; private set; }
             [field : SerializeField] public Sprite CharacterIcon { get; private set; }
             [field: SerializeField] public Vector3 CharacterPosition { get; private set; } = new Vector3(353, -195, 0);
             [field : SerializeField] public string Text { get; private set; }
-
             [field : SerializeField] public VideoClip TutorialVideo { get; private set; }
         }
     }

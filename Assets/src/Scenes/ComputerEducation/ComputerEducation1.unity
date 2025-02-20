@@ -393,6 +393,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354682677831623986, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: _views.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354682677831623986, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: _views.Array.data[0]
+      value: 
+      objectReference: {fileID: 206978368}
+    - target: {fileID: 5354682677831623986, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: _views.Array.data[1]
+      value: 
+      objectReference: {fileID: 1592489699}
     - target: {fileID: 5441520135749490400, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -577,9 +589,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7714013201612018036, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1882913091}
     - targetCorrespondingSourceObject: {fileID: 7714013200362153698, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 206978369}
@@ -610,27 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57aad3a1713ea8a4fa0b339ea4721df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1882913086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7714013201612018036, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-  m_PrefabInstance: {fileID: 1592489695}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1882913091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882913086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ca2f7d0c36441468004354788bbbca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startingView: {fileID: 206978369}
-  _views:
-  - {fileID: 206978369}
-  - {fileID: 1592489699}
 --- !u!1001 &8553937615627593075
 PrefabInstance:
   m_ObjectHideFlags: 0

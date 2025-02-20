@@ -20,18 +20,24 @@ namespace KiberOneLearningApp
         [Header("Gif properties")]
         [SerializeField] private VideoPlayer player;
         [SerializeField] private Transform videoWindow;
-        
+    
         private GifOpener gifOpener;
+        
+        public Slider SentenceSlider => sentenceSlider;
+        public Image Background => background;
+        public Button OpenGifButton => openGifButton;
+        public GifOpener GifOpener => gifOpener;
+        public Image Character => character;
 
-        public void Awake()
+        public void Initialize()
         {
             gifOpener = new GifOpener(player, videoWindow);
         }
 
-        public void UpdateView(TutorialData.SentenceData sentenceData, TutorialData tutorialData, int currentIndex)
+        public void UpdateView(TutorialData.SentenceData sentenceData, int currentIndex)
         {
-            sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
-
+            characterText.text = sentenceData.Text;
+        
             if (sentenceData.CharacterIcon != null)
             {
                 character.color = Color.white;
@@ -39,24 +45,9 @@ namespace KiberOneLearningApp
             }
             else
                 character.color = Color.clear;
-            
+        
             character.transform.localPosition = sentenceData.CharacterPosition;
-            characterText.text = sentenceData.Text;
-            background.sprite = sentenceData.Background != null ? sentenceData.Background : tutorialData.DefaultBackground;
-            
             backButton.gameObject.SetActive(currentIndex != 0);
-            
-            if (sentenceData.TutorialVideo != null)
-            {
-                openGifButton.gameObject.SetActive(true);
-                gifOpener.SetNewVideo(sentenceData.TutorialVideo);
-            }
-            else
-            {
-                openGifButton.gameObject.SetActive(false);
-            }
-            
-            character.gameObject.SetActive(!tutorialData.Sentences[currentIndex].HideCharacter);
         }
 
         public void SubscribeButtons(UnityAction nextButtonAction, UnityAction backButtonAction)
