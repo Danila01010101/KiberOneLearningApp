@@ -31,7 +31,6 @@ namespace KiberOneLearningApp
         public void UpdateView(TutorialData.SentenceData sentenceData, TutorialData tutorialData, int currentIndex)
         {
             sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
-            Debug.Log(sentenceSlider.value);
 
             if (sentenceData.CharacterIcon != null)
             {
