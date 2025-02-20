@@ -25,6 +25,7 @@ public class TaskCreator : MonoBehaviour
     {
         dropdown.options.Clear();
 
+        /*
         for (int i = 0; i < tutorialData.Count; i++)
         {
             SentencesChanger newWindow = Instantiate(sentencesChangerPrefab, transform);
@@ -43,6 +44,7 @@ public class TaskCreator : MonoBehaviour
             dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData() { text = tutorialData[i].TutorialName });
             newWindow.gameObject.SetActive(false);
         }
+        */
     }
 
     public void SetTasksData(List<TutorialData> tasksData, SentencesChanger mainSentenceChanger)
@@ -84,7 +86,7 @@ public class TaskCreator : MonoBehaviour
     {
         foreach (var window in spawnedTutorialWindows)
         {
-            window.OnTaskSolved -= DetectTaskCompleted;
+            //window.OnTaskSolved -= DetectTaskCompleted;
         }
     }
 }

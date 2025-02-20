@@ -31,13 +31,13 @@ namespace KiberOneLearningApp
         {
             this.sentencesChanger = sentencesChanger;
             this.taskCreator = taskCreator;
-            sentencesChanger.OnTaskUnlocked += InitializeTask;
+            //sentencesChanger.OnTaskUnlocked += InitializeTask;
         }
 
         private void OnDestroy()
         {
             button.onClick.RemoveAllListeners();
-            sentencesChanger.OnTaskUnlocked -= InitializeTask;
+            //sentencesChanger.OnTaskUnlocked -= InitializeTask;
         }
     }
 }
