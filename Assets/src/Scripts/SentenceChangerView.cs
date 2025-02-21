@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,11 +44,24 @@ namespace KiberOneLearningApp
                 character.color = Color.white;
                 character.sprite = sentenceData.CharacterIcon;
             }
-            else
-                character.color = Color.clear;
+            else 
+            {
+                character.color = Color.clear; 
+            }
         
             character.transform.localPosition = sentenceData.CharacterPosition;
             backButton.gameObject.SetActive(currentIndex != 0);
+        }
+
+        public void BlockNextButton(Action UnlockAction)
+        {
+            nextButton.interactable = false;
+            UnlockAction += UnlockNextButton;
+        }
+
+        private void UnlockNextButton()
+        {
+            nextButton.interactable = true;
         }
 
         public void SubscribeButtons(UnityAction nextButtonAction, UnityAction backButtonAction)

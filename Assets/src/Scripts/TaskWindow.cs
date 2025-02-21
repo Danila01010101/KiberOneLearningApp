@@ -1,37 +1,101 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace KiberOneLearningApp
 {
+	[RequireComponent(typeof(TaskCreator))]
 	public class TaskWindow : SentencesChanger
-	{
-		public void SetNewData(TutorialData newSentenceData)
-		{
-			tutorialData = newSentenceData;
+    {
+        private TaskCreator taskCreator;
+        private List<ITask> tasks = new List<ITask>();
+		private Transform tasksParent;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            taskCreator.Subscribe();
+        }
+
+        public void SetNewData(TutorialData newSentenceData)
+        {
+            if (tasksParent != null)
+            {
+                Destroy(tasksParent.gameObject);
+            }
+
+            tutorialData = newSentenceData;
+            EmptyTask emptyTaskPrefab = Resources.Load<EmptyTask>("EmptyTask");
+			tasksParent = new GameObject("Tasks").transform;
+			tasksParent.SetParent(transform);
+
+            foreach (var sentence in tutorialData.Sentences)
+			{
+				if (sentence.TaskForThisSentence != null)
+				{
+                    ITask spawnedTask = Instantiate(tutorialData.Sentences[CurrentIndex].TaskForThisSentence, transform);
+					SetupNewTask(spawnedTask);
+					sentenceChangerView.BlockNextButton(spawnedTask.OnTaskComplete);
+                }
+				else
+				{
+					ITask spawnedTask = Instantiate(emptyTaskPrefab, gameObject.transform);
+					SetupNewTask(spawnedTask);
+				}
+			}
 		}
 
 		protected override void ShowNextSentence()
 		{
 			base.ShowNextSentence();
-			//tutorialData.Sentences[CurrentIndex].TaskForThisSentence;
-		}
+			DeactivateIfExist(CurrentIndex - 1);
+            ResetCurrentSentence();
+        }
 
 		protected override void ShowPreviousSentence()
 		{
 			base.ShowPreviousSentence();
-		}
-		
-		/*
-		public void ChangeSentence(TutorialData sentence)
-		{
-			tutorialData = sentence;
+			ResetCurrentSentence();
+            DeactivateIfExist(CurrentIndex + 1);
+        }
 
-			if (tutorialData != null)
-			{
-				ShowNextSentence();
-			}
-			else
-			{
-				throw new Exception("No data setted before activation!");
-			}
-		}
-		*/
-	}
+		private void SetupNewTask(ITask spawnedTask)
+        {
+            tasks.Add(spawnedTask);
+            spawnedTask.GameObject.transform.SetParent(tasksParent.transform);
+			spawnedTask.GameObject.SetActive(false);
+			spawnedTask.Setup();
+        }
+
+		private void ResetCurrentSentence()
+		{
+            if (tasks[CurrentIndex].IsCompleted == false)
+            {
+                tasks[CurrentIndex].GameObject.SetActive(true);
+            }
+        }
+
+		private void DeactivateIfExist(int index)
+        {
+            if (index > 0 && index < tasks.Count)
+            {
+                tasks[index].GameObject.SetActive(false);
+            }
+        }
+
+        private void OnEnable()
+        {
+            taskCreator.Subscribe();
+        }
+
+        private void OnDisable()
+        {
+            taskCreator.Unsubscribe();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            taskCreator.Unsubscribe();
+        }
+    }
 }

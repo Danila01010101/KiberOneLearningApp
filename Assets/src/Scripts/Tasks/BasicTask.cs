@@ -4,18 +4,20 @@ using UnityEngine;
 
 namespace KiberOneLearningApp
 {
-    public class BasicTask : MonoBehaviour
+    public class BasicTask : MonoBehaviour, ITask
     {
         [SerializeField] private List<TaskObject> objects = new List<TaskObject>();
 
         private int currentStep = 0;
-        private bool isTaskRunning = true;
-        
-        public Action OnTaskComplete;
+        public bool IsCompleted { get; private set; }
+
+        public GameObject GameObject => gameObject;
+
+        public Action OnTaskComplete { get; set; }
 
         private void Update()
         {
-            if (isTaskRunning == false)
+            if (IsCompleted)
                 return;
             
             bool noOjectsLeft = true;
@@ -30,12 +32,12 @@ namespace KiberOneLearningApp
 
             if (noOjectsLeft)
             {
-                isTaskRunning = false;
+                IsCompleted = true;
                 OnTaskComplete?.Invoke();
             }
         }
 
-        public void ResetStep()
+        public void Setup()
         {
             foreach (var taskObject in objects)
             {

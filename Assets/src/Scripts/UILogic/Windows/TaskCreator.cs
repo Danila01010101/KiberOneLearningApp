@@ -57,7 +57,7 @@ public class TaskCreator : MonoBehaviour
 
     public void OpenTaskWindow(int taskId)
     {
-        UIWindowManager.Show<TutorialWindow>();
+        UIWindowManager.Show<TaskWindow>();
         
         if (currentTask != null)
             currentTask.gameObject.SetActive(false);
