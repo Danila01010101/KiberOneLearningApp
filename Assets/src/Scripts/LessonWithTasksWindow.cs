@@ -1,20 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace KiberOneLearningApp
 {
-	[RequireComponent(typeof(TaskCreator))]
-	public class TaskWindow : SentencesChanger
+	public class LessonWithTasksWindow : SentencesChanger
     {
-        private TaskCreator taskCreator;
         private List<ITask> tasks = new List<ITask>();
 		private Transform tasksParent;
 
-        public override void Initialize()
-        {
-            base.Initialize();
-            taskCreator.Subscribe();
-        }
+		public Action TaskLessonCompleted;
 
         public void SetNewData(TutorialData newSentenceData)
         {
@@ -80,22 +75,6 @@ namespace KiberOneLearningApp
             {
                 tasks[index].GameObject.SetActive(false);
             }
-        }
-
-        private void OnEnable()
-        {
-            taskCreator.Subscribe();
-        }
-
-        private void OnDisable()
-        {
-            taskCreator.Unsubscribe();
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            taskCreator.Unsubscribe();
         }
     }
 }

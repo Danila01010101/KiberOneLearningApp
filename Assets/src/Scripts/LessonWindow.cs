@@ -1,24 +1,30 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KiberOneLearningApp
 {
 	public class LessonWindow : SentencesChanger
 	{
-		[SerializeField] private TaskCreator taskCreator;
+		[SerializeField] private TaskWindowsCreator taskWindowsCreator;
 		[SerializeField] private OpenTaskButton openTaskButton;
 
 		public override void Initialize()
 		{
 			base.Initialize();
 
-			if (taskCreator != null)
+			if (taskWindowsCreator != null)
 			{
-				taskCreator.SetTasksData(tutorialData.Tasks, this);
+				taskWindowsCreator.SetTasksData(tutorialData.Tasks);
 			}
             
 			if (openTaskButton != null)
-				openTaskButton.Initialize(this, taskCreator);
+				openTaskButton.Initialize(this, taskWindowsCreator);
+		}
+
+		protected override void ShowNextSentence()
+		{
+			base.ShowNextSentence();
 		}
 	}
 }

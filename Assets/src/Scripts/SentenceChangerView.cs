@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -15,7 +16,9 @@ namespace KiberOneLearningApp
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private Slider sentenceSlider;
         [Header("Sentence buttons")]
-        [SerializeField] private Button nextButton;
+        [SerializeField] protected Button nextButton;
+        [SerializeField] protected Button openCurrentTaskButton;
+        
         [SerializeField] private Button backButton;
         [SerializeField] private Button openGifButton;
         [Header("Gif properties")]
@@ -23,34 +26,42 @@ namespace KiberOneLearningApp
         [SerializeField] private Transform videoWindow;
     
         private GifOpener gifOpener;
-        
-        public Slider SentenceSlider => sentenceSlider;
-        public Image Background => background;
-        public Button OpenGifButton => openGifButton;
-        public GifOpener GifOpener => gifOpener;
-        public Image Character => character;
 
         public void Initialize()
         {
             gifOpener = new GifOpener(player, videoWindow);
         }
 
-        public void UpdateView(TutorialData.SentenceData sentenceData, int currentIndex)
+        public void UpdateView(TutorialData.SentenceData sentenceData, TutorialData tutorialData, int currentIndex)
         {
             characterText.text = sentenceData.Text;
-        
+            
             if (sentenceData.CharacterIcon != null)
             {
                 character.color = Color.white;
                 character.sprite = sentenceData.CharacterIcon;
             }
-            else 
-            {
-                character.color = Color.clear; 
-            }
-        
+            else
+                character.color = Color.clear;
+            
             character.transform.localPosition = sentenceData.CharacterPosition;
             backButton.gameObject.SetActive(currentIndex != 0);
+            
+            sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
+            
+            background.sprite = sentenceData.Background != null ? sentenceData.Background : tutorialData.DefaultBackground;
+
+            if (sentenceData.TutorialVideo != null)
+            {
+                openGifButton.gameObject.SetActive(true);
+                gifOpener.SetNewVideo(sentenceData.TutorialVideo);
+            }
+            else
+            {
+                openGifButton.gameObject.SetActive(false);
+            }
+            
+            character.gameObject.SetActive(!tutorialData.Sentences[currentIndex].HideCharacter);
         }
 
         public void BlockNextButton(Action UnlockAction)

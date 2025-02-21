@@ -8,15 +8,17 @@ public class UIWindowManager : MonoBehaviour
 
 	[SerializeField] private UIWindow _startingView;
 
-	[SerializeField] private UIWindow[] _views;
+	[SerializeField] private List<UIWindow> _views;
 
 	private UIWindow _currentView;
 
 	private readonly Stack<UIWindow> _history = new Stack<UIWindow>();
 
+	public static void AddWindow(UIWindow newWindow) => _instance._views.Add(newWindow);
+
 	public static T GetView<T>() where T : UIWindow
 	{
-		for (int i = 0; i < _instance._views.Length; i++)
+		for (int i = 0; i < _instance._views.Count; i++)
 		{
 			if (_instance._views[i] is T tView)
 			{
@@ -29,7 +31,7 @@ public class UIWindowManager : MonoBehaviour
 
 	public static void Show<T>(bool remember = true) where T : UIWindow
 	{
-		for (int i = 0; i < _instance._views.Length; i++)
+		for (int i = 0; i < _instance._views.Count; i++)
 		{
 			if (_instance._views[i] is T)
 			{
@@ -79,7 +81,7 @@ public class UIWindowManager : MonoBehaviour
 
 	private void Start()
 	{
-		for (int i = 0; i < _views.Length; i++)
+		for (int i = 0; i < _views.Count; i++)
         {
             _views[i].Initialize();
 

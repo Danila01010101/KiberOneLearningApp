@@ -25,7 +25,7 @@ public class SentencesChanger : UIWindow
         }
 
         currentIndex++;
-        sentenceChangerView.UpdateView(tutorialData.Sentences[currentIndex], currentIndex);
+        sentenceChangerView.UpdateView(tutorialData.Sentences[currentIndex], tutorialData, currentIndex);
     }
 
     protected virtual void ShowPreviousSentence()

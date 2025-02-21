@@ -1,35 +1,32 @@
+using UnityEngine.Events;
+
 namespace KiberOneLearningApp
 {
 	public class LessonWindowView : SentenceChangerView
 	{
-		/*
-		
-		protected override void UpdateView(TutorialData.SentenceData sentenceData)
+		private void UpdateTaskButton(TaskWindowsCreator taskCreator, TutorialData.SentenceData sentenceData, UnityAction openTask)
 		{
-			base.ShowSentence(sentenceData);
-			
-			if (sentenceData.IsBeforeTask && (nextButton.IsActive() || !openTaskButton.isActiveAndEnabled))
+			if (sentenceData.IsBeforeTask && (nextButton.IsActive() || !openCurrentTaskButton.isActiveAndEnabled))
 			{
-				int taskIndex = taskIndexes.IndexOf(currentIndex);
-
-				if (taskCreator != null && taskCreator.IsSentenceCompleted(taskIndex) == false)
+				if (taskCreator != null)
 				{
 					nextButton.gameObject.SetActive(false);
-					openTaskButton.gameObject.SetActive(true);
-					OnTaskUnlocked?.Invoke(currentTaskIndex);
+					openCurrentTaskButton.gameObject.SetActive(true);
+					openCurrentTaskButton.onClick.RemoveAllListeners();
+					openCurrentTaskButton.onClick.AddListener(openTask);
+					Добавить вызов этого метода
 				}
 				else
 				{
 					nextButton.gameObject.SetActive(true);
-					openTaskButton.gameObject.SetActive(false);
+					openCurrentTaskButton.gameObject.SetActive(false);
 				}
 			}
-			else if (!nextButton.IsActive() || openTaskButton.isActiveAndEnabled)
+			else if (!nextButton.IsActive() || openCurrentTaskButton.isActiveAndEnabled)
 			{
 				nextButton.gameObject.SetActive(true);
-				openTaskButton.gameObject.SetActive(false);
+				openCurrentTaskButton.gameObject.SetActive(false);
 			}
 		}
-		*/
 	}
 }

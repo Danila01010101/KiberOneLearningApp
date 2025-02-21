@@ -1973,6 +1973,7 @@ MonoBehaviour:
   sentenceSlider: {fileID: 1383970495623324106}
   nextButton: {fileID: 5378207837615038346}
   backButton: {fileID: 1125699335604302261}
+  openTaskButton: {fileID: 3798610516961830260}
   openGifButton: {fileID: 7995393536050408469}
   player: {fileID: 5832403035778102285}
   videoWindow: {fileID: 2154946256888113423}
@@ -2144,7 +2145,7 @@ GameObject:
   - component: {fileID: 3706033640261645593}
   - component: {fileID: 7702268307461949907}
   m_Layer: 5
-  m_Name: Task
+  m_Name: Tasks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2184,7 +2185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 2023134901926914357}
   startTaskButton: {fileID: 5598814690483438676}
-  sentencesChangerPrefab: {fileID: 9026050067818155972, guid: cc003dd7925cee5468a8bc1275713258, type: 3}
+  tutorialWindowPrefab: {fileID: 3726523046546216322, guid: cc003dd7925cee5468a8bc1275713258, type: 3}
 --- !u!1 &8427509734833376495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2457,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 419f273d7c90e214da390c7091374ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3798610516961830260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4108644330525475946, guid: 2b00e6d0b305f144fb9ed47dfab82c20, type: 3}
+  m_PrefabInstance: {fileID: 987333282376343838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798610516961830251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3449105525533460699
