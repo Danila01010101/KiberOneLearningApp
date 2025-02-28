@@ -27,7 +27,7 @@ namespace KiberOneLearningApp
 			{
 				if (sentence.TaskForThisSentence != null)
 				{
-                    ITask spawnedTask = Instantiate(tutorialData.Sentences[CurrentIndex].TaskForThisSentence, transform);
+                    ITask spawnedTask = Instantiate(sentence.TaskForThisSentence, transform);
 					SetupNewTask(spawnedTask);
 					sentenceChangerView.BlockNextButton(spawnedTask.OnTaskComplete);
                 }

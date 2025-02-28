@@ -11,13 +11,13 @@ namespace KiberOneLearningApp
 		
 		private List<TaskData> tasks = new List<TaskData>();
 
-		public override void Initialize()
+		private void Start()
 		{
 			if (taskWindowsCreator != null)
 			{
 				List<LessonWithTasksWindow> taskWindows = taskWindowsCreator.SetTasksData(tutorialData.Tasks);
 				List<int> lessonsIndexes = new List<int>();
-							
+
 				for (int j = 0; j < tutorialData.Sentences.Count; j++)
 				{
 					if (tutorialData.Sentences[j].IsBeforeTask)
@@ -25,20 +25,13 @@ namespace KiberOneLearningApp
 						lessonsIndexes.Add(j);
 					}
 				}
-				
+
 				for (int i = 0; i < taskWindows.Count; i++)
 				{
 					var data = new TaskData(i, lessonsIndexes[i]);
 					tasks.Add(data);
 				}
 			}
-            
-			/*
-			if (openTaskButton != null)
-				openTaskButton.Initialize(this, taskWindowsCreator);
-			*/
-			
-			base.Initialize();
 		}
 
 		protected override void ShowNextSentence()

@@ -77,7 +77,10 @@ public class UIWindowManager : MonoBehaviour
 		}
 	}
 
-	private void Awake() => _instance = this;
+	private void Awake()
+	{
+		_instance = this;
+	}
 
 	private void Start()
 	{
