@@ -2,7 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -62,6 +61,12 @@ namespace KiberOneLearningApp
             }
             
             character.gameObject.SetActive(!tutorialData.Sentences[currentIndex].HideCharacter);
+        }
+
+        public virtual void UpdateTaskButton(bool isTaskSolved, TutorialData.SentenceData sentenceData,
+            UnityAction openTask)
+        {
+            
         }
 
         public void BlockNextButton(Action UnlockAction)

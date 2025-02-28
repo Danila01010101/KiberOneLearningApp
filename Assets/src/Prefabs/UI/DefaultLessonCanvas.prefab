@@ -1907,8 +1907,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7714013200362153697}
-  - component: {fileID: 6023339901893970932}
-  - component: {fileID: 9048758085505276527}
+  - component: {fileID: 8093201932730708124}
+  - component: {fileID: 5410625221506551854}
   m_Layer: 5
   m_Name: MainWindow
   m_TagString: Untagged
@@ -1941,7 +1941,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6023339901893970932
+--- !u!114 &8093201932730708124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1950,12 +1950,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7714013200362153698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523236fecce8f4e44a272062ab90340f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a81a89b279707547a27a0c6ab2919ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentenceChangerView: {fileID: 9048758085505276527}
-  tutorialData: {fileID: 0}
---- !u!114 &9048758085505276527
+  sentenceChangerView: {fileID: 5410625221506551854}
+  tutorialData: {fileID: 11400000, guid: 333caedf5cdc19a41995ea6860ce9247, type: 2}
+  taskWindowsCreator: {fileID: 7702268307461949907}
+  openTaskButton: {fileID: 7352505668402384501}
+--- !u!114 &5410625221506551854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1964,7 +1966,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7714013200362153698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 101c519809e950349a56aae63965b29f, type: 3}
+  m_Script: {fileID: 11500000, guid: 619bcf6580385074987a38100c57bd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 8142354420634097560}
@@ -1972,8 +1974,8 @@ MonoBehaviour:
   characterText: {fileID: 4594413347668578931}
   sentenceSlider: {fileID: 1383970495623324106}
   nextButton: {fileID: 5378207837615038346}
+  openCurrentTaskButton: {fileID: 3798610516961830260}
   backButton: {fileID: 1125699335604302261}
-  openTaskButton: {fileID: 3798610516961830260}
   openGifButton: {fileID: 7995393536050408469}
   player: {fileID: 5832403035778102285}
   videoWindow: {fileID: 2154946256888113423}
@@ -2094,9 +2096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ca2f7d0c36441468004354788bbbca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingView: {fileID: 6023339901893970932}
+  _startingView: {fileID: 8093201932730708124}
   _views:
-  - {fileID: 6023339901893970932}
+  - {fileID: 8093201932730708124}
 --- !u!1 &7920279545531903324
 GameObject:
   m_ObjectHideFlags: 0

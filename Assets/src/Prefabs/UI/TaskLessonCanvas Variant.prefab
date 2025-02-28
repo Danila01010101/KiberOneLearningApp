@@ -196,6 +196,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7702268307461949907, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: tutorialWindowPrefab
+      value: 
+      objectReference: {fileID: 3726523046546216322}
+    - target: {fileID: 7702268307461949907, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: sentencesChangerPrefab
       value: 
       objectReference: {fileID: 0}
@@ -303,6 +307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TasktLessonCanvas Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8093201932730708124, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: taskWindowsCreator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9065251710085000796, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -25.333008
@@ -318,6 +326,7 @@ PrefabInstance:
     - {fileID: 7714013201612018033, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
     - {fileID: 5354682677831623986, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
     - {fileID: 9048758085505276527, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+    - {fileID: 7702268307461949907, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7714013200362153697, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
@@ -380,6 +389,7 @@ MonoBehaviour:
   characterText: {fileID: 5293720126268752491}
   sentenceSlider: {fileID: 7314242881398731218}
   nextButton: {fileID: 4329801439959879570}
+  openCurrentTaskButton: {fileID: 0}
   backButton: {fileID: 8731065037635641773}
   openGifButton: {fileID: 1747652841128967181}
   player: {fileID: 2757728374682690581}
@@ -396,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa35b63c7f847140abf5956d1e6a6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentenceChangerView: {fileID: 0}
+  sentenceChangerView: {fileID: 6132896535297579729}
   tutorialData: {fileID: 0}
 --- !u!328 &2757728374682690581 stripped
 VideoPlayer:

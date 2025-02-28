@@ -13,10 +13,10 @@ public class TaskWindowsCreator : MonoBehaviour
     private List<LessonWithTasksWindow> spawnedTutorialWindows = new List<LessonWithTasksWindow>();
     private SentencesChanger currentTask;
 
-    public void SetTasksData(List<TutorialData> tasksData)
+    public List<LessonWithTasksWindow> SetTasksData(List<TutorialData> tasksData)
     {
         this.tasksData = tasksData;
-        SpawnTasks();
+        return SpawnTasks();
     }
 
     public void OpenTaskWindow(int taskId)
@@ -31,7 +31,7 @@ public class TaskWindowsCreator : MonoBehaviour
         currentTask.gameObject.SetActive(true);
     }
     
-    private void SpawnTasks()
+    private List<LessonWithTasksWindow> SpawnTasks()
     {
         dropdown.options.Clear();
 
@@ -44,6 +44,8 @@ public class TaskWindowsCreator : MonoBehaviour
             newWindow.TaskLessonCompleted += DetectLessonWithTasksCompleted;
             dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData() { text = tasksData[i].TutorialName });
         }
+
+        return spawnedTutorialWindows;
     }
 
     private void ChangeCurrentTask() => OpenTaskWindow(dropdown.value);
@@ -61,6 +63,16 @@ public class TaskWindowsCreator : MonoBehaviour
     public void Unsubscribe()
     {
         startTaskButton.onClick.RemoveListener(ChangeCurrentTask);
+    }
+
+    private void OnEnable()
+    {
+        Subscribe();
+    }
+
+    private void OnDisable()
+    {
+        Unsubscribe();
     }
 
     private void OnDestroy()

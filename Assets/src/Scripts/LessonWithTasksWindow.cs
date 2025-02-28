@@ -41,6 +41,12 @@ namespace KiberOneLearningApp
 
 		protected override void ShowNextSentence()
 		{
+			if (CurrentIndex + 1 >= tutorialData.Sentences.Count)
+			{
+				TaskLessonCompleted?.Invoke();
+				return;
+			}
+			
 			base.ShowNextSentence();
 			DeactivateIfExist(CurrentIndex - 1);
             ResetCurrentSentence();
@@ -63,7 +69,7 @@ namespace KiberOneLearningApp
 
 		private void ResetCurrentSentence()
 		{
-            if (tasks[CurrentIndex].IsCompleted == false)
+            if (tasks[CurrentIndex] != null && tasks[CurrentIndex].IsCompleted == false)
             {
                 tasks[CurrentIndex].GameObject.SetActive(true);
             }
