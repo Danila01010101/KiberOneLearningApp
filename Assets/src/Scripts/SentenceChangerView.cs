@@ -69,13 +69,12 @@ namespace KiberOneLearningApp
             
         }
 
-        public void BlockNextButton(Action UnlockAction)
+        public void BlockNextButton()
         {
             nextButton.interactable = false;
-            UnlockAction += UnlockNextButton;
         }
 
-        private void UnlockNextButton()
+        public void UnlockNextButton()
         {
             nextButton.interactable = true;
         }

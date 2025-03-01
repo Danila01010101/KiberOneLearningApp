@@ -8,7 +8,7 @@ namespace KiberOneLearningApp
         public bool IsCompleted { get; private set; }
         public GameObject GameObject => gameObject;
 
-        public Action OnTaskComplete { get; set; }
+        public event Action OnTaskComplete;
 
         public void Setup()
         {

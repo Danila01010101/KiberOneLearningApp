@@ -5,7 +5,7 @@ namespace KiberOneLearningApp
 {
     public interface ITask
     {
-        Action OnTaskComplete { get; set; }
+        event Action OnTaskComplete;
         GameObject GameObject { get; }
         bool IsCompleted { get; }
         void Setup();

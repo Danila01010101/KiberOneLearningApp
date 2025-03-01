@@ -13,7 +13,7 @@ namespace KiberOneLearningApp
 
         public GameObject GameObject => gameObject;
 
-        public Action OnTaskComplete { get; set; }
+        public event Action OnTaskComplete;
 
         private void Update()
         {
@@ -49,8 +49,8 @@ namespace KiberOneLearningApp
         [Serializable]
         public class TaskObject
         {
-            [SerializeField] public readonly DisableThisObjectOnClick GameObject;
-            [SerializeField] public readonly KeyCode KeyCode = KeyCode.Mouse0;
+            [SerializeField] public DisableThisObjectOnClick GameObject;
+            [SerializeField] public KeyCode KeyCode = KeyCode.Mouse0;
         }
     }
 }

@@ -29,7 +29,8 @@ namespace KiberOneLearningApp
 				{
                     ITask spawnedTask = Instantiate(sentence.TaskForThisSentence, transform);
 					SetupNewTask(spawnedTask);
-					sentenceChangerView.BlockNextButton(spawnedTask.OnTaskComplete);
+					sentenceChangerView.BlockNextButton();
+					spawnedTask.OnTaskComplete += sentenceChangerView.UnlockNextButton;
                 }
 				else
 				{
@@ -71,6 +72,7 @@ namespace KiberOneLearningApp
 		{
             if (tasks[CurrentIndex] != null && tasks[CurrentIndex].IsCompleted == false)
             {
+	            sentenceChangerView.BlockNextButton();
                 tasks[CurrentIndex].GameObject.SetActive(true);
             }
         }
