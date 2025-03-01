@@ -11,10 +11,12 @@ public class TaskWindowsCreator : MonoBehaviour
     
     private List<TutorialData> tasksData;
     private List<LessonWithTasksWindow> spawnedTutorialWindows = new List<LessonWithTasksWindow>();
+    private LessonWindow lessonWindow;
     private SentencesChanger currentTask;
 
-    public List<LessonWithTasksWindow> SetTasksData(List<TutorialData> tasksData)
+    public List<LessonWithTasksWindow> SetTasksData(List<TutorialData> tasksData, LessonWindow lessonWindow)
     {
+        this.lessonWindow = lessonWindow;
         this.tasksData = tasksData;
         return SpawnTasks();
     }
@@ -53,6 +55,7 @@ public class TaskWindowsCreator : MonoBehaviour
     private void DetectLessonWithTasksCompleted()
     {
         UIWindowManager.ShowLast();
+        lessonWindow.DetectCompletedTasks();
     }
 
     public void Subscribe()

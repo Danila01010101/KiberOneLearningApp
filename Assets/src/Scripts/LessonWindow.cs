@@ -15,7 +15,7 @@ namespace KiberOneLearningApp
 		{
 			if (taskWindowsCreator != null)
 			{
-				List<LessonWithTasksWindow> taskWindows = taskWindowsCreator.SetTasksData(tutorialData.Tasks);
+				List<LessonWithTasksWindow> taskWindows = taskWindowsCreator.SetTasksData(tutorialData.Tasks, this);
 				List<int> lessonsIndexes = new List<int>();
 
 				for (int j = 0; j < tutorialData.Sentences.Count; j++)
@@ -41,14 +41,24 @@ namespace KiberOneLearningApp
 			if (tutorialData.Sentences[CurrentIndex].IsBeforeTask)
 			{
 				TaskData taskForThisSentence = GetTaskBySentenceID(CurrentIndex);
-				sentenceChangerView.UpdateTaskButton(taskForThisSentence.IsCompleted, tutorialData.Sentences[CurrentIndex],
+
+				if (taskForThisSentence.IsCompleted == false)
+				{
+					sentenceChangerView.UpdateTaskButton(taskForThisSentence.IsCompleted, tutorialData.Sentences[CurrentIndex],
 					() => ShowTask(taskForThisSentence.TaskIndex));
+				}
+				else
+				{
+					sentenceChangerView.UpdateTaskButton(true, tutorialData.Sentences[CurrentIndex], null);
+				}
 			}
 			else
 			{
 				sentenceChangerView.UpdateTaskButton(true, tutorialData.Sentences[CurrentIndex], null);
 			}
 		}
+
+		public void DetectCompletedTasks() => ShowNextSentence();
 
 		private void ShowTask(int index) => taskWindowsCreator.OpenTaskWindow(index);
 
