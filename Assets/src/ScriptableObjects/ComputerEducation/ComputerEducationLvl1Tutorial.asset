@@ -16,13 +16,13 @@ MonoBehaviour:
     \u0441 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C"
   <DefaultBackground>k__BackingField: {fileID: 21300000, guid: 58b818674ea2acb4295a96742d36d838, type: 3}
   <DefaultText>k__BackingField: {fileID: 0}
-  <TaskForThisSentence>k__BackingField: {fileID: 0}
   <Tasks>k__BackingField:
   - {fileID: 11400000, guid: c577905f3c34a7044bf8b45ce34b46b4, type: 2}
-  - {fileID: 11400000, guid: d20578c0275127b49ac136059c68f6ab, type: 2}
+  - {fileID: 11400000, guid: 295c4d1304648cf418d9fdbcde99c688, type: 2}
   <Sentences>k__BackingField:
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 31dbc800ab5b42342845f51c33cbc531, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -33,6 +33,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -42,6 +43,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -51,6 +53,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -62,6 +65,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 40ecf581b05f2b642bb2298d76bef743, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -72,6 +76,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -83,6 +88,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b160fca7d0ade7245a07198d9d96ecdc, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -95,6 +101,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 9cdd1f2736bc6734a9b78b2a8c3ce993, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
@@ -109,6 +116,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: a8b40f02adfd2614791850770e276da2, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
@@ -120,6 +128,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b3866baffda754c4ca450798c99f052e, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
@@ -132,6 +141,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b3866baffda754c4ca450798c99f052e, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
@@ -141,6 +151,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b3866baffda754c4ca450798c99f052e, type: 3}
     <IsBeforeTask>k__BackingField: 1
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
@@ -150,6 +161,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: 70, y: -152, z: 0}
@@ -160,6 +172,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c020fe1c821c4f646acf1d3c552d18cd, type: 3}
     <CharacterPosition>k__BackingField: {x: -57, y: -165, z: 0}
@@ -171,6 +184,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 61ef6035250d8964d952289c40cc3c69, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -254, y: -119, z: 0}
@@ -181,6 +195,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 09c699cc9185f174a961587a47d797c0, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c020fe1c821c4f646acf1d3c552d18cd, type: 3}
     <CharacterPosition>k__BackingField: {x: -160, y: -29, z: 0}
@@ -192,6 +207,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 4251b01b6e7aeb948b264f4b7b6fb7fa, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: -151, y: -103, z: 0}
@@ -205,6 +221,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 3b0aa7b603e84bf4f8ad894d3a3ebcc2, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -216,6 +233,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -226,6 +244,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -237,6 +256,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 61175d54697bcc043a40a771a6b36364, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
@@ -248,6 +268,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
@@ -264,6 +285,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 1
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
@@ -272,6 +294,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -283,6 +306,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -297,6 +321,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -306,6 +331,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -317,6 +343,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -329,6 +356,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
@@ -341,6 +369,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
@@ -353,6 +382,7 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
     <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
