@@ -23,5 +23,15 @@ namespace KiberOneLearningApp
                 Destroy(this);
             }
         }
+
+        private void OnEnable()
+        {
+            LoginWindow.OnLogin += SetTeacherSettings;
+        }
+
+        private void OnDisable()
+        {
+            LoginWindow.OnLogin -= SetTeacherSettings;
+        }
     }
 }
