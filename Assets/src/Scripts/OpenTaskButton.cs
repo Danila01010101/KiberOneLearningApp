@@ -6,7 +6,7 @@ namespace KiberOneLearningApp
     public class OpenTaskButton : MonoBehaviour
     {
         private SentencesChanger sentencesChanger;
-        private TaskCreator taskCreator;
+        private TaskWindowsCreator taskWindowsCreator;
         private Button button;
         private int taskID;
 
@@ -24,20 +24,20 @@ namespace KiberOneLearningApp
 
         private void OpenCurrentTask()
         {
-            taskCreator.OpenTaskWindow(taskID);
+            taskWindowsCreator.OpenTaskWindow(taskID);
         }
 
-        public void Initialize(SentencesChanger sentencesChanger, TaskCreator taskCreator)
+        public void Initialize(SentencesChanger sentencesChanger, TaskWindowsCreator taskWindowsCreator)
         {
             this.sentencesChanger = sentencesChanger;
-            this.taskCreator = taskCreator;
-            sentencesChanger.OnTaskUnlocked += InitializeTask;
+            this.taskWindowsCreator = taskWindowsCreator;
+            //sentencesChanger.OnTaskUnlocked += InitializeTask;
         }
 
         private void OnDestroy()
         {
             button.onClick.RemoveAllListeners();
-            sentencesChanger.OnTaskUnlocked -= InitializeTask;
+            //sentencesChanger.OnTaskUnlocked -= InitializeTask;
         }
     }
 }

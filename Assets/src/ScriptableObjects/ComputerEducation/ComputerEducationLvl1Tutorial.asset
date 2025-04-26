@@ -15,12 +15,15 @@ MonoBehaviour:
   <TutorialName>k__BackingField: "\u0417\u043D\u0430\u043A\u043E\u043C\u0441\u0442\u0432\u043E
     \u0441 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043E\u043C"
   <DefaultBackground>k__BackingField: {fileID: 21300000, guid: 58b818674ea2acb4295a96742d36d838, type: 3}
+  <DefaultText>k__BackingField: {fileID: 0}
   <Tasks>k__BackingField:
-  - {fileID: 11400000, guid: d20578c0275127b49ac136059c68f6ab, type: 2}
   - {fileID: 11400000, guid: c577905f3c34a7044bf8b45ce34b46b4, type: 2}
+  - {fileID: 11400000, guid: 295c4d1304648cf418d9fdbcde99c688, type: 2}
   <Sentences>k__BackingField:
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 31dbc800ab5b42342845f51c33cbc531, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u041F\u0440\u0438\u0432\u0435\u0442! \u041C\u0435\u043D\u044F
@@ -30,6 +33,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u041D\u0443 \u0447\u0442\u043E, \u0433\u043E\u0442\u043E\u0432
@@ -38,6 +43,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u0422\u043E, \u0447\u0442\u043E \u0442\u044B \u0432\u0438\u0434\u0438\u0448\u044C
@@ -46,6 +53,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
@@ -56,6 +65,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 40ecf581b05f2b642bb2298d76bef743, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440, \u043D\u0430\u0436\u0438\u043C\u0430\u0442\u044C
@@ -65,6 +76,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u0412 \u044D\u0442\u043E\u043C \u0443\u0440\u043E\u043A\u0435
@@ -75,6 +88,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b160fca7d0ade7245a07198d9d96ecdc, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u0414\u043B\u044F \u043D\u0430\u0447\u0430\u043B\u0430
@@ -86,6 +101,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 9cdd1f2736bc6734a9b78b2a8c3ce993, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
     <Text>k__BackingField: "\u041F\u0435\u0440\u0432\u0430\u044F, \u041B\u0415\u0412\u0410\u042F
@@ -99,6 +116,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: a8b40f02adfd2614791850770e276da2, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
     <Text>k__BackingField: "\u0412\u0442\u043E\u0440\u0430\u044F, \u041F\u0420\u0410\u0412\u0410\u042F
@@ -109,6 +128,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b3866baffda754c4ca450798c99f052e, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
     <Text>k__BackingField: "\u041F\u043E\u0441\u043B\u0435\u0434\u043D\u044F\u044F
@@ -120,14 +141,28 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: b3866baffda754c4ca450798c99f052e, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
     <Text>k__BackingField: "\u0422\u0430\u043A \u043C\u044B \u043C\u043E\u0436\u0435\u043C
       \u043F\u0440\u043E\u043A\u0440\u0443\u0447\u0438\u0432\u0430\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
       \u0432\u0432\u0435\u0440\u0445 \u0438\u043B\u0438 \u0432\u043D\u0438\u0437."
     <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 21300000, guid: b3866baffda754c4ca450798c99f052e, type: 3}
+    <IsBeforeTask>k__BackingField: 1
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
+    <CharacterPosition>k__BackingField: {x: -400, y: -152, z: 0}
+    <Text>k__BackingField: "\u0422\u0435\u043F\u0435\u0440\u044C \u0434\u0430\u0432\u0430\u0439
+      \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0435\u043C \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C
+      \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0435 \u0437\u0430\u0434\u0430\u043D\u0438\u0435"
+    <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: 70, y: -152, z: 0}
     <Text>k__BackingField: "\u0422\u0435\u043F\u0435\u0440\u044C \u043C\u044B \u043F\u043E\u0437\u043D\u0430\u043A\u043E\u043C\u0438\u043C\u0441\u044F
@@ -137,6 +172,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c020fe1c821c4f646acf1d3c552d18cd, type: 3}
     <CharacterPosition>k__BackingField: {x: -57, y: -165, z: 0}
     <Text>k__BackingField: "\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440
@@ -147,6 +184,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 61ef6035250d8964d952289c40cc3c69, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -254, y: -119, z: 0}
     <Text>k__BackingField: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440, \u0447\u0435\u0440\u0435\u0437
@@ -156,6 +195,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 09c699cc9185f174a961587a47d797c0, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c020fe1c821c4f646acf1d3c552d18cd, type: 3}
     <CharacterPosition>k__BackingField: {x: -160, y: -29, z: 0}
     <Text>k__BackingField: "\u0415\u0449\u0435 \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E
@@ -166,6 +207,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 4251b01b6e7aeb948b264f4b7b6fb7fa, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: -151, y: -103, z: 0}
     <Text>k__BackingField: "\u041E\u0434\u043D\u043E\u0439 \u0438\u0437 \u0442\u0430\u043A\u0438\u0445
@@ -178,6 +221,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 3b0aa7b603e84bf4f8ad894d3a3ebcc2, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 0f2471c453953dd4bbcf49567f192fd5, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u041D\u0443 \u0438 \u043A\u043E\u043D\u0435\u0447\u043D\u043E
@@ -188,6 +233,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u0422\u0435\u043F\u0435\u0440\u044C \u0441\u0430\u043C\u043E\u0435
@@ -197,6 +244,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u041F\u0435\u0440\u0435\u0434 \u0442\u0435\u043C \u043A\u0430\u043A
@@ -207,6 +256,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 21300000, guid: 61175d54697bcc043a40a771a6b36364, type: 3}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
     <Text>k__BackingField: "C\u043F\u0435\u0440\u0432\u0430 \u0442\u044B \u0441\u043C\u043E\u0442\u0440\u0438\u0448\u044C
@@ -217,6 +268,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
     <Text>k__BackingField: "\u0421\u0442\u0430\u0440\u0430\u0439\u0441\u044F \u043D\u0435
@@ -232,6 +285,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 1
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: 100, y: -152, z: 0}
     <Text>k__BackingField: "\u0412\u0441\u0435 \u043F\u043E\u043D\u044F\u0442\u043D\u043E?
@@ -239,37 +294,47 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u041C\u043E\u043B\u043E\u0434\u0435\u0446, \u0442\u044B
-      \u043E\u0442\u043B\u0438\u0447\u043D\u043E \u0441\u043F\u0440\u0430\u0432\u0438\u043B\u0441\u044F!
-      \u0422\u0435\u043F\u0435\u0440\u044C \u0434\u0430\u0432\u0430\u0439 \u043F\u043E\u0437\u043D\u0430\u043A\u043E\u043C\u0438\u043C\u0441\u044F
-      \u0441 \u043A\u043E\u043C\u043C\u0430\u043D\u0434\u043D\u043E\u0439 \u043F\u0430\u043D\u0435\u043B\u044C\u044E
+      \u043E\u0442\u043B\u0438\u0447\u043D\u043E \u0441\u043F\u0440\u0430\u0432\u0438\u043B\u0441\u044F!"
+    <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 0}
+    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
+    <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
+    <Text>k__BackingField: " \u0422\u0435\u043F\u0435\u0440\u044C \u0434\u0430\u0432\u0430\u0439
+      \u043F\u043E\u0437\u043D\u0430\u043A\u043E\u043C\u0438\u043C\u0441\u044F \u0441
+      \u043A\u043E\u043C\u043C\u0430\u043D\u0434\u043D\u043E\u0439 \u043F\u0430\u043D\u0435\u043B\u044C\u044E
       \u0437\u0430\u0434\u0430\u0447."
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
-    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: f15388a28459d3643902edafe7b446c2, type: 3}
-    <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
-    <Text>k__BackingField: "\u041E\u043D\u0430 \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
-      \u0441\u043E\u0432\u0441\u0435\u043C \u043A\u0430\u043A \u0442\u0430, \u0447\u0442\u043E
-      \u0441\u0435\u0439\u0447\u0430\u0441 \u043F\u043E\u0434 \u043C\u043E\u0438\u043C\u0438
-      \u0441\u043B\u043E\u0432\u0430\u043C\u0438, \u0430 \u0437\u0430\u043A\u0440\u044B\u0432\u0430\u0435\u0442\u0441\u044F
-      \u043E\u043D\u0430 \u043D\u0430 \u043A\u0440\u0435\u0441\u0442\u0438\u043A,
-      \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439 \u043E\u0442\u043A\u0440\u044B\u0442\u044C
-      \u043E\u043A\u043D\u043E \u0441 \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u043E\u0439
-      \u0438 \u0437\u0430\u043A\u0440\u044B\u0442\u044C!"
-    <TutorialVideo>k__BackingField: {fileID: 0}
-  - <Background>k__BackingField: {fileID: 0}
-    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u041E\u043D\u0430 \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
-      \u0432\u043E\u0442 \u0442\u0430\u043A. \u041D\u0430 \u043D\u0435\u0439 \u043F\u043E\u043A\u0430\u0437\u0430\u043D\u044B
+      \u0432\u043E\u0442 \u0442\u0430\u043A \u0438 \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F
+      \u0432\u043D\u0438\u0437\u0443 \u044D\u043A\u0440\u0430\u043D\u0430."
+    <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 0}
+    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
+    <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
+    <Text>k__BackingField: " \u041D\u0430 \u043D\u0435\u0439 \u043F\u043E\u043A\u0430\u0437\u0430\u043D\u044B
       \u0440\u0430\u0437\u043D\u044B\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F."
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u0412\u043E\u0442 \u0442\u0430\u043A \u0432\u044B\u0433\u043B\u044F\u0434\u044F\u0442
@@ -280,17 +345,65 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
-    <Text>k__BackingField: "\u0427\u0442\u043E\u0431\u044B \u043E\u0442\u043A\u0440\u044B\u0442\u044C
-      \u0437\u0430\u043A\u0440\u0435\u043F\u043B\u0435\u043D\u043D\u043E\u0435 \u0438\u043B\u0438
-      \u0443\u0436\u0435 \u0437\u0430\u043F\u0443\u0449\u0435\u043D\u043D\u043E\u0435
-      \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043F\u0440\u043E\u0441\u0442\u043E
-      \u043D\u0430\u0436\u043C\u0438 \u043D\u0430 \u043D\u0435\u0433\u043E \u043B\u0435\u0432\u043E\u0439
-      \u043A\u043D\u043E\u043F\u043A\u043E\u0439 \u043C\u044B\u0448\u0438."
+    <Text>k__BackingField: "\u041E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0435
+      \u0438\u043A\u043E\u043D\u043A\u0438 - \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F
+      \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0437\u0430\u043A\u0440\u044B\u0442\u044B,
+      \u043F\u043E \u043D\u0430\u0436\u0430\u0442\u0438\u044E \u043E\u043D\u0438
+      \u0437\u0430\u043F\u0443\u0441\u043A\u0430\u044E\u0442\u0441\u044F."
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
+    <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
+    <Text>k__BackingField: "\u0427\u0442\u043E\u0431\u044B \u043E\u0442\u043A\u0440\u044B\u0442\u044C
+      \u0442\u0430\u043A\u043E\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
+      \u043F\u0440\u043E\u0441\u0442\u043E \u043D\u0430\u0436\u043C\u0438 \u043D\u0430
+      \u043D\u0435\u0433\u043E \u043B\u0435\u0432\u043E\u0439 \u043A\u043D\u043E\u043F\u043A\u043E\u0439
+      \u043C\u044B\u0448\u0438."
+    <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 0}
+    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
+    <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
+    <Text>k__BackingField: "\u0422\u0435\u043F\u0435\u0440\u044C \u0434\u0430\u0432\u0430\u0439
+      \u0443\u0437\u043D\u0430\u0435\u043C, \u043A\u0430\u043A \u0441\u0432\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u0442\u044C
+      \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435."
+    <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 0}
+    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
+    <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
+    <Text>k__BackingField: "\u0421\u0432\u0435\u0440\u043D\u0443\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435
+      - \u0437\u043D\u0430\u0447\u0438\u0442 \u0443\u0431\u0440\u0430\u0442\u044C
+      \u0435\u0433\u043E \u0441 \u044D\u043A\u0440\u0430\u043D\u0430, \u043F\u0440\u0438
+      \u044D\u0442\u043E\u043C \u043D\u0435 \u0437\u0430\u043A\u0440\u044B\u0432\u0430\u044F."
+    <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 0}
+    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
+    <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
+    <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
+    <Text>k__BackingField: "\u0412 \u0442\u0430\u043A\u043E\u043C \u0441\u043B\u0443\u0447\u0430\u0435
+      \u0435\u0433\u043E \u043C\u043E\u0436\u043D\u043E \u043E\u0442\u043A\u0440\u044B\u0442\u044C
+      \u043E\u043F\u044F\u0442\u044C \u0449\u0435\u043B\u043A\u043D\u0443\u0432 \u043F\u043E
+      \u0438\u043A\u043E\u043D\u043A\u0435 \u043D\u0430 \u043F\u0430\u043D\u0435\u043B\u0438
+      \u0437\u0430\u0434\u0430\u0447 \u0432\u043D\u0438\u0437\u0443."
+    <TutorialVideo>k__BackingField: {fileID: 0}
+  - <Background>k__BackingField: {fileID: 0}
+    <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: 691bac5511d061f41abadbd150100265, type: 3}
     <CharacterPosition>k__BackingField: {x: 353, y: -195, z: 0}
     <Text>k__BackingField: "\u041D\u0430\u0432\u0435\u0434\u0438 \u043C\u044B\u0448\u043A\u043E\u0439
@@ -302,6 +415,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: "\u041D\u0430\u0432\u0435\u0434\u0438 \u043C\u044B\u0448\u043A\u043E\u0439
@@ -313,6 +428,8 @@ MonoBehaviour:
     <TutorialVideo>k__BackingField: {fileID: 0}
   - <Background>k__BackingField: {fileID: 0}
     <IsBeforeTask>k__BackingField: 0
+    <TaskForThisSentence>k__BackingField: {fileID: 0}
+    <HideCharacter>k__BackingField: 0
     <CharacterIcon>k__BackingField: {fileID: 21300000, guid: c7ecbdf5a8f543944ad2f3f2067077a2, type: 3}
     <CharacterPosition>k__BackingField: {x: -200, y: -152, z: 0}
     <Text>k__BackingField: 
