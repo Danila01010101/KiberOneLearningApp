@@ -5,21 +5,20 @@ using System.Collections.Generic;
 public class Data
 {
     public string teacherPassword = "admin";
-    public List<LessonResult> lessonResults;
+    public List<GroupData> studentGroups;
+
+    [Serializable]
+    public class GroupData
+    {
+        public string groupName;
+        public List<LessonResult> lessonResults;
+    }
 
     [Serializable]
     public class LessonResult
     {
-        public List<StudentData> studentResultData;
-        public List<StudentData> studentAdditionalResultData;
+        public Dictionary<string, int> studentResultData;
         public string date;
         public string topicName;
-    }
-
-    [Serializable]
-    public class StudentData
-    {
-        public string name;
-        public int reward;
     }
 }
