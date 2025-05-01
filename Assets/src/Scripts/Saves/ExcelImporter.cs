@@ -31,8 +31,8 @@ public class ExcelImporter
                     var firstCell = worksheet.Cells[row, 1].Text?.ToLower();
 
                     if (string.IsNullOrWhiteSpace(firstCell)) continue;
-                    if (firstCell.Contains("Сумма") || firstCell.Contains("Допы") || 
-                        firstCell.Contains("Заявки по призам за кибероны")) continue;
+                    if (firstCell.Contains("сумма") || firstCell.Contains("допы") || 
+                        firstCell.Contains("заявки по призам за кибероны")) continue;
 
                     var lesson = new LessonResult
                     {
