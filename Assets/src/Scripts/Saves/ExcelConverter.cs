@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using static Data;
 
-public class ExcelImporter
+public class ExcelConverter
 {
     public static Data ImportFromExcel(string filePath)
     {
@@ -61,5 +61,47 @@ public class ExcelImporter
         }
 
         return data;
+    }
+    
+    public static void ExportToExcel(Data data, string filePath)
+    {
+        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+        using (var package = new ExcelPackage())
+        {
+            foreach (var group in data.studentGroups)
+            {
+                var worksheet = package.Workbook.Worksheets.Add(group.groupName);
+                var allStudents = new HashSet<string>();
+                
+                foreach (var lesson in group.lessonResults)
+                    
+                foreach (var student in lesson.studentResultData.Keys)
+                    allStudents.Add(student);
+
+                var studentList = new List<string>(allStudents);
+                worksheet.Cells[1, 1].Value = "Дата";
+                worksheet.Cells[1, 2].Value = "Тема";
+                
+                for (int i = 0; i < studentList.Count; i++)
+                    worksheet.Cells[1, i + 3].Value = studentList[i];
+
+                for (int row = 0; row < group.lessonResults.Count; row++)
+                {
+                    var lesson = group.lessonResults[row];
+                    worksheet.Cells[row + 2, 1].Value = lesson.date;
+                    worksheet.Cells[row + 2, 2].Value = lesson.topicName;
+
+                    for (int col = 0; col < studentList.Count; col++)
+                    {
+                        if (lesson.studentResultData.TryGetValue(studentList[col], out int score))
+                            worksheet.Cells[row + 2, col + 3].Value = score;
+                    }
+                }
+            }
+
+            var fi = new FileInfo(filePath);
+            package.SaveAs(fi);
+        }
     }
 }
