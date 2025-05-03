@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/src/Scenes/ComputerEducation/ComputerEducation.unity
     guid: 30788551dc75849458b1267387b081fc
   - enabled: 1
+    path: Assets/src/Scenes/ComputerEducation/ComputerEducation1.unity
+    guid: c578b48ef6d488b42ae963acb1558b57
+  - enabled: 1
     path: Assets/src/Scenes/Exel/Exel.unity
     guid: a369e53c0fbdce84f94bc3579c4af009
   m_configObjects: {}

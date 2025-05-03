@@ -16,6 +16,6 @@ namespace KiberOneLearningApp
 
         public void LoadComputerEducationMenuScene() => SceneManager.LoadScene(SceneNaming.ComputerEducationMenuSceneName);
 
-        public void OpenComputerEducationLesson(int index) => SceneManager.LoadScene(SceneNaming.GetExelLessonSceneName(SceneNaming.ExelMenuSceneName, index));
+        public void OpenComputerEducationLesson(int index) => SceneManager.LoadScene(SceneNaming.GetExelLessonSceneName(SceneNaming.ComputerEducationMenuSceneName, index));
     }
 }
