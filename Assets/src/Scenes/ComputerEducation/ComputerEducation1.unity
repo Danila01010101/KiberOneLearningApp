@@ -368,9 +368,13 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5354682677831623986, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
-      propertyPath: _views.Array.data[1]
-      value: 
+    - target: {fileID: 4841246320882987761, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841246320882987761, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5441520135749490400, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -416,6 +420,10 @@ PrefabInstance:
       propertyPath: openSelectedTaskButton
       value: 
       objectReference: {fileID: 1377098514}
+    - target: {fileID: 6419495052874703925, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 7124681112994082917, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

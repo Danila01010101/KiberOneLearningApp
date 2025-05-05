@@ -65,8 +65,6 @@ public class ExcelConverter
     
     public static void ExportToExcel(Data data, string filePath)
     {
-        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
         using (var package = new ExcelPackage())
         {
             foreach (var group in data.studentGroups)

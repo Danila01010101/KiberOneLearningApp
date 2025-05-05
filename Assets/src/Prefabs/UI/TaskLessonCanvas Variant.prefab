@@ -167,12 +167,24 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2160172234747157090, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_VerticalScrollbarVisibility
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2700078857241407162, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2939034084410688250, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841246320882987761, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841246320882987761, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5354682677831623986, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
