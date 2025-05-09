@@ -9,7 +9,7 @@ public class GameSaver
     public GameSaver()
     {
         Instance = this;
-        Data = ExcelConverter.ImportFromExcel("D:\\Unity\\UnityProjects\\KiberOneLearningApp\\Assets\\Кибероны Ученики.xlsx");
+        Data = ExcelConverter.ImportFromExcel("С:\\Кибероны Ученики.xlsx");
         
         if (Data == null)
             Data = new Data();
