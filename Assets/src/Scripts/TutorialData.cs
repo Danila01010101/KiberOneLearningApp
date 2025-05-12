@@ -18,6 +18,7 @@ namespace KiberOneLearningApp
         public class SentenceData
         {
             [field : SerializeField] public Sprite Background { get; private set; }
+            [field : SerializeField] public List<ImagePlacement> Images { get; private set; }
             [field : SerializeField] public bool IsBeforeTask { get; private set; }
             [field: SerializeField] public BasicTask TaskForThisSentence { get; private set; }
             [field : SerializeField] public bool HideCharacter { get; private set; }

@@ -32,6 +32,13 @@ namespace KiberOneLearningApp
         public override void Initialize()
         {
             loadedData = GameSaver.Instance.Data;
+            
+            if (loadedData == null || loadedData.studentGroups.Count == 0)
+            {
+                Debug.Log("No Data Loaded");
+                return;
+            }
+            
             currentGroup = loadedData.studentGroups[0];
 
             var studentSet = new HashSet<string>();

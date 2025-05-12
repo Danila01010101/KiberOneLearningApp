@@ -14,6 +14,8 @@ namespace KiberOneLearningApp
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private Slider sentenceSlider;
+        [SerializeField] private ImagePlacementView  imageViewPrefab;
+        [SerializeField] private Transform imagesParent;
         [Header("Sentence buttons")]
         [SerializeField] protected Button nextButton;
         [SerializeField] protected Button openCurrentTaskButton;
@@ -32,22 +34,22 @@ namespace KiberOneLearningApp
         }
 
         public void UpdateView(TutorialData.SentenceData sentenceData, TutorialData tutorialData, int currentIndex)
-        {
-            characterText.text = sentenceData.Text;
-            
+        {characterText.text = sentenceData.Text;
+
             if (sentenceData.CharacterIcon != null)
             {
                 character.color = Color.white;
                 character.sprite = sentenceData.CharacterIcon;
             }
             else
+            {
                 character.color = Color.clear;
-            
+            }
+
             character.transform.localPosition = sentenceData.CharacterPosition;
             backButton.gameObject.SetActive(currentIndex != 0);
-            
+
             sentenceSlider.value = (currentIndex + 1) / (float)tutorialData.Sentences.Count;
-            
             background.sprite = sentenceData.Background != null ? sentenceData.Background : tutorialData.DefaultBackground;
 
             if (sentenceData.TutorialVideo != null)
@@ -59,8 +61,21 @@ namespace KiberOneLearningApp
             {
                 openGifButton.gameObject.SetActive(false);
             }
-            
+
             character.gameObject.SetActive(!tutorialData.Sentences[currentIndex].HideCharacter);
+
+            // Очищаем предыдущие картинки
+            foreach (Transform child in imagesParent)
+            {
+                Destroy(child.gameObject);
+            }
+
+            // Спавним новые картинки
+            foreach (var placement in sentenceData.Images)
+            {
+                ImagePlacementView imageView = Instantiate(imageViewPrefab, imagesParent);
+                imageView.Initialize(placement.sprite, placement.position, placement.size, placement.rotation);
+            }
         }
 
         public virtual void UpdateTaskButton(bool isTaskSolved, TutorialData.SentenceData sentenceData,
