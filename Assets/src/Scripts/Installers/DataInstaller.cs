@@ -9,6 +9,8 @@ namespace KiberOneLearningApp
         public override void InstallBindings()
         {
             ExcelPackage.License.SetNonCommercialOrganization("DanilaDev");
+            var valuesSetter = new GameObject("GlobalValueSetter").AddComponent<GlobalValueSetter>();
+            DontDestroyOnLoad(valuesSetter);
             new GameSaver();
         }
     }
