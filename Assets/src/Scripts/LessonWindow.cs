@@ -8,10 +8,17 @@ namespace KiberOneLearningApp
 	{
 		[SerializeField] private TaskWindowsCreator taskWindowsCreator;
 		[SerializeField] private OpenTaskButton openTaskButton;
+		[SerializeField] private GameObject writeLessonButton;
 		
 		private List<TaskData> tasks = new List<TaskData>();
 
-		private void Start()
+        public override void Initialize()
+        {
+            base.Initialize();
+			writeLessonButton.SetActive(GlobalValueSetter.Instance.IsTeacher);
+        }
+
+        private void Start()
 		{
 			if (taskWindowsCreator != null)
 			{
