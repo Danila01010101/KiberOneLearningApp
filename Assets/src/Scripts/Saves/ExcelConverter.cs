@@ -9,7 +9,6 @@ public class ExcelConverter
     {
         var data = new Data
         {
-            teacherPassword = "admin",
             studentGroups = new List<GroupData>()
         };
 

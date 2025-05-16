@@ -4,7 +4,6 @@ using System.Collections.Generic;
 [Serializable]
 public class Data
 {
-    public string teacherPassword = "admin";
     public List<GroupData> studentGroups;
 
     [Serializable]

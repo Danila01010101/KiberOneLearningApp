@@ -5,6 +5,7 @@ namespace KiberOneLearningApp
 {
     public class GlobalValueSetter : MonoBehaviour
     {
+        public string Password { get; private set; } = "7685";
         public static GlobalValueSetter Instance { get; private set; }
 
         public bool IsTeacher { get; private set; }

@@ -10,8 +10,9 @@ namespace KiberOneLearningApp
     {
         [SerializeField] private TMP_InputField passwordInputField;
         [SerializeField] private TextMeshProUGUI wrongPasswordText;
-        [SerializeField] private EmptyWindow nextWindow;
+        [SerializeField] private TopicChooseWindow nextWindow;
         [SerializeField] private Button loginButton;
+        [SerializeField] private Button backButton;
         
         public static Action OnLogin;
         
@@ -19,11 +20,14 @@ namespace KiberOneLearningApp
         {
             wrongPasswordText.enabled = false;
             loginButton.onClick.AddListener(Login);
+            backButton.onClick.AddListener(Back);
         }
+
+        private void Back() => UIWindowManager.Show<EnterWindow>();
 
         public void Login()
         {
-            if (passwordInputField.text == GameSaver.Instance.Data.teacherPassword)
+            if (passwordInputField.text == GlobalValueSetter.Instance.Password)
             {
                 OnLogin?.Invoke();
                 UIWindowManager.Show(nextWindow);
