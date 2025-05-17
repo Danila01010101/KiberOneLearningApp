@@ -8,10 +8,19 @@ namespace KiberOneLearningApp
     {
         public override void InstallBindings()
         {
+            InstallGlobalValueInstaller();
+            InstallGameSaver();
+        }
+
+        private void InstallGlobalValueInstaller()
+        {
             ExcelPackage.License.SetNonCommercialOrganization("DanilaDev");
             var valuesSetter = new GameObject("GlobalValueSetter").AddComponent<GlobalValueSetter>();
             DontDestroyOnLoad(valuesSetter);
-            new GameSaver();
         }
+        
+        private void InstallGameSaver() => new GameSaver();
+
+        private void SetupLessonsData() => new LessonsLoader();
     }
 }

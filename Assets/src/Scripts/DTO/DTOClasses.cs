@@ -6,6 +6,8 @@ namespace KiberOneLearningApp
 		[Serializable]
 		public class TutorialDataDTO
 		{
+			public string ThemeName;
+			public int LessonNumber;
 			public string TutorialName;
 			public string DefaultBackgroundPath;
 			public string DefaultTextPath;
