@@ -1,10 +1,12 @@
 using KiberOneLearningApp;
 using UnityEngine;
+using Zenject;
 
 public class SentencesChanger : UIWindow
 {
     [SerializeField] protected SentenceChangerView sentenceChangerView;
-    [SerializeField] protected TutorialData tutorialData;
+    
+    [Inject] protected RuntimeTutorialData runtimeData;
     
     private int currentIndex = -1;
 
@@ -13,19 +15,19 @@ public class SentencesChanger : UIWindow
     public override void Initialize()
     {
         sentenceChangerView.SubscribeButtons(ShowNextSentence, ShowPreviousSentence);
-        if (tutorialData != null)
+        if (runtimeData != null)
             ShowNextSentence();
     }
 
     protected virtual void ShowNextSentence()
     {
-        if (currentIndex + 1 >= tutorialData.Sentences.Count)
+        if (currentIndex + 1 >= runtimeData.Sentences.Count)
         {
             return;
         }
 
         currentIndex++;
-        sentenceChangerView.UpdateView(tutorialData.Sentences[currentIndex], tutorialData, currentIndex);
+        sentenceChangerView.UpdateView(runtimeData.Sentences[currentIndex], runtimeData.DefaultBackground, currentIndex, runtimeData.Sentences.Count);
     }
 
     protected virtual void ShowPreviousSentence()
@@ -33,7 +35,7 @@ public class SentencesChanger : UIWindow
         if (currentIndex > 0)
         {
             currentIndex--;
-            sentenceChangerView.UpdateView(tutorialData.Sentences[currentIndex], tutorialData, currentIndex);
+            sentenceChangerView.UpdateView(runtimeData.Sentences[currentIndex], runtimeData.DefaultBackground, currentIndex, runtimeData.Sentences.Count);
         }
     }
 

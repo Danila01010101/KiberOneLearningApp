@@ -9,12 +9,12 @@ public class TaskWindowsCreator : MonoBehaviour
     [SerializeField] private Button startTaskButton;
     [SerializeField] private LessonWithTasksWindow tutorialWindowPrefab;
     
-    private List<TutorialData> tasksData;
+    private List<RuntimeTutorialData> tasksData;
     private List<LessonWithTasksWindow> spawnedTutorialWindows = new List<LessonWithTasksWindow>();
     private LessonWindow lessonWindow;
     private SentencesChanger currentTask;
 
-    public List<LessonWithTasksWindow> SetTasksData(List<TutorialData> tasksData, LessonWindow lessonWindow)
+    public List<LessonWithTasksWindow> SetTasksData(List<RuntimeTutorialData> tasksData, LessonWindow lessonWindow)
     {
         this.lessonWindow = lessonWindow;
         this.tasksData = tasksData;

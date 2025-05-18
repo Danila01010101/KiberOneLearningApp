@@ -49,7 +49,7 @@ namespace KiberOneLearningApp
         [Serializable]
         public class TaskObject
         {
-            [SerializeField] public DisableThisObjectOnClick GameObject;
+            [SerializeField] public ObjectForTask GameObject;
             [SerializeField] public KeyCode KeyCode = KeyCode.Mouse0;
         }
     }

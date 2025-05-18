@@ -1,4 +1,4 @@
-using DG.Tweening;
+ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -45,9 +45,11 @@ namespace KiberOneLearningApp
             videoPlayer.Stop();
         }
 
-        public void SetNewVideo(VideoClip clip)
+        public void SetNewVideo(string path)
         {
-            videoPlayer.clip = clip;
+            videoPlayer.source = VideoSource.Url;
+            videoPlayer.url = path;
+            videoPlayer.Prepare();
             videoPlayer.Prepare();
         }
     }

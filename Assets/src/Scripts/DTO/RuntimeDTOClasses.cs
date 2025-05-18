@@ -8,6 +8,7 @@ namespace KiberOneLearningApp
 	{
 		public string ThemeName;
 		public int LessonNumber;
+		public int TaskID;
 		public string TutorialName;
 		public Sprite DefaultBackground;
 		public Sprite DefaultText;
@@ -19,12 +20,14 @@ namespace KiberOneLearningApp
 	{
 		public Sprite Background;
 		public List<RuntimeImagePlacement> Images;
+		public List<RuntimeInteractablePlacement> InteractableImages;
+		public bool isInOrder;
 		public bool IsBeforeTask;
-		public GameObject TaskPrefab;
 		public bool HideCharacter;
 		public Sprite CharacterIcon;
 		public Vector3 CharacterPosition;
 		public string Text;
+		public string TutorialVideoPath;
 	}
 
 	public class RuntimeImagePlacement
@@ -33,5 +36,20 @@ namespace KiberOneLearningApp
 		public Vector3 size;
 		public Quaternion rotation;
 		public Sprite sprite;
+	}
+
+	public class RuntimeInteractablePlacement : RuntimeImagePlacement
+	{
+		public RuntimeImagePlacement imagePlacement;
+		public ColliderType colliderType;
+		public Vector3 colliderPosition;
+		public ColliderType colliderSize;
+		public Quaternion rotation;
+		
+		public enum ColliderType
+		{
+			rectangle,
+			circle
+		}
 	}
 }

@@ -1,100 +1,102 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace KiberOneLearningApp
 {
 	public class LessonWindow : SentencesChanger
 	{
-		[SerializeField] private TaskWindowsCreator taskWindowsCreator;
-		[SerializeField] private OpenTaskButton openTaskButton;
-		[SerializeField] private GameObject writeLessonButton;
-		
-		private List<TaskData> tasks = new List<TaskData>();
+        [SerializeField] private LessonWindowView lessonWindowView;
+        [SerializeField] private OpenTaskButton openTaskButton;
+        [SerializeField] private GameObject writeLessonButton;
 
         public override void Initialize()
         {
             base.Initialize();
-			writeLessonButton.SetActive(GlobalValueSetter.Instance.IsTeacher);
+            writeLessonButton.SetActive(GlobalValueSetter.Instance.IsTeacher);
         }
 
         private void Start()
-		{
-			if (taskWindowsCreator != null)
-			{
-				List<LessonWithTasksWindow> taskWindows = taskWindowsCreator.SetTasksData(tutorialData.Tasks, this);
-				List<int> lessonsIndexes = new List<int>();
+        {
+            if (runtimeData.Tasks != null)
+            {
+                // Передаём задания, если есть
+                List<LessonWithTasksWindow> taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
+                List<int> lessonsIndexes = new List<int>();
 
-				for (int j = 0; j < tutorialData.Sentences.Count; j++)
-				{
-					if (tutorialData.Sentences[j].IsBeforeTask)
-					{
-						lessonsIndexes.Add(j);
-					}
-				}
+                for (int j = 0; j < runtimeData.Sentences.Count; j++)
+                {
+                    if (runtimeData.Sentences[j].IsBeforeTask)
+                    {
+                        lessonsIndexes.Add(j);
+                    }
+                }
 
-				for (int i = 0; i < taskWindows.Count; i++)
-				{
-					var data = new TaskData(i, lessonsIndexes[i]);
-					tasks.Add(data);
-				}
-			}
-		}
+                for (int i = 0; i < taskWindows.Count; i++)
+                {
+                    var data = new TaskData(i, lessonsIndexes[i]);
+                    tasks.Add(data);
+                }
+            }
 
-		protected override void ShowNextSentence()
-		{
-			base.ShowNextSentence();
-			
-			if (tutorialData.Sentences[CurrentIndex].IsBeforeTask)
-			{
-				TaskData taskForThisSentence = GetTaskBySentenceID(CurrentIndex);
+            ShowNextSentence(); // Начинаем отображение
+        }
 
-				if (taskForThisSentence.IsCompleted == false)
-				{
-					sentenceChangerView.UpdateTaskButton(taskForThisSentence.IsCompleted, tutorialData.Sentences[CurrentIndex],
-					() => ShowTask(taskForThisSentence.TaskIndex));
-				}
-				else
-				{
-					sentenceChangerView.UpdateTaskButton(true, tutorialData.Sentences[CurrentIndex], null);
-				}
-			}
-			else
-			{
-				sentenceChangerView.UpdateTaskButton(true, tutorialData.Sentences[CurrentIndex], null);
-			}
-		}
+        protected override void ShowNextSentence()
+        {
+            base.ShowNextSentence();
 
-		public void DetectCompletedTasks() => ShowNextSentence();
+            var sentence = runtimeData.Sentences[CurrentIndex];
 
-		private void ShowTask(int index) => taskWindowsCreator.OpenTaskWindow(index);
+            if (sentence.IsBeforeTask)
+            {
+                RuntimeTutorialData taskForThisSentence = GetTaskBySentenceID(CurrentIndex);
 
-		private TaskData GetTaskBySentenceID(int sentenceID)
-		{
-			foreach (var task in tasks)
-			{
-				if (task.SentenceIndex == sentenceID)
-				{
-					return task;
-				}
-			}
+                if (!taskForThisSentence.IsCompleted)
+                {
+                    lessonWindowView.SetupTask();
+                    sentenceChangerView.UpdateTaskButton(false, sentence, () =>
+                        SelectCurrentTask(taskForThisSentence.TaskIndex));
+                }
+                else
+                {
+                    sentenceChangerView.UpdateTaskButton(true, sentence, null);
+                }
+            }
+            else
+            {
+                sentenceChangerView.UpdateTaskButton(true, sentence, null);
+            }
+            
+            lessonWindowView.SetupTasks(sentence);
+        }
 
-			throw new Exception("Not valid ID");
-		}
+        public void DetectCompletedTasks() => ShowNextSentence();
 
-		public struct TaskData
-		{
-			public readonly int TaskIndex;
-			public readonly int SentenceIndex;
-			
-			public bool IsCompleted;
+        private void SelectCurrentTask(int index) => lessonWindowView.UpdateTask();
 
-			public TaskData(int taskIndex, int sentenceIndex)
-			{
-				TaskIndex = taskIndex;
-				SentenceIndex = sentenceIndex;
-				IsCompleted = false;
-			}
-		}
+        private RuntimeTutorialData GetTaskBySentenceID(int sentenceID)
+        {
+            foreach (var task in runtimeData.Tasks)
+            {
+                if (task.TaskID == sentenceID)
+                    return task;
+            }
+
+            throw new Exception("Not valid sentence ID for task");
+        }
+
+        public struct TaskData
+        {
+            public readonly int TaskIndex;
+            public readonly int SentenceIndex;
+            public bool IsCompleted;
+
+            public TaskData(int taskIndex, int sentenceIndex)
+            {
+                TaskIndex = taskIndex;
+                SentenceIndex = sentenceIndex;
+                IsCompleted = false;
+            }
+        }
 	}
 }

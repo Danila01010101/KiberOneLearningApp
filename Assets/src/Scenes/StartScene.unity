@@ -104,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -231,9 +231,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -287,6 +295,7 @@ GameObject:
   - component: {fileID: 1246064023}
   - component: {fileID: 1246064025}
   - component: {fileID: 1246064026}
+  - component: {fileID: 1246064027}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -310,6 +319,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1246064025}
   - {fileID: 1246064026}
+  - {fileID: 1246064027}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -365,5 +375,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ba826616e499ba4191f5743cd9f1119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246064027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246064022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d706b4f3383154b8a4a2e82ee7d884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

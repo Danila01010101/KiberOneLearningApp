@@ -11,23 +11,24 @@ namespace KiberOneLearningApp
 
 		public Action TaskLessonCompleted;
 
-        public void SetNewData(TutorialData newSentenceData)
+        public void SetNewData(RuntimeTutorialData newSentenceData)
         {
             if (tasksParent != null)
             {
                 Destroy(tasksParent.gameObject);
             }
 
-            tutorialData = newSentenceData;
+            runtimeData = newSentenceData;
             EmptyTask emptyTaskPrefab = Resources.Load<EmptyTask>("EmptyTask");
 			tasksParent = new GameObject("Tasks").transform;
 			tasksParent.SetParent(transform);
-
-            foreach (var sentence in tutorialData.Sentences)
+			
+			/*
+            foreach (var sentence in runtimeData.Sentences)
 			{
 				if (sentence.TaskForThisSentence != null)
 				{
-                    ITask spawnedTask = Instantiate(sentence.TaskForThisSentence, transform);
+                    RuntimeTutorialData spawnedTask = Instantiate(sentence.TaskPrefab, transform);
 					SetupNewTask(spawnedTask);
 					sentenceChangerView.BlockNextButton();
 					spawnedTask.OnTaskComplete += sentenceChangerView.UnlockNextButton;
@@ -38,11 +39,12 @@ namespace KiberOneLearningApp
 					SetupNewTask(spawnedTask);
 				}
 			}
+			*/
 		}
 
 		protected override void ShowNextSentence()
 		{
-			if (CurrentIndex + 1 >= tutorialData.Sentences.Count)
+			if (CurrentIndex + 1 >= runtimeData.Sentences.Count)
 			{
 				TaskLessonCompleted?.Invoke();
 				return;
