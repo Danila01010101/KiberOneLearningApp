@@ -38,18 +38,12 @@ namespace KiberOneLearningApp
 		public Sprite sprite;
 	}
 
-	public class RuntimeInteractablePlacement : RuntimeImagePlacement
+	public class RuntimeInteractablePlacement
 	{
 		public RuntimeImagePlacement imagePlacement;
 		public ColliderType colliderType;
 		public Vector3 colliderPosition;
-		public ColliderType colliderSize;
+		public Vector3 colliderSize;
 		public Quaternion rotation;
-		
-		public enum ColliderType
-		{
-			rectangle,
-			circle
-		}
 	}
 }

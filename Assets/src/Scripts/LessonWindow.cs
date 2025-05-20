@@ -1,13 +1,20 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace KiberOneLearningApp
 {
-	public class LessonWindow : SentencesChanger
-	{
+    public class LessonWindow : SentencesChanger
+    {
         [SerializeField] private LessonWindowView lessonWindowView;
+        [SerializeField] private TaskWindowsCreator taskWindowsCreator;
         [SerializeField] private OpenTaskButton openTaskButton;
         [SerializeField] private GameObject writeLessonButton;
+
+        [Inject] private RuntimeTutorialData runtimeData;
+
+        private List<LessonWithTasksWindow> taskWindows;
+        private List<int> taskSentenceIndexes = new(); // индексы предложений, после которых задания
 
         public override void Initialize()
         {
@@ -19,26 +26,17 @@ namespace KiberOneLearningApp
         {
             if (runtimeData.Tasks != null)
             {
-                // Передаём задания, если есть
-                List<LessonWithTasksWindow> taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
-                List<int> lessonsIndexes = new List<int>();
+                taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
 
-                for (int j = 0; j < runtimeData.Sentences.Count; j++)
+                // Найдём все предложения, помеченные как IsBeforeTask
+                for (int i = 0; i < runtimeData.Sentences.Count; i++)
                 {
-                    if (runtimeData.Sentences[j].IsBeforeTask)
-                    {
-                        lessonsIndexes.Add(j);
-                    }
-                }
-
-                for (int i = 0; i < taskWindows.Count; i++)
-                {
-                    var data = new TaskData(i, lessonsIndexes[i]);
-                    tasks.Add(data);
+                    if (runtimeData.Sentences[i].IsBeforeTask)
+                        taskSentenceIndexes.Add(i);
                 }
             }
 
-            ShowNextSentence(); // Начинаем отображение
+            ShowNextSentence(); // старт
         }
 
         protected override void ShowNextSentence()
@@ -47,56 +45,53 @@ namespace KiberOneLearningApp
 
             var sentence = runtimeData.Sentences[CurrentIndex];
 
+            // Обновление визуала предложения
+            lessonWindowView.UpdateView(
+                sentence,
+                runtimeData.DefaultBackground,
+                CurrentIndex,
+                runtimeData.Sentences.Count); // пока нет задачи
+
             if (sentence.IsBeforeTask)
             {
-                RuntimeTutorialData taskForThisSentence = GetTaskBySentenceID(CurrentIndex);
+                int taskIndex = GetTaskIndexBySentence(CurrentIndex);
 
-                if (!taskForThisSentence.IsCompleted)
+                if (taskIndex >= 0)
                 {
-                    lessonWindowView.SetupTask();
+                    // Показать кнопку "Начать задание"
                     sentenceChangerView.UpdateTaskButton(false, sentence, () =>
-                        SelectCurrentTask(taskForThisSentence.TaskIndex));
+                        SelectCurrentTask(taskIndex));
                 }
                 else
                 {
+                    Debug.LogWarning($"Для предложения с индексом {CurrentIndex} не найдено задание");
                     sentenceChangerView.UpdateTaskButton(true, sentence, null);
                 }
             }
             else
             {
+                // Просто показать кнопку "Далее"
                 sentenceChangerView.UpdateTaskButton(true, sentence, null);
             }
-            
-            lessonWindowView.SetupTasks(sentence);
+
+            lessonWindowView.SetupTask(sentence.InteractableImages); // если надо показать спрайты
+            lessonWindowView.TaskCompleted += DetectCompletedTasks;
         }
 
-        public void DetectCompletedTasks() => ShowNextSentence();
-
-        private void SelectCurrentTask(int index) => lessonWindowView.UpdateTask();
-
-        private RuntimeTutorialData GetTaskBySentenceID(int sentenceID)
+        public void DetectCompletedTasks()
         {
-            foreach (var task in runtimeData.Tasks)
-            {
-                if (task.TaskID == sentenceID)
-                    return task;
-            }
-
-            throw new Exception("Not valid sentence ID for task");
+            ShowNextSentence(); // Переход к следующему после выполнения
         }
 
-        public struct TaskData
+        private void SelectCurrentTask(int index)
         {
-            public readonly int TaskIndex;
-            public readonly int SentenceIndex;
-            public bool IsCompleted;
-
-            public TaskData(int taskIndex, int sentenceIndex)
-            {
-                TaskIndex = taskIndex;
-                SentenceIndex = sentenceIndex;
-                IsCompleted = false;
-            }
+            taskWindowsCreator.OpenTaskWindow(index);
         }
-	}
+
+        private int GetTaskIndexBySentence(int sentenceID)
+        {
+            // Индекс задания = его порядковый номер среди всех IsBeforeTask
+            return taskSentenceIndexes.IndexOf(sentenceID);
+        }
+    }
 }

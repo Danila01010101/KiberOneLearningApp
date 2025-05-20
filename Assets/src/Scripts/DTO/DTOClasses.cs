@@ -20,6 +20,7 @@ namespace KiberOneLearningApp
 		{
 			public string BackgroundPath;
 			public List<ImagePlacementDTO> Images;
+			public List<InteractablePlacementDTO> InteractableImages;
 			public bool IsBeforeTask;
 			public string TaskPrefabName;
 			public bool HideCharacter;
@@ -36,5 +37,22 @@ namespace KiberOneLearningApp
 			public SerializableVector3 size;
 			public SerializableQuaternion rotation;
 			public string spritePath;
+		}
+
+		[Serializable]
+		public class InteractablePlacementDTO
+		{
+			public ImagePlacementDTO imagePlacement;
+			public ColliderType colliderType;
+			public SerializableVector3 colliderPosition;
+			public SerializableVector3 colliderSize;
+			public SerializableQuaternion rotation;
+		}
+		
+		[Serializable]
+		public enum ColliderType
+		{
+			rectangle,
+			circle
 		}
 }

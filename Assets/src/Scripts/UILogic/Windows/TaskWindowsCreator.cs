@@ -8,76 +8,75 @@ public class TaskWindowsCreator : MonoBehaviour
     [SerializeField] private TMPro.TMP_Dropdown dropdown;
     [SerializeField] private Button startTaskButton;
     [SerializeField] private LessonWithTasksWindow tutorialWindowPrefab;
-    
+
     private List<RuntimeTutorialData> tasksData;
-    private List<LessonWithTasksWindow> spawnedTutorialWindows = new List<LessonWithTasksWindow>();
+    private List<LessonWithTasksWindow> spawnedTutorialWindows = new();
     private LessonWindow lessonWindow;
     private SentencesChanger currentTask;
 
-    public List<LessonWithTasksWindow> SetTasksData(List<RuntimeTutorialData> tasksData, LessonWindow lessonWindow)
+    public List<LessonWithTasksWindow> SetRuntimeTasks(List<RuntimeTutorialData> tasksData, LessonWindow lessonWindow)
     {
         this.lessonWindow = lessonWindow;
         this.tasksData = tasksData;
         return SpawnTasks();
     }
 
-    public void OpenTaskWindow(int taskId)
-    {
-        if (currentTask != null)
-        {
-            currentTask.gameObject.SetActive(false);
-        }
-        
-        currentTask = spawnedTutorialWindows[taskId];
-        UIWindowManager.Show(currentTask);
-        currentTask.gameObject.SetActive(true);
-    }
-    
     private List<LessonWithTasksWindow> SpawnTasks()
     {
         dropdown.options.Clear();
+        spawnedTutorialWindows.Clear();
 
         for (int i = 0; i < tasksData.Count; i++)
         {
-            LessonWithTasksWindow newWindow = Instantiate(tutorialWindowPrefab, transform);
+            var newWindow = Instantiate(tutorialWindowPrefab, transform);
             newWindow.SetNewData(tasksData[i]);
+
             spawnedTutorialWindows.Add(newWindow);
             UIWindowManager.AddWindow(newWindow);
+
             newWindow.TaskLessonCompleted += DetectLessonWithTasksCompleted;
-            dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData() { text = tasksData[i].TutorialName });
+
+            dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData
+            {
+                text = tasksData[i].TutorialName
+            });
         }
+
+        dropdown.value = 0;
+        dropdown.RefreshShownValue();
 
         return spawnedTutorialWindows;
     }
 
-    private void ChangeCurrentTask() => OpenTaskWindow(dropdown.value);
-    
+    private void ChangeCurrentTask()
+    {
+        OpenTaskWindow(dropdown.value);
+    }
+
+    public void OpenTaskWindow(int taskId)
+    {
+        if (taskId < 0 || taskId >= spawnedTutorialWindows.Count)
+        {
+            Debug.LogWarning("Некорректный индекс задания");
+            return;
+        }
+
+        if (currentTask != null)
+            currentTask.gameObject.SetActive(false);
+
+        currentTask = spawnedTutorialWindows[taskId];
+        UIWindowManager.Show(currentTask);
+        currentTask.gameObject.SetActive(true);
+    }
+
     private void DetectLessonWithTasksCompleted()
     {
-        UIWindowManager.ShowLast();
+        UIWindowManager.ShowLast(); // Вернуться к предыдущему UI
         lessonWindow.DetectCompletedTasks();
     }
 
-    public void Subscribe()
-    {
-        startTaskButton.onClick.AddListener(ChangeCurrentTask);
-    }
-
-    public void Unsubscribe()
-    {
-        startTaskButton.onClick.RemoveListener(ChangeCurrentTask);
-    }
-
-    private void OnEnable()
-    {
-        Subscribe();
-    }
-
-    private void OnDisable()
-    {
-        Unsubscribe();
-    }
-
+    private void OnEnable() => Subscribe();
+    private void OnDisable() => Unsubscribe();
     private void OnDestroy()
     {
         foreach (var window in spawnedTutorialWindows)
@@ -85,4 +84,7 @@ public class TaskWindowsCreator : MonoBehaviour
             window.TaskLessonCompleted -= DetectLessonWithTasksCompleted;
         }
     }
+
+    public void Subscribe() => startTaskButton.onClick.AddListener(ChangeCurrentTask);
+    public void Unsubscribe() => startTaskButton.onClick.RemoveListener(ChangeCurrentTask);
 }

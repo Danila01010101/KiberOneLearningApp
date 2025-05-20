@@ -6,40 +6,44 @@ namespace KiberOneLearningApp
 {
 	public class LessonWithTasksWindow : SentencesChanger
     {
-        private List<ITask> tasks = new List<ITask>();
+        private List<ObjectForTask> tasks = new List<ObjectForTask>();
 		private Transform tasksParent;
 
 		public Action TaskLessonCompleted;
 
-        public void SetNewData(RuntimeTutorialData newSentenceData)
-        {
-            if (tasksParent != null)
-            {
-                Destroy(tasksParent.gameObject);
-            }
+		public void SetNewData(RuntimeTutorialData newData)
+		{
+			if (tasksParent != null)
+				Destroy(tasksParent.gameObject);
 
-            runtimeData = newSentenceData;
-            EmptyTask emptyTaskPrefab = Resources.Load<EmptyTask>("EmptyTask");
+			runtimeData = newData;
+			tasks.Clear();
+
+			var emptyTaskPrefab = Resources.Load<EmptyTask>("EmptyTask");
+			var taskPrefab = Resources.Load<ObjectForTask>("ObjectForTask");
+
 			tasksParent = new GameObject("Tasks").transform;
 			tasksParent.SetParent(transform);
-			
-			/*
-            foreach (var sentence in runtimeData.Sentences)
+
+			for (int i = 0; i < runtimeData.Sentences.Count; i++)
 			{
-				if (sentence.TaskForThisSentence != null)
+				var sentence = runtimeData.Sentences[i];
+
+				if (sentence.IsBeforeTask && sentence.InteractableImages != null)
 				{
-                    RuntimeTutorialData spawnedTask = Instantiate(sentence.TaskPrefab, transform);
-					SetupNewTask(spawnedTask);
+					ObjectForTask task = Instantiate(taskPrefab, tasksParent);
+					task.Initialize(sentence.InteractableImages[i]); // ⬅️ вот здесь мы и передаём DTO
+
+					task.OnCompleted += () =>
+					{
+						sentenceChangerView.UnlockNextButton();
+						task.gameObject.SetActive(false);
+					};
+
+					SetupNewTask(task);
 					sentenceChangerView.BlockNextButton();
-					spawnedTask.OnTaskComplete += sentenceChangerView.UnlockNextButton;
-                }
-				else
-				{
-					ITask spawnedTask = Instantiate(emptyTaskPrefab, gameObject.transform);
-					SetupNewTask(spawnedTask);
 				}
 			}
-			*/
 		}
 
 		protected override void ShowNextSentence()
@@ -62,29 +66,30 @@ namespace KiberOneLearningApp
             DeactivateIfExist(CurrentIndex + 1);
         }
 
-		private void SetupNewTask(ITask spawnedTask)
-        {
-            tasks.Add(spawnedTask);
-            spawnedTask.GameObject.transform.SetParent(tasksParent.transform);
-			spawnedTask.GameObject.SetActive(false);
-			spawnedTask.Setup();
-        }
+		private void SetupNewTask(ObjectForTask spawnedTask)
+		{
+			tasks.Add(spawnedTask);
+			spawnedTask.transform.SetParent(tasksParent.transform);
+		}
 
 		private void ResetCurrentSentence()
 		{
-            if (tasks[CurrentIndex] != null && tasks[CurrentIndex].IsCompleted == false)
-            {
-	            sentenceChangerView.BlockNextButton();
-                tasks[CurrentIndex].GameObject.SetActive(true);
-            }
-        }
+			if (CurrentIndex < tasks.Count)
+			{
+				var task = tasks[CurrentIndex];
+				if (task != null)
+				{
+					sentenceChangerView.BlockNextButton();
+				}
+			}
+		}
 
 		private void DeactivateIfExist(int index)
-        {
-            if (index > 0 && index < tasks.Count)
-            {
-                tasks[index].GameObject.SetActive(false);
-            }
-        }
+		{
+			if (index >= 0 && index < tasks.Count)
+			{
+				tasks[index].gameObject.SetActive(false);
+			}
+		}
     }
 }

@@ -19,7 +19,7 @@ namespace KiberOneLearningApp
         public void Initialize(RuntimeInteractablePlacement placement)
         {
             // Общая позиция, размер, поворот
-            transform.localPosition = placement.position;
+            transform.localPosition = placement.imagePlacement.position;
             transform.localRotation = placement.rotation;
             transform.localScale = Vector3.one; // масштаб определён через size
 
@@ -28,9 +28,9 @@ namespace KiberOneLearningApp
             if (spriteRenderer == null)
                 spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
 
-            spriteRenderer.sprite = placement.sprite;
+            spriteRenderer.sprite = placement.imagePlacement.sprite;
             spriteRenderer.drawMode = SpriteDrawMode.Sliced;
-            spriteRenderer.size = placement.size;
+            spriteRenderer.size = placement.imagePlacement.size;
 
             // Удаляем существующие коллайдеры
             var existingBox = GetComponent<BoxCollider2D>();
@@ -40,17 +40,17 @@ namespace KiberOneLearningApp
             if (existingCircle) Destroy(existingCircle);
 
             // Добавляем нужный коллайдер
-            if (placement.colliderType == RuntimeInteractablePlacement.ColliderType.rectangle)
+            if (placement.colliderType == ColliderType.rectangle)
             {
                 var box = gameObject.AddComponent<BoxCollider2D>();
-                box.size = placement.size;
+                box.size = placement.colliderSize;
                 box.offset = placement.colliderPosition;
             }
-            else if (placement.colliderType == RuntimeInteractablePlacement.ColliderType.circle)
+            else if (placement.colliderType == ColliderType.circle)
             {
                 var circle = gameObject.AddComponent<CircleCollider2D>();
                 // Радиус — берём максимальный размер по X или Y
-                circle.radius = Mathf.Max(placement.size.x, placement.size.y) / 2f;
+                circle.radius = Mathf.Max(placement.colliderSize.x, placement.colliderSize.y) / 2f;
                 circle.offset = placement.colliderPosition;
             }
         }

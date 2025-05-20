@@ -18,7 +18,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private Slider sentenceSlider;
-        [SerializeField] private ImagePlacementView  imageViewPrefab;
+        [SerializeField] private ImagePlacementView imageViewPrefab;
         [SerializeField] private Transform imagesParent;
         [Header("Sentence buttons")]
         [SerializeField] protected Button nextButton;
@@ -31,6 +31,8 @@ namespace KiberOneLearningApp
         [SerializeField] private Transform videoWindow;
     
         private GifOpener gifOpener;
+
+        public Action TaskCompleted;
 		
         public void SetupTask(List<RuntimeInteractablePlacement> taskImagesData)
         {

@@ -24,11 +24,24 @@ namespace KiberOneLearningApp
             {
                 Background = LoadSprite(dto.BackgroundPath),
                 CharacterIcon = LoadSprite(dto.CharacterIconPath),
-                //TutorialVideo = LoadVideo(dto.TutorialVideoPath),
+                TutorialVideoPath = dto.TutorialVideoPath,
                 CharacterPosition = dto.CharacterPosition.ToVector3(),
                 IsBeforeTask = dto.IsBeforeTask,
                 HideCharacter = dto.HideCharacter,
-                TaskPrefab = LoadTaskPrefab(dto.TaskPrefabName),
+                InteractableImages = dto.InteractableImages?.Select(i => new RuntimeInteractablePlacement()
+                {
+                    colliderPosition = i.colliderPosition.ToVector3(),
+                    colliderType = i.colliderType,
+                    colliderSize = i.colliderSize.ToVector3(),
+                    rotation = i.rotation.ToQuaternion(),
+                    imagePlacement = new RuntimeImagePlacement ()
+                    {
+                        position = i.imagePlacement.position.ToVector3(),
+                        size = i.imagePlacement.size.ToVector3(),
+                        rotation = i.imagePlacement.rotation.ToQuaternion(),
+                        sprite = LoadSprite(i.imagePlacement.spritePath)
+                    },
+                }).ToList(),
                 Text = dto.Text,
                 Images = dto.Images?.Select(i => new RuntimeImagePlacement
                 {
@@ -52,13 +65,6 @@ namespace KiberOneLearningApp
             tex.LoadImage(data);
             return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
         }
-
-        //private static VideoClip LoadVideo(string path)
-        //{
-        //    // VideoClip не может быть создан напрямую из файла в рантайме
-        //    // Но можно использовать VideoPlayer.url с внешним файлом (mp4)
-        //    return null; // можно вместо этого вернуть путь
-        //}
 
         private static GameObject LoadTaskPrefab(string name)
         {
