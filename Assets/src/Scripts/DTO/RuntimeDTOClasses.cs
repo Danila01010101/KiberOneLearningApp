@@ -36,6 +36,7 @@ namespace KiberOneLearningApp
 		public Vector3 size;
 		public Quaternion rotation;
 		public Sprite sprite;
+		public string spritePath;
 	}
 
 	public class RuntimeInteractablePlacement
@@ -45,5 +46,6 @@ namespace KiberOneLearningApp
 		public Vector3 colliderPosition;
 		public Vector3 colliderSize;
 		public Quaternion rotation;
+		public KeyCode keyCode = KeyCode.Mouse0;
 	}
 }

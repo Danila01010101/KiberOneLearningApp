@@ -47,6 +47,7 @@ namespace KiberOneLearningApp
 			public SerializableVector3 colliderPosition;
 			public SerializableVector3 colliderSize;
 			public SerializableQuaternion rotation;
+			public string keyCode = "Mouse0";
 		}
 		
 		[Serializable]

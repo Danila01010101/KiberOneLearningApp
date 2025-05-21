@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -34,13 +35,16 @@ namespace KiberOneLearningApp
                     colliderType = i.colliderType,
                     colliderSize = i.colliderSize.ToVector3(),
                     rotation = i.rotation.ToQuaternion(),
-                    imagePlacement = new RuntimeImagePlacement ()
+
+                    keyCode = Enum.TryParse<KeyCode>(i.keyCode, out var parsedKey) ? parsedKey : KeyCode.Mouse0,
+
+                    imagePlacement = new RuntimeImagePlacement()
                     {
                         position = i.imagePlacement.position.ToVector3(),
                         size = i.imagePlacement.size.ToVector3(),
                         rotation = i.imagePlacement.rotation.ToQuaternion(),
                         sprite = LoadSprite(i.imagePlacement.spritePath)
-                    },
+                    }
                 }).ToList(),
                 Text = dto.Text,
                 Images = dto.Images?.Select(i => new RuntimeImagePlacement
@@ -52,6 +56,7 @@ namespace KiberOneLearningApp
                 }).ToList()
             };
         }
+
 
         private static Sprite LoadSprite(string path)
         {
