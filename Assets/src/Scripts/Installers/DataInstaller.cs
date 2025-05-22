@@ -10,6 +10,7 @@ namespace KiberOneLearningApp
         {
             InstallGlobalValueInstaller();
             InstallGameSaver();
+            SetupLessonsData();
         }
 
         private void InstallGlobalValueInstaller()

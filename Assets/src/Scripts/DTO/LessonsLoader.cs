@@ -13,7 +13,7 @@ namespace KiberOneLearningApp
 		public LessonsLoader()
 		{
 			LessonsDictionary = new Dictionary<string, List<RuntimeTutorialData>>();
-			List<RuntimeTutorialData> datas = LoadAllCustomLessons();
+			List<RuntimeTutorialData> datas = LoadAllLessons();
 
 			LessonsDictionary = datas
 				.GroupBy(l => l.ThemeName)
@@ -24,23 +24,34 @@ namespace KiberOneLearningApp
 				);
 		}
 		
-		private List<RuntimeTutorialData> LoadAllCustomLessons()
+		public static List<RuntimeTutorialData> LoadAllLessons()
 		{
-			string folder = Path.Combine(Application.persistentDataPath, "UserLessons");
-			var result = new List<RuntimeTutorialData>();
+			var allLessons = new List<RuntimeTutorialData>();
 
-			if (!Directory.Exists(folder)) return result;
-
-			foreach (var file in Directory.GetFiles(folder, "*.json"))
-			{ 
-				var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
-				if (dto != null)
+			// 1. Загрузка встроенных (заготовленных)
+			string builtInFolder = Path.Combine(Application.streamingAssetsPath, "ExportedLessons");
+			if (Directory.Exists(builtInFolder))
+			{
+				foreach (var file in Directory.GetFiles(builtInFolder, "*.json"))
 				{
-					result.Add(TutorialRuntimeBuilder.FromDTO(dto));
+					var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
+					if (dto != null)
+						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
 				}
 			}
 
-			return result;
+			string userFolder = Path.Combine(Application.persistentDataPath, "UserLessons");
+			if (Directory.Exists(userFolder))
+			{
+				foreach (var file in Directory.GetFiles(userFolder, "*.json"))
+				{
+					var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
+					if (dto != null)
+						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
+				}
+			}
+
+			return allLessons;
 		}
 	}
 }

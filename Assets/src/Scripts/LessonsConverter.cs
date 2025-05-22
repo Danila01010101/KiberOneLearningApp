@@ -12,17 +12,20 @@ namespace KiberOneLearningApp
 				TutorialName = data.TutorialName,
 				DefaultBackgroundPath = SafeGetSpritePath(data.DefaultBackground),
 				DefaultTextPath = SafeGetSpritePath(data.DefaultText),
+
+				Tasks = data.Tasks?.Select(ToDTO).ToList(), // Рекурсивный экспорт
+
 				Sentences = data.Sentences.Select(s => new SentenceDataDTO
 				{
 					BackgroundPath = SafeGetSpritePath(s.Background),
 					CharacterIconPath = SafeGetSpritePath(s.CharacterIcon),
-					TutorialVideoPath = s.TutorialVideo != null ? s.TutorialVideo.name + ".mp4" : "", // если используешь по имени
+					TutorialVideoPath = s.TutorialVideo != null ? s.TutorialVideo.name + ".mp4" : "",
 					CharacterPosition = SerializableVector3.From(s.CharacterPosition),
 					IsBeforeTask = s.IsBeforeTask,
 					HideCharacter = s.HideCharacter,
 					TaskPrefabName = s.TaskForThisSentence?.name ?? "",
-
 					Text = s.Text,
+
 					Images = s.Images?.Select(i => new ImagePlacementDTO
 					{
 						position = SerializableVector3.From(i.position),

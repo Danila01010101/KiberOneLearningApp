@@ -1,0 +1,74 @@
+{
+    "ThemeName": "",
+    "LessonNumber": 0,
+    "TutorialName": "",
+    "DefaultBackgroundPath": "",
+    "DefaultTextPath": "",
+    "Tasks": [],
+    "Sentences": [
+        {
+            "BackgroundPath": "Assets/src/Sprites/Exel/Lesson1/ExelDefaultWindow.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "Assets/src/Sprites/KiberBear Hello 2.psd",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "привет! сегодня мы начнем знакомство с такой полезной программой как Microsoft Exel.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "Assets/src/Sprites/Exel/Lesson1/ExelDefaultWindow.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "Assets/src/Sprites/KiberBear Thinking.psd",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "перед тем как узнать как ей пользоваться, давай узнаем для чего она нужна.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "Assets/src/Sprites/Exel/Lesson1/ExelDefaultWindow.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "Assets/src/Sprites/KiberBear Presenting.psd",
+            "CharacterPosition": {
+                "x": -57.0,
+                "y": -165.0,
+                "z": 0.0
+            },
+            "Text": "Excel нужен для работы с электронными таблицами, позволяя собирать, изменять и анализировать данные.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "Assets/src/Sprites/Exel/Lesson1/ExelDefaultWindow.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "Assets/src/Sprites/KiberBear Pointing.psd",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "теперь давай попробуем создать свой собственный Exel документ. для этого перейди на рабочий стол и создай на нем новый документ.",
+            "TutorialVideoPath": "bandicam 2024-12-15 01-18-21-325.mp4"
+        }
+    ]
+}
