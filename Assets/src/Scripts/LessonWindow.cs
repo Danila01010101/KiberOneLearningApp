@@ -9,6 +9,7 @@ namespace KiberOneLearningApp
         [SerializeField] private LessonWindowView lessonWindowView;
         [SerializeField] private TaskWindowsCreator taskWindowsCreator;
         [SerializeField] private OpenTaskButton openTaskButton;
+        [SerializeField] private GameObject writeLessonResultsButton;
         [SerializeField] private GameObject writeLessonButton;
 
         private List<LessonWithTasksWindow> taskWindows;
@@ -23,6 +24,7 @@ namespace KiberOneLearningApp
             
             base.Initialize();
             writeLessonButton.SetActive(GlobalValueSetter.Instance.IsTeacher);
+            writeLessonResultsButton.SetActive(GlobalValueSetter.Instance.IsTeacher);
             ShowSentences();
         }
 

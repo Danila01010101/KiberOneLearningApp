@@ -15,8 +15,6 @@ public class SentencesChanger : UIWindow
     public override void Initialize()
     {
         sentenceChangerView.SubscribeButtons(ShowNextSentence, ShowPreviousSentence);
-        if (runtimeData != null)
-            ShowNextSentence();
     }
 
     protected virtual void ShowNextSentence()

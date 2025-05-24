@@ -3486,6 +3486,7 @@ MonoBehaviour:
   lessonWindowView: {fileID: 0}
   taskWindowsCreator: {fileID: 7702268307461949907}
   openTaskButton: {fileID: 7352505668402384501}
+  writeLessonResultsButton: {fileID: 4931621371005440929}
   writeLessonButton: {fileID: 1825782950982060854}
 --- !u!114 &5410625221506551854
 MonoBehaviour:
@@ -5185,6 +5186,11 @@ PrefabInstance:
 --- !u!224 &4931621371005440928 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1968373806953840000, guid: 676614c30efe6fc4b82edb9eddfa3ad6, type: 3}
+  m_PrefabInstance: {fileID: 6854955883133906464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4931621371005440929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1968373806953840001, guid: 676614c30efe6fc4b82edb9eddfa3ad6, type: 3}
   m_PrefabInstance: {fileID: 6854955883133906464}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7955257623176082439
