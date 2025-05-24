@@ -1,34 +1,307 @@
 {
-    "ThemeName": "Компьютерная грамотность",
+    "ThemeName": "",
     "LessonNumber": 0,
     "TutorialName": "Знакомство с компьютером",
     "DefaultBackgroundPath": "UserImages/ФонКомпГрамотность.png",
     "DefaultTextPath": "",
-    "Tasks": [],
-    "Sentences": [
+    "Tasks": [
         {
-            "BackgroundPath": "UserImages/ФонКомпГрамотность.png",
-            "Images": [
+            "ThemeName": "",
+            "LessonNumber": 0,
+            "TutorialName": "Использование мыши",
+            "DefaultBackgroundPath": "UserImages/ФонКомпГрамотность.png",
+            "DefaultTextPath": "",
+            "Tasks": [],
+            "Sentences": [
                 {
-                    "position": {
+                    "BackgroundPath": "UserImages/Левая КнопкаМыши.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "LeftMouseTask",
+                    "HideCharacter": true,
+                    "CharacterIconPath": "",
+                    "CharacterPosition": {
+                        "x": 272.0,
+                        "y": -145.0,
+                        "z": 0.0
+                    },
+                    "Text": "Лопни каждый шарик левой кнопкой мыши",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/Правая КнопкаМыши 1.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "RightMouseTask",
+                    "HideCharacter": true,
+                    "CharacterIconPath": "",
+                    "CharacterPosition": {
+                        "x": -375.0,
+                        "y": -18.0,
+                        "z": 0.0
+                    },
+                    "Text": "Теперь лопай правой кнопкой мыши",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/КолесоМыши.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "WheelMouseTask",
+                    "HideCharacter": true,
+                    "CharacterIconPath": "",
+                    "CharacterPosition": {
+                        "x": -375.0,
+                        "y": -18.0,
+                        "z": 0.0
+                    },
+                    "Text": "Последние шарики лопаются по нажатию на колесико.",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ФонKiberOne.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
                         "x": 0.0,
                         "y": 0.0,
                         "z": 0.0
                     },
-                    "size": {
-                        "x": 200.0,
-                        "y": 200.0,
-                        "z": 1.0
-                    },
-                    "rotation": {
-                        "x": 0.0,
-                        "y": 0.0,
-                        "z": 0.0,
-                        "w": 0.0
-                    },
-                    "spritePath": "UserImages/ФонПанельWindowsВыключение.png"
+                    "Text": "Молодец! Ты отлично справился!",
+                    "TutorialVideoPath": ""
                 }
-            ],
+            ]
+        },
+        {
+            "ThemeName": "",
+            "LessonNumber": 0,
+            "TutorialName": "1 - Выключение компьютера",
+            "DefaultBackgroundPath": "UserImages/ФонКомпГрамотность.png",
+            "DefaultTextPath": "",
+            "Tasks": [],
+            "Sentences": [
+                {
+                    "BackgroundPath": "",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Давай вместе научимся включать и выключать компьютер, это просто!",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ФонКнопкаWindows.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Кнопки включения бывают разные, вот как их много",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Теперь спроси у преподавателя или взрослого как выглядит эта кнопка на твоем компьютере",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Супер! Мы нашли кнопку включения, но как же компьютер выключить?",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ФонКнопкаWindows.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Найди значек \"Пуск\" у себя СНИЗУ на экране, он выглядит как на картинке рядом со мной. Нажми на него.",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ФонПанельWindows.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "После этого у тебя появится панель Windows.",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ФонПанельWindows.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Панель Windows - запоминает все твои открытые программы и после предлагает открыть их снова. Также именно здесь можно выключить компьютер!",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ФонПанельWindowsВыключение.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "В этой панели нам понадобится кнопка \"Выключить\"",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ПанельВыключениЯКомпьютера.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "После нажатия открывается меню с выбором, как ты хочешь выключить компьютер.",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ПерезапускКомпьютера.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "В этом меню мы можем выбрать перезагрузить ли нам компьютер...",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ВыключениеКомпьютера.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Или же выключить полностью.",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "UserImages/ВыключениеКомпьютера.png",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Перед тем как выключить компьютер - давай вспомним список действий.",
+                    "TutorialVideoPath": ""
+                },
+                {
+                    "BackgroundPath": "",
+                    "Images": [],
+                    "InteractableImages": [],
+                    "IsBeforeTask": false,
+                    "TaskPrefabName": "",
+                    "HideCharacter": false,
+                    "CharacterIconPath": "UserImages/KiberBear Hello.png",
+                    "CharacterPosition": {
+                        "x": -200.0,
+                        "y": -152.0,
+                        "z": 0.0
+                    },
+                    "Text": "Теперь приступай к своему первому заданию! Можешь еще посмотри подсказку чтобы еще раз увидеть как это сделать.",
+                    "TutorialVideoPath": ""
+                }
+            ]
+        }
+    ],
+    "Sentences": [
+        {
+            "BackgroundPath": "",
+            "Images": [],
             "InteractableImages": [],
             "IsBeforeTask": false,
             "TaskPrefabName": "",
@@ -43,7 +316,7 @@
             "TutorialVideoPath": ""
         },
         {
-            "BackgroundPath": "UserImages/ФонКомпГрамотность.png",
+            "BackgroundPath": "",
             "Images": [],
             "InteractableImages": [],
             "IsBeforeTask": false,
@@ -56,6 +329,550 @@
                 "z": 0.0
             },
             "Text": "Ну что, готов приступить к первому занятию?",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "То, что ты видишь на своем экране, это приложение.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "Приложение - это компьютерная программа, в ней ты можешь совершать разные действия.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/ФонКомпГрамотностьВперед.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "Например, нажимать на кнопки, как ты делал до этого. Нажми ВПЕРЕД.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Presenting.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "В этом уроке внутри нашего приложения, мы познакомимся с основами управления компьютером.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/ФонКомпГрамотностьМышь.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "Для начала обучения нам понадобиться узнать как управлять компьютером. В этом нам поможет компьютерная мышь.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/Левая КнопкаМыши.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 100.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Первая, ЛЕВАЯ кнопка - отвечает за выбор того, на что ты кликнешь. Так же, как ты выбираешь кнопку \"Вперед\" и нажимаешь на нее.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/Правая КнопкаМыши 1.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Presenting.png",
+            "CharacterPosition": {
+                "x": -400.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Вторая, ПРАВАЯ кнопка мыши - обычно отвечает за вызов дополнительного меню настроек.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/КолесоМыши.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Presenting.png",
+            "CharacterPosition": {
+                "x": -400.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Последняя часть о которой нам нужно знать - КОЛЕСО мыши, его можно крутить вверх и вниз.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/КолесоМыши.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Presenting.png",
+            "CharacterPosition": {
+                "x": -400.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Так мы можем прокручивать приложение вверх или вниз.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/КолесоМыши.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": true,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": -400.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Теперь давай попробуем выполнить небольшое задание",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Thinking.png",
+            "CharacterPosition": {
+                "x": 70.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Теперь мы познакомимся с самим компьютером и узнаем зачем он нужен.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Working.png",
+            "CharacterPosition": {
+                "x": -57.0,
+                "y": -165.0,
+                "z": 0.0
+            },
+            "Text": "Компьютер нужен для многих вещей, давай поосмотрим на некоторые из них",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/Выделенный компьютер.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Presenting.png",
+            "CharacterPosition": {
+                "x": -254.0,
+                "y": -119.0,
+                "z": 0.0
+            },
+            "Text": "Например, через компьютер можно на расстоянии общаться с другими людьми",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/ВыделенноОбучение.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Working.png",
+            "CharacterPosition": {
+                "x": -160.0,
+                "y": -29.0,
+                "z": 0.0
+            },
+            "Text": "Еще с помощью компьютера можно обучаться новым навыкам, а иногда даже целым профессиям",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/Выделенный художник.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Thinking.png",
+            "CharacterPosition": {
+                "x": -151.0,
+                "y": -103.0,
+                "z": 0.0
+            },
+            "Text": "Одной из таких профессий является художник, ведь с помощью этого устройства можно даже рисовать и создавать мультфильмы!",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/Выделенный геймпад.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Presenting.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Ну и конечно можно играть в компьютерные игры, некоторые из которых тоже обучающие!",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Теперь самое время научиться включать и выключать компьютер.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Перед тем как я расскажу как это делать, давай договоримся о том, как выполнять задание.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "UserImages/ПравилоЗаданий.png",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 100.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Cперва ты смотришь на шаги задания, а только после этого приступаешь к заданию.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": 100.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Старайся не возвращаться по уроку назад во время выполнения задания, так ты лучше всего закрепишь материал. Помимо этого перед заданием всегда будет подсказка с видео. ",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": true,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": 100.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Все понятно? Тогда вперед!",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Молодец, ты отлично справился!",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Pointing.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": " Теперь давай познакомимся с коммандной панелью задач.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Она выглядит вот так и находится внизу экрана.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": " На ней показаны разные приложения.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Вот так выглядят закрепленные значки приложений, если значки  подсвечиваются, то приложение запущено!",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Остальные иконки - приложения которые закрыты, по нажатию они запускаются.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Чтобы открыть такое приложение просто нажми на него левой кнопкой мыши.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Thinking.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "Теперь давай узнаем, как сворачивать приложение.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Thinking.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "Свернуть приложение - значит убрать его с экрана, при этом не закрывая.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Thinking.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "В таком случае его можно открыть опять щелкнув по иконке на панели задач внизу.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Thinking.png",
+            "CharacterPosition": {
+                "x": 353.0,
+                "y": -195.0,
+                "z": 0.0
+            },
+            "Text": "Наведи мышкой на этот значек, после чего щелкни по ней левой кнопкой, так ты свернешь приложение.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "Наведи мышкой на этот значек, после чего щелкни по ней левой кнопкой, так ты свернешь приложение.",
+            "TutorialVideoPath": ""
+        },
+        {
+            "BackgroundPath": "",
+            "Images": [],
+            "InteractableImages": [],
+            "IsBeforeTask": false,
+            "TaskPrefabName": "",
+            "HideCharacter": false,
+            "CharacterIconPath": "UserImages/KiberBear Hello.png",
+            "CharacterPosition": {
+                "x": -200.0,
+                "y": -152.0,
+                "z": 0.0
+            },
+            "Text": "",
             "TutorialVideoPath": ""
         }
     ]
