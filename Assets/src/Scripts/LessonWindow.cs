@@ -11,24 +11,27 @@ namespace KiberOneLearningApp
         [SerializeField] private OpenTaskButton openTaskButton;
         [SerializeField] private GameObject writeLessonButton;
 
-        [Inject] private RuntimeTutorialData runtimeData;
-
         private List<LessonWithTasksWindow> taskWindows;
-        private List<int> taskSentenceIndexes = new(); // индексы предложений, после которых задания
+        private List<int> taskSentenceIndexes = new(); // индексы предложений, после которых задания[Inject]
 
         public override void Initialize()
         {
+            runtimeData = LessonSceneWithDataOpener.CurrentTutorialData;
+            
+            if (runtimeData == null)
+                return;
+            
             base.Initialize();
             writeLessonButton.SetActive(GlobalValueSetter.Instance.IsTeacher);
+            ShowSentences();
         }
 
-        private void Start()
+        private void ShowSentences()
         {
             if (runtimeData.Tasks != null)
             {
                 taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
 
-                // Найдём все предложения, помеченные как IsBeforeTask
                 for (int i = 0; i < runtimeData.Sentences.Count; i++)
                 {
                     if (runtimeData.Sentences[i].IsBeforeTask)
@@ -36,7 +39,7 @@ namespace KiberOneLearningApp
                 }
             }
 
-            ShowNextSentence(); // старт
+            ShowNextSentence();
         }
 
         protected override void ShowNextSentence()

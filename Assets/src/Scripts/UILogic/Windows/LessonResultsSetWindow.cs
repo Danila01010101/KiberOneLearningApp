@@ -35,7 +35,7 @@ namespace KiberOneLearningApp
             
             if (loadedData == null || loadedData.studentGroups.Count == 0)
             {
-                Debug.Log("No Data Loaded");
+                Debug.Log("No Exel Data Loaded");
                 return;
             }
             

@@ -16,7 +16,7 @@ namespace KiberOneLearningApp
 			List<RuntimeTutorialData> datas = LoadAllLessons();
 
 			LessonsDictionary = datas
-				.GroupBy(l => l.ThemeName)
+				.GroupBy(l => string.IsNullOrEmpty(l.ThemeName) ? "Общие" : l.ThemeName)
 				.OrderBy(g => g.Key)
 				.ToDictionary(
 					g => g.Key,

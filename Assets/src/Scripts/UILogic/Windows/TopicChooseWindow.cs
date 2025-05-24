@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using KiberOneLearningApp;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,6 @@ public class TopicChooseWindow : UIWindow
             nextWindowButton.onClick.AddListener(OpenNextWindow);
         
         DisplayThemes(LessonsLoader.LessonsDictionary);
-        lessonSettingsButton.onClick.AddListener(ShowLessonLoadWindow);
     }
     
     public void DisplayThemes(Dictionary<string, List<RuntimeTutorialData>> lessonsByTheme)
@@ -39,16 +39,15 @@ public class TopicChooseWindow : UIWindow
             List<RuntimeTutorialData> lessons = kvp.Value;
 
             GameObject buttonGO = Instantiate(themeButtonPrefab, themeListParent);
-            buttonGO.GetComponentInChildren<Text>().text = themeName;
+            buttonGO.GetComponentInChildren<TextMeshProUGUI>().text = themeName;
 
             buttonGO.GetComponent<Button>().onClick.AddListener(() =>
             {
                 lessonSelector.DisplayLessons(themeName, lessons);
+                UIWindowManager.Show<LessonChooseWindow>();
             });
         }
     }
-
-    public void ShowLessonLoadWindow() => UIWindowManager.Show<LessonLoadingWindow>();
 
     public override void Show()
     {

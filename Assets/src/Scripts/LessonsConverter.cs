@@ -1,4 +1,6 @@
+using System.IO;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace KiberOneLearningApp
@@ -9,11 +11,12 @@ namespace KiberOneLearningApp
 		{
 			return new TutorialDataDTO
 			{
+				ThemeName = data.ThemeName,
 				TutorialName = data.TutorialName,
 				DefaultBackgroundPath = SafeGetSpritePath(data.DefaultBackground),
 				DefaultTextPath = SafeGetSpritePath(data.DefaultText),
 
-				Tasks = data.Tasks?.Select(ToDTO).ToList(), // Рекурсивный экспорт
+				Tasks = data.Tasks?.Select(ToDTO).ToList(),
 
 				Sentences = data.Sentences.Select(s => new SentenceDataDTO
 				{
@@ -42,16 +45,58 @@ namespace KiberOneLearningApp
 			if (sprite == null) return "";
 
 #if UNITY_EDITOR
-			return UnityEditor.AssetDatabase.GetAssetPath(sprite);
+			string assetPath = AssetDatabase.GetAssetPath(sprite);
+			if (string.IsNullOrEmpty(assetPath)) return "";
+
+			string fileName = sprite.name + ".png";
+			string exportPath = Path.Combine(Application.persistentDataPath, "UserImages");
+
+			if (!Directory.Exists(exportPath))
+				Directory.CreateDirectory(exportPath);
+
+			string fullDest = Path.Combine(exportPath, fileName);
+
+			if (!File.Exists(fullDest))
+			{
+				File.Copy(assetPath, fullDest); // копируем PNG в persistentDataPath
+				Debug.Log($"Скопирован спрайт в билд: {fullDest}");
+			}
+
+			return $"UserImages/{fileName}";
 #else
-			string expectedPath = Path.Combine(Application.persistentDataPath, "UserImages", sprite.name + ".png");
-				return File.Exists(expectedPath)
-				? $"UserImages/{sprite.name}.png"
-				: "";
+    // В билде — путь уже должен быть в JSON
+    return $"UserImages/{sprite.name}.png";
 #endif
 		}
+		/*
+		 private static string SafeGetVideoPath(VideoClip clip)
+			{
+			    if (clip == null) return "";
 
+			#if UNITY_EDITOR
+			    string assetPath = AssetDatabase.GetAssetPath(clip);
+			    if (string.IsNullOrEmpty(assetPath)) return "";
 
+			    string fileName = clip.name + ".mp4";
+			    string exportPath = Path.Combine(Application.persistentDataPath, "UserVideos");
+
+			    if (!Directory.Exists(exportPath))
+			        Directory.CreateDirectory(exportPath);
+
+			    string fullDest = Path.Combine(exportPath, fileName);
+
+			    if (!File.Exists(fullDest))
+			    {
+			        File.Copy(assetPath, fullDest);
+			        Debug.Log($"Скопировано видео в билд: {fullDest}");
+			    }
+
+			    return $"UserVideos/{fileName}";
+			#else
+			    return $"UserVideos/{clip.name}.mp4";
+			#endif
+			}
+		 */
 
 		private static string GetAssetPath(UnityEngine.Object obj)
 		{

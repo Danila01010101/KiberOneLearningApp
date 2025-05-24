@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,9 @@ namespace KiberOneLearningApp
 	{
 		[Header("UI References")]
 		[SerializeField] private Transform lessonListParent;
-		[SerializeField] private GameObject lessonButtonPrefab;
+		[SerializeField] private MenuButton lessonButtonPrefab;
 
-		public System.Action<RuntimeTutorialData> OnLessonSelected;
+		public static System.Action<RuntimeTutorialData> OnLessonSelected;
 		
 		public override void Initialize()
 		{
@@ -26,8 +27,8 @@ namespace KiberOneLearningApp
 			{
 				string title = $"Урок {lesson.LessonNumber}: {lesson.TutorialName}";
 
-				GameObject buttonGO = Instantiate(lessonButtonPrefab, lessonListParent);
-				buttonGO.GetComponentInChildren<Text>().text = title;
+				GameObject buttonGO = Instantiate(lessonButtonPrefab, lessonListParent).gameObject;
+				buttonGO.GetComponentInChildren<TextMeshProUGUI>().text = title;
 
 				buttonGO.GetComponent<Button>().onClick.AddListener(() =>
 				{

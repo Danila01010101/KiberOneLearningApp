@@ -3762,6 +3762,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1890630388378906390, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
+      propertyPath: lessonButtonPrefab
+      value: 
+      objectReference: {fileID: 5696206655622878647, guid: 6ce881d8732d954458ac29218033c768, type: 3}
     - target: {fileID: 5401071894462363726, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_Name
       value: LessonSelectionDefault

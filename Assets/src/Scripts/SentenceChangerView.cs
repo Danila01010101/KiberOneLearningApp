@@ -50,7 +50,8 @@ namespace KiberOneLearningApp
                 previousTask = imageView;
             }
 
-            previousTask.OnCompleted += CompleteTask;
+            if (previousTask != null)
+                previousTask.OnCompleted += CompleteTask;
         }
 
         public void Initialize()

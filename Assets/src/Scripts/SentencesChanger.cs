@@ -6,7 +6,7 @@ public class SentencesChanger : UIWindow
 {
     [SerializeField] protected SentenceChangerView sentenceChangerView;
     
-    [Inject] protected RuntimeTutorialData runtimeData;
+    protected RuntimeTutorialData runtimeData;
     
     private int currentIndex = -1;
 
