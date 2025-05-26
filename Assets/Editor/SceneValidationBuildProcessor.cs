@@ -11,7 +11,7 @@ public class SceneConstantsValidator : IPreprocessBuildWithReport
 {
     public int callbackOrder => 0;
 
-    private static readonly Type ConstantsClass = typeof(SceneNaming);
+    private static readonly Type ConstantsClass = typeof(StaticStrings);
 
     public void OnPreprocessBuild(BuildReport report)
     {

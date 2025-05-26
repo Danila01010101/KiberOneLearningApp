@@ -8,14 +8,14 @@ namespace KiberOneLearningApp
     {
         private Button button;
 
-        public void LoadMainScene() => SceneManager.LoadScene(SceneNaming.StartSceneName);
+        public void LoadMainScene() => SceneManager.LoadScene(StaticStrings.StartSceneName);
 
-        public void LoadExelMenuScene() => SceneManager.LoadScene(SceneNaming.ExelMenuSceneName);
+        public void LoadExelMenuScene() => SceneManager.LoadScene(StaticStrings.ExelMenuSceneName);
 
-        public void OpenExelLesson(int index) => SceneManager.LoadScene(SceneNaming.GetExelLessonSceneName(SceneNaming.ExelMenuSceneName, index));
+        public void OpenExelLesson(int index) => SceneManager.LoadScene(StaticStrings.GetExelLessonSceneName(StaticStrings.ExelMenuSceneName, index));
 
-        public void LoadComputerEducationMenuScene() => SceneManager.LoadScene(SceneNaming.ComputerEducationMenuSceneName);
+        public void LoadComputerEducationMenuScene() => SceneManager.LoadScene(StaticStrings.ComputerEducationMenuSceneName);
 
-        public void OpenComputerEducationLesson(int index) => SceneManager.LoadScene(SceneNaming.GetExelLessonSceneName(SceneNaming.ComputerEducationMenuSceneName, index));
+        public void OpenComputerEducationLesson(int index) => SceneManager.LoadScene(StaticStrings.GetExelLessonSceneName(StaticStrings.ComputerEducationMenuSceneName, index));
     }
 }

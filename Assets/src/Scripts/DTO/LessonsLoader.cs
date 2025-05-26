@@ -28,8 +28,7 @@ namespace KiberOneLearningApp
 		{
 			var allLessons = new List<RuntimeTutorialData>();
 
-			// 1. Загрузка встроенных (заготовленных)
-			string builtInFolder = Path.Combine(Application.streamingAssetsPath, "ExportedLessons");
+			string builtInFolder = Path.Combine(Application.streamingAssetsPath, StaticStrings.LessonSavesFloulderName);
 			if (Directory.Exists(builtInFolder))
 			{
 				foreach (var file in Directory.GetFiles(builtInFolder, "*.json"))
@@ -40,6 +39,7 @@ namespace KiberOneLearningApp
 				}
 			}
 
+			/*
 			string userFolder = Path.Combine(Application.persistentDataPath, "UserLessons");
 			if (Directory.Exists(userFolder))
 			{
@@ -50,6 +50,7 @@ namespace KiberOneLearningApp
 						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
 				}
 			}
+			*/
 
 			return allLessons;
 		}

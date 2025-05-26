@@ -24,12 +24,11 @@ namespace KiberOneLearningApp
 		private void LoadTutorialFromInputField() => LoadTutorialFromFile(inputField.text);
 		private void LoadTutorialFromFile(string path)
 		{
-			var dto = JsonIO.LoadFromJson<TutorialDataDTO>(path);
-			
 			string fileName = Path.GetFileName(path);
-			string targetPath = Path.Combine(Application.persistentDataPath, "UserLessons", fileName);
+			string targetPath = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName, fileName);
 
 			File.Copy(path, targetPath, overwrite: true);
+			LessonsLoader.LoadAllLessons();
 		}
 
 		private void SelectTutorialFromPath()

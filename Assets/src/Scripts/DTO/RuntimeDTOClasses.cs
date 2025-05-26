@@ -24,6 +24,7 @@ namespace KiberOneLearningApp
 		public bool isInOrder;
 		public bool IsBeforeTask;
 		public bool HideCharacter;
+		public VideoClip TutorialVideo;
 		public Sprite CharacterIcon;
 		public Vector3 CharacterPosition;
 		public string Text;
@@ -37,6 +38,7 @@ namespace KiberOneLearningApp
 		public Quaternion rotation;
 		public Sprite sprite;
 		public string spritePath;
+		public string videoPath;
 	}
 
 	public class RuntimeInteractablePlacement
@@ -46,6 +48,7 @@ namespace KiberOneLearningApp
 		public Vector3 colliderPosition;
 		public Vector3 colliderSize;
 		public Quaternion rotation;
+		public bool isInOrder;
 		public KeyCode keyCode = KeyCode.Mouse0;
 	}
 }

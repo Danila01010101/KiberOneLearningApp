@@ -8,6 +8,7 @@ namespace KiberOneLearningApp
 		{
 			public string ThemeName;
 			public int LessonNumber;
+			public int TaskID;
 			public string TutorialName;
 			public string DefaultBackgroundPath;
 			public string DefaultTextPath;
@@ -37,6 +38,7 @@ namespace KiberOneLearningApp
 			public SerializableVector3 size;
 			public SerializableQuaternion rotation;
 			public string spritePath;
+			public string videoPath;
 		}
 
 		[Serializable]
@@ -47,6 +49,7 @@ namespace KiberOneLearningApp
 			public SerializableVector3 colliderPosition;
 			public SerializableVector3 colliderSize;
 			public SerializableQuaternion rotation;
+			public bool isInOrder;
 			public string keyCode = "Mouse0";
 		}
 		
