@@ -55,7 +55,7 @@ namespace KiberOneLearningApp
         {
             string selected = existingLessonsDropdown.options[existingLessonsDropdown.value].text;
             if (manager.SelectChangeLesson(selected))
-            {
+            { 
                 OnLessonToEditSelected?.Invoke(manager.CurrentLesson);
                 Debug.Log($"Урок будет загружен: {manager.CurrentLesson?.TutorialName}");
             }

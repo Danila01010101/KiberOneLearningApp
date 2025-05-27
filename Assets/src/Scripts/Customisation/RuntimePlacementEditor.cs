@@ -35,7 +35,6 @@ namespace KiberOneLearningApp
 
         private void Start()
         {
-            // Инициализация выпадающих списков
             colliderTypeDropdown.ClearOptions();
             colliderTypeDropdown.AddOptions(new List<string> { "rectangle", "circle" });
 
@@ -62,7 +61,6 @@ namespace KiberOneLearningApp
 
                 string targetPath = Path.Combine(imageFolder, fileName);
 
-                // Если файла нет — копируем
                 if (!File.Exists(targetPath))
                 {
                     File.Copy(selectedPath, targetPath);
@@ -73,7 +71,6 @@ namespace KiberOneLearningApp
                     Debug.Log("Файл уже существует, повторно не копируем.");
                 }
 
-                // Загружаем превью и спрайт
                 byte[] imageBytes = File.ReadAllBytes(targetPath);
                 Texture2D texture = new Texture2D(2, 2);
                 texture.LoadImage(imageBytes);
@@ -82,7 +79,6 @@ namespace KiberOneLearningApp
                 spritePreview.sprite = selectedSprite;
                 spritePreview.color = Color.white;
 
-                // Сохраняем относительный путь для JSON
                 lastSelectedSpritePath = $"UserImages/{fileName}";
             }
             else

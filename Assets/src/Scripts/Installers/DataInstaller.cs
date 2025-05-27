@@ -12,6 +12,7 @@ namespace KiberOneLearningApp
             InstallGameSaver();
             SetupLessonsData();
             SetupRuntimePlacementEditor();
+            SetupRuntimeLessonEditorManager();
         }
 
         private void InstallGlobalValueInstaller()
@@ -26,5 +27,7 @@ namespace KiberOneLearningApp
         private void SetupLessonsData() => new LessonsLoader();
         
         private void SetupRuntimePlacementEditor() => new RuntimePlacementEditor();
+        
+        private void SetupRuntimeLessonEditorManager() => new RuntimeLessonEditorManager();
     }
 }
