@@ -11,12 +11,19 @@ namespace KiberOneLearningApp
 		{
 			DontDestroyOnLoad(gameObject);
 			LessonChooseWindow.OnLessonSelected += LoadLessonScene;
+			RuntimeLessonEditorManagerView.OnLessonToEditSelected += LoadLessonEditorScene;
 		}
 
 		private void LoadLessonScene(RuntimeTutorialData data)
 		{
 			CurrentTutorialData = data;
 			SceneManager.LoadScene("BasicLessonScene");
+		}
+
+		private void LoadLessonEditorScene(RuntimeTutorialData data)
+		{
+			CurrentTutorialData = data;
+			SceneManager.LoadScene("LessonEditorScene");
 		}
 	}
 }

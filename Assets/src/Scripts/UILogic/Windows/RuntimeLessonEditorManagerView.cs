@@ -19,6 +19,7 @@ namespace KiberOneLearningApp
         
         public override void Show()
         {
+            base.Show();
             RefreshDropdown();
         }
 
@@ -48,6 +49,7 @@ namespace KiberOneLearningApp
             }
 
             manager.CreateNewLesson(theme, name);
+            OnLessonToEditSelected?.Invoke(manager.CurrentLesson);
             Debug.Log($"Создан урок: {name}");
         }
 

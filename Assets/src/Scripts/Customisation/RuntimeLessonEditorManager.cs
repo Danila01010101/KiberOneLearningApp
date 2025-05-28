@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -9,62 +10,141 @@ namespace KiberOneLearningApp
 		public static RuntimeLessonEditorManager Instance { get; private set; }
 		public RuntimeTutorialData CurrentLesson { get; private set; }
 
-		public RuntimeLessonEditorManager()
-		{
-			if (Instance != null)
-				Instance = this;
-		}
+        public int CurrentSentenceIndex { get; private set; } = 0;
 
-		public List<string> GetAvailableLessonFiles()
-		{
-			string folder = Path.Combine(Application.persistentDataPath, "UserLessons");
-			if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+        public event Action<RuntimeSentenceData, Sprite, int, int> SentenceChanged;
 
-			List<string> files = new();
-			foreach (string path in Directory.GetFiles(folder, "*.json"))
-			{
-				files.Add(Path.GetFileName(path));
-			}
+        public RuntimeLessonEditorManager()
+        {
+            if (Instance != null)
+                return;
+            
+            Instance = this;
+        }
 
-			return files;
-		}
+        public List<string> GetAvailableLessonFiles()
+        {
+            List<string> files = new();
+            
+            string persistentDataPathFolder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
+            files.AddRange(GetFilesInFolder(persistentDataPathFolder));  
+            
+            string streamingAssetsPathFolder = Path.Combine(Application.streamingAssetsPath, StaticStrings.LessonSavesFloulderName);
+            files.AddRange(GetFilesInFolder(streamingAssetsPathFolder));  
+            
+            return files;
+        }
 
-		public void CreateNewLesson(string theme, string lessonName)
-		{
-			CurrentLesson = new RuntimeTutorialData
-			{
-				ThemeName = theme,
-				TutorialName = lessonName,
-				LessonNumber = Random.Range(100, 10000),
-				Sentences = new List<RuntimeSentenceData>(),
-				Tasks = new List<RuntimeTutorialData>()
-			};
-		}
+        private List<string> GetFilesInFolder(string folder)
+        {
+            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
-		public bool SelectChangeLesson(string filename)
-		{
-			string path = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName, filename);
-			if (!File.Exists(path)) return false;
+            List<string> files = new();
+            foreach (string path in Directory.GetFiles(folder, "*.json"))
+            {
+                files.Add(Path.GetFileName(path));
+            }
+            
+            return files;
+        }
+        
+        public bool SelectChangeLesson(string filename)
+        {
+            string userFolder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
+            string streamingFolder = Path.Combine(Application.streamingAssetsPath, StaticStrings.LessonSavesFloulderName);
 
-			var dto = JsonIO.LoadFromJson<TutorialDataDTO>(path);
-			if (dto == null) return false;
+            string userPath = Path.Combine(userFolder, filename);
+            string streamingPath = Path.Combine(streamingFolder, filename);
 
-			CurrentLesson = TutorialRuntimeBuilder.FromDTO(dto);
-			return true;
-		}
+            string targetPath = null;
 
-		public void SaveCurrentLesson()
-		{
-			if (CurrentLesson == null) return;
+            if (File.Exists(userPath))
+            {
+                targetPath = userPath;
+            }
+            else if (File.Exists(streamingPath))
+            {
+                targetPath = streamingPath;
+            }
+            else
+            {
+                Debug.LogWarning($"Файл не найден ни в пользовательской, ни в заготовленной папке: {filename}");
+                return false;
+            }
 
-			string folder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
-			if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+            var dto = JsonIO.LoadFromJson<TutorialDataDTO>(targetPath);
+            if (dto == null)
+            {
+                Debug.LogError($"Ошибка загрузки DTO из {targetPath}");
+                return false;
+            }
 
-			string fileName = $"{CurrentLesson.TutorialName.Replace(" ", "_")}.json";
-			string path = Path.Combine(folder, fileName);
+            CurrentLesson = TutorialRuntimeBuilder.FromDTO(dto);
+            CurrentSentenceIndex = 0;
+            TriggerSentenceChanged();
 
-			var dto = TutorialConverter.ToDTO(CurrentLesson);
-			File.WriteAllText(path, JsonUtility.ToJson(dto, true));
-		}
+            return true;
+        }
+        
+        public void CreateNewLesson(string theme, string lessonName)
+        {
+            CurrentLesson = new RuntimeTutorialData
+            {
+                ThemeName = theme,
+                TutorialName = lessonName,
+                LessonNumber = 0,
+                Sentences = new List<RuntimeSentenceData>(),
+                Tasks = new List<RuntimeTutorialData>()
+            };
+
+            CurrentLesson.Sentences.Add(new RuntimeSentenceData());
+            CurrentSentenceIndex = 0;
+            TriggerSentenceChanged();
+        }
+
+        public bool LoadLesson(string filename)
+        {
+            string path = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName, filename);
+            if (!File.Exists(path)) return false;
+
+            var dto = JsonIO.LoadFromJson<TutorialDataDTO>(path);
+            if (dto == null) return false;
+
+            CurrentLesson = TutorialRuntimeBuilder.FromDTO(dto);
+            CurrentSentenceIndex = 0;
+            TriggerSentenceChanged();
+
+            return true;
+        }
+
+        public void SaveCurrentLesson()
+        {
+            if (CurrentLesson == null) return;
+
+            string folder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
+            Directory.CreateDirectory(folder);
+
+            string fileName = $"{CurrentLesson.TutorialName.Replace(" ", "_")}.json";
+            string path = Path.Combine(folder, fileName);
+
+            var dto = TutorialConverter.ToDTO(CurrentLesson);
+            File.WriteAllText(path, JsonUtility.ToJson(dto, true));
+        }
+
+        private void TriggerSentenceChanged()
+        {
+            if (CurrentLesson == null || CurrentLesson.Sentences.Count == 0)
+                return;
+
+            var sentence = CurrentLesson.Sentences[CurrentSentenceIndex];
+            var defaultBackground = CurrentLesson.DefaultBackground;
+
+            SentenceChanged?.Invoke(
+                sentence,
+                defaultBackground,
+                CurrentSentenceIndex,
+                CurrentLesson.Sentences.Count
+            );
+        }
 	}
 }

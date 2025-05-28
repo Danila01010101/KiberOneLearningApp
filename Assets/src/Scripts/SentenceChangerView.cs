@@ -38,16 +38,19 @@ namespace KiberOneLearningApp
         {
             ObjectForTask previousTask = null;
 			
-            foreach (var placement in taskImagesData)
+            if (taskImagesData != null)
             {
-                ObjectForTask imageView = Instantiate(taskPrefab, taskObjectsParent);
-                imageView.Initialize(placement);
-                if (previousTask != null)
+                foreach (var placement in taskImagesData)
                 {
-                    previousTask.OnCompleted += imageView.Activate;
+                    ObjectForTask imageView = Instantiate(taskPrefab, taskObjectsParent);
+                    imageView.Initialize(placement);
+                    if (previousTask != null)
+                    {
+                        previousTask.OnCompleted += imageView.Activate;
+                    }
+
+                    previousTask = imageView;
                 }
-					
-                previousTask = imageView;
             }
 
             if (previousTask != null)
@@ -57,6 +60,7 @@ namespace KiberOneLearningApp
         public void Initialize()
         {
             gifOpener = new GifOpener(player, videoWindow);
+            RuntimeLessonEditorManager.Instance.SentenceChanged += UpdateView;
         }
 
         public void UpdateView(
@@ -106,10 +110,13 @@ namespace KiberOneLearningApp
             }
 
             // Отображение новых изображений
-            foreach (var placement in sentenceData.Images)
+            if (sentenceData.Images != null)
             {
-                ImagePlacementView imageView = Instantiate(imageViewPrefab, imagesParent);
-                imageView.Initialize(placement.sprite, placement.position, placement.size, placement.rotation);
+                foreach (var placement in sentenceData.Images)
+                {
+                    ImagePlacementView imageView = Instantiate(imageViewPrefab, imagesParent);
+                    imageView.Initialize(placement.sprite, placement.position, placement.size, placement.rotation);
+                }
             }
 
             // Кнопка задания — вызывается отдельно
@@ -143,6 +150,9 @@ namespace KiberOneLearningApp
         {
             nextButton.onClick.RemoveAllListeners();
             backButton.onClick.RemoveAllListeners();
+            
+            if (RuntimeLessonEditorManager.Instance != null)
+                RuntimeLessonEditorManager.Instance.SentenceChanged -= UpdateView;
         }
         
         private void CompleteTask()

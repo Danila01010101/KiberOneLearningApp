@@ -14,6 +14,8 @@ public class SentencesChanger : UIWindow
 
     public override void Initialize()
     {
+        RuntimeLessonEditorView.NewSentenceAdded += ShowNextSentence;
+        RuntimeLessonEditorView.CurrentSentenceDeleted += ShowPreviousSentence;
         sentenceChangerView.SubscribeButtons(ShowNextSentence, ShowPreviousSentence);
     }
 

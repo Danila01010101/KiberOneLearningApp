@@ -14,7 +14,8 @@ public class TopicChooseWindow : UIWindow
     [Header("Basic settings")]
     [SerializeField] private UIWindow nextWindow;
     [SerializeField] private Button nextWindowButton;
-    [SerializeField] private Button lessonSettingsButton;
+    [SerializeField] private Button lessonLoadButton;
+    [SerializeField] private Button lessonEditorButton;
     
     private bool IsButtonExist => nextWindowButton != null;
     
@@ -52,7 +53,8 @@ public class TopicChooseWindow : UIWindow
     public override void Show()
     {
         base.Show();
-        lessonSettingsButton.gameObject.SetActive(GlobalValueSetter.Instance.IsTeacher);
+        lessonLoadButton.gameObject.SetActive(GlobalValueSetter.Instance.IsTeacher);
+        lessonEditorButton.gameObject.SetActive(GlobalValueSetter.Instance.IsTeacher);
     }
 
     private void OpenNextWindow() => UIWindowManager.Show(nextWindow, true);

@@ -38,9 +38,8 @@ namespace KiberOneLearningApp
 						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
 				}
 			}
-
-			/*
-			string userFolder = Path.Combine(Application.persistentDataPath, "UserLessons");
+			
+			string userFolder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
 			if (Directory.Exists(userFolder))
 			{
 				foreach (var file in Directory.GetFiles(userFolder, "*.json"))
@@ -50,7 +49,6 @@ namespace KiberOneLearningApp
 						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
 				}
 			}
-			*/
 
 			return allLessons;
 		}

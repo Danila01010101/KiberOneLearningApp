@@ -1,0 +1,117 @@
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using UnityEngine.UI;
+
+namespace KiberOneLearningApp
+{
+    public class RuntimeLessonEditorView : MonoBehaviour
+    {
+        [Header("UI Buttons")]
+        [SerializeField] private Button changeCharacterButton;
+        [SerializeField] private Button changeVideoButton;
+        [SerializeField] private Button addSentenceButton;
+        [SerializeField] private Button removeSentenceButton;
+
+        private RuntimeLessonEditorManager lessonManager;
+        private int currentSentenceIndex = 0;
+        
+        public static Action NewSentenceAdded;
+        public static Action CurrentSentenceDeleted;
+        public static Action CurrentSentenceChanged;
+
+        private void Start()
+        {
+            lessonManager = RuntimeLessonEditorManager.Instance;
+
+            changeCharacterButton.onClick.AddListener(OnChangeCharacterIcon);
+            changeVideoButton.onClick.AddListener(OnChangeTutorialVideo);
+            addSentenceButton.onClick.AddListener(OnAddSentence);
+            removeSentenceButton.onClick.AddListener(OnRemoveCurrentSentence);
+        }
+
+        private RuntimeSentenceData GetCurrentSentence()
+        {
+            if (lessonManager.CurrentLesson == null || lessonManager.CurrentLesson.Sentences == null || lessonManager.CurrentLesson.Sentences.Count == 0)
+                return null;
+
+            currentSentenceIndex = Mathf.Clamp(currentSentenceIndex, 0, lessonManager.CurrentLesson.Sentences.Count - 1);
+            return lessonManager.CurrentLesson.Sentences[currentSentenceIndex];
+        }
+
+        private void OnChangeCharacterIcon()
+        {
+            var sentence = GetCurrentSentence();
+            if (sentence == null)
+            {
+                Debug.LogWarning("Нет доступного предложения.");
+                return;
+            }
+
+            RuntimeImagePlacement tempPlacement = new RuntimeImagePlacement();
+            if (RuntimeSpriteManager.PickAndAssignSprite(tempPlacement))
+            {
+                sentence.CharacterIcon = tempPlacement.sprite;
+                sentence.CharacterIcon.name = tempPlacement.sprite.name; // имя используется в spritePath при сохранении
+                Debug.Log("Иконка персонажа обновлена.");
+            }
+        }
+
+        private void OnChangeTutorialVideo()
+        {
+            var sentence = GetCurrentSentence();
+            if (sentence == null)
+            {
+                Debug.LogWarning("Нет предложения.");
+                return;
+            }
+
+            RuntimeImagePlacement temp = new RuntimeImagePlacement();
+            if (RuntimeVideoManager.PickAndAssignVideo(temp))
+            {
+                sentence.TutorialVideoPath = temp.videoPath;
+                Debug.Log($"Видео назначено: {temp.videoPath}");
+            }
+        }
+
+        private void OnAddSentence()
+        {
+            if (lessonManager.CurrentLesson == null)
+            {
+                Debug.LogWarning("Урок не создан.");
+                return;
+            }
+
+            RuntimeSentenceData newSentence = new RuntimeSentenceData
+            {
+                Text = "Новое предложение",
+                CharacterPosition = new Vector3(353, -195, 0),
+                Images = new List<RuntimeImagePlacement>(),
+                InteractableImages = new List<RuntimeInteractablePlacement>(),
+                IsBeforeTask = false,
+                HideCharacter = false
+            };
+
+            lessonManager.CurrentLesson.Sentences.Add(newSentence);
+            currentSentenceIndex = lessonManager.CurrentLesson.Sentences.Count - 1;
+            NewSentenceAdded?.Invoke();
+
+            Debug.Log("Добавлено новое предложение.");
+        }
+
+        private void OnRemoveCurrentSentence()
+        {
+            if (lessonManager.CurrentLesson?.Sentences == null || lessonManager.CurrentLesson.Sentences.Count <= 1)
+            {
+                Debug.LogWarning("Нельзя удалить последнее предложение.");
+                return;
+            }
+
+            lessonManager.CurrentLesson.Sentences.RemoveAt(currentSentenceIndex);
+            currentSentenceIndex = Mathf.Clamp(currentSentenceIndex - 1, 0, lessonManager.CurrentLesson.Sentences.Count - 1);
+            CurrentSentenceDeleted?.Invoke();
+
+            Debug.Log("Предложение удалено.");
+        }
+    }
+}

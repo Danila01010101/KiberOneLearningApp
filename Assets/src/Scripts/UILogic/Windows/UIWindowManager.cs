@@ -68,6 +68,8 @@ public class UIWindowManager : MonoBehaviour
 
 		_instance._currentView = view;
 	}
+	
+	public void ShowViewFromInstance(UIWindow view) => Show(view, true);
 
 	public static void ShowLast()
 	{

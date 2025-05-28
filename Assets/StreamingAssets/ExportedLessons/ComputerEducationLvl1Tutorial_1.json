@@ -1,6 +1,7 @@
 {
     "ThemeName": "",
     "LessonNumber": 0,
+    "TaskID": 0,
     "TutorialName": "Знакомство с компьютером",
     "DefaultBackgroundPath": "UserImages/ФонКомпГрамотность.png",
     "DefaultTextPath": "",
@@ -8,6 +9,7 @@
         {
             "ThemeName": "",
             "LessonNumber": 0,
+            "TaskID": 0,
             "TutorialName": "Использование мыши",
             "DefaultBackgroundPath": "UserImages/ФонКомпГрамотность.png",
             "DefaultTextPath": "",
@@ -18,7 +20,7 @@
                     "Images": [],
                     "InteractableImages": [],
                     "IsBeforeTask": false,
-                    "TaskPrefabName": "LeftMouseTask",
+                    "TaskPrefabName": "",
                     "HideCharacter": true,
                     "CharacterIconPath": "",
                     "CharacterPosition": {
@@ -34,7 +36,7 @@
                     "Images": [],
                     "InteractableImages": [],
                     "IsBeforeTask": false,
-                    "TaskPrefabName": "RightMouseTask",
+                    "TaskPrefabName": "",
                     "HideCharacter": true,
                     "CharacterIconPath": "",
                     "CharacterPosition": {
@@ -50,7 +52,7 @@
                     "Images": [],
                     "InteractableImages": [],
                     "IsBeforeTask": false,
-                    "TaskPrefabName": "WheelMouseTask",
+                    "TaskPrefabName": "",
                     "HideCharacter": true,
                     "CharacterIconPath": "",
                     "CharacterPosition": {
@@ -82,6 +84,7 @@
         {
             "ThemeName": "",
             "LessonNumber": 0,
+            "TaskID": 0,
             "TutorialName": "1 - Выключение компьютера",
             "DefaultBackgroundPath": "UserImages/ФонКомпГрамотность.png",
             "DefaultTextPath": "",
