@@ -31,7 +31,7 @@ namespace KiberOneLearningApp
         private string lastSelectedSpritePath = "";
         private string lastSelectedVideoPath = "";
 
-        public Action<RuntimeInteractablePlacement> OnPlacementSaved;
+        public static Action<RuntimeInteractablePlacement> OnPlacementSaved;
 
         private void Start()
         {

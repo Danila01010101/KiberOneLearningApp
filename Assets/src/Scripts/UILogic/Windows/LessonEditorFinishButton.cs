@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace KiberOneLearningApp
@@ -12,6 +13,7 @@ namespace KiberOneLearningApp
 		
 		private void Start()
 		{
+			manager = RuntimeLessonEditorManager.Instance;
 			finishEditingButton.onClick.AddListener(OnFinishEditing);
 		}
 
@@ -19,6 +21,7 @@ namespace KiberOneLearningApp
 		{
 			manager.SaveCurrentLesson();
 			Debug.Log("Урок сохранён.");
+			SceneManager.LoadScene("StartScene");
 		}
 	}
 }

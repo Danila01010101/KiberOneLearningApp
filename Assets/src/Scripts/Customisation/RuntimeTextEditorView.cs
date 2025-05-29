@@ -10,7 +10,7 @@ namespace KiberOneLearningApp
 		private RuntimeLessonEditorManager lessonManager;
 		private int sentenceIndex = 0;
 
-		public void Init()
+		public void Start()
 		{
 			lessonManager = RuntimeLessonEditorManager.Instance;
 			sentenceIndex = 0;

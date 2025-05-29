@@ -1,6 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine.UI;
 
 namespace KiberOneLearningApp
@@ -12,13 +13,21 @@ namespace KiberOneLearningApp
         [SerializeField] private Button changeVideoButton;
         [SerializeField] private Button addSentenceButton;
         [SerializeField] private Button removeSentenceButton;
+        [SerializeField] private Button addImageButton;
+        
+        [Header("Editor References")]
+        [SerializeField] private RuntimeSpriteEditor characterEditor;
+        [SerializeField] private RectTransform imageContainer;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private RuntimeSpriteEditor spriteEditorPrefab;
+        [SerializeField] private TMP_InputField lessonNameInputField;
 
         private RuntimeLessonEditorManager lessonManager;
         private int currentSentenceIndex = 0;
         
         public static Action NewSentenceAdded;
         public static Action CurrentSentenceDeleted;
-        public static Action CurrentSentenceChanged;
+        public static Action<RuntimeImagePlacement> CurrentCharacterImageChanged;
 
         private void Start()
         {
@@ -28,6 +37,9 @@ namespace KiberOneLearningApp
             changeVideoButton.onClick.AddListener(OnChangeTutorialVideo);
             addSentenceButton.onClick.AddListener(OnAddSentence);
             removeSentenceButton.onClick.AddListener(OnRemoveCurrentSentence);
+            addImageButton.onClick.AddListener(OnAddImage);
+            lessonNameInputField.onValueChanged.AddListener(OnLessonNameChange);
+            lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = lessonManager.CurrentLesson.TutorialName;
         }
 
         private RuntimeSentenceData GetCurrentSentence()
@@ -52,7 +64,8 @@ namespace KiberOneLearningApp
             if (RuntimeSpriteManager.PickAndAssignSprite(tempPlacement))
             {
                 sentence.CharacterIcon = tempPlacement.sprite;
-                sentence.CharacterIcon.name = tempPlacement.sprite.name; // имя используется в spritePath при сохранении
+                sentence.CharacterIcon.name = tempPlacement.sprite.name;
+                CurrentCharacterImageChanged?.Invoke(tempPlacement);
                 Debug.Log("Иконка персонажа обновлена.");
             }
         }
@@ -112,6 +125,30 @@ namespace KiberOneLearningApp
             CurrentSentenceDeleted?.Invoke();
 
             Debug.Log("Предложение удалено.");
+        }
+
+        private void OnAddImage()
+        {
+            var sentence = GetCurrentSentence();
+            if (sentence == null) return;
+
+            var newPlacement = new RuntimeImagePlacement
+            {
+                position = Vector3.zero,
+                size = Vector3.one * 100f,
+                rotation = Quaternion.identity
+            };
+
+            sentence.Images ??= new List<RuntimeImagePlacement>();
+            sentence.Images.Add(newPlacement);
+
+            RuntimeSpriteEditor editor = Instantiate(spriteEditorPrefab, imageContainer);
+            editor.Init(newPlacement, canvas);
+        }
+
+        private void OnLessonNameChange(string text)
+        {
+            lessonManager.CurrentLesson.TutorialName = text;
         }
     }
 }
