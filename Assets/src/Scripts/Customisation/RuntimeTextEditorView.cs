@@ -21,7 +21,7 @@ namespace KiberOneLearningApp
 
 		public void SetPreviousSentenceIndex()
 		{
-			sentenceIndex++;
+			sentenceIndex--;
 			RefreshText();
 		}
 

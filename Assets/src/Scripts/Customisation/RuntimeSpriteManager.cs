@@ -22,8 +22,9 @@ namespace KiberOneLearningApp
 		public static bool PickAndAssignSprite(RuntimeImagePlacement placement)
 		{
 #if UNITY_EDITOR || UNITY_STANDALONE
-			var extensions = new[] { new ExtensionFilter("Image Files", "png", "jpg", "jpeg", "psd") };
-			string[] paths = StandaloneFileBrowser.OpenFilePanel("Выбрать изображение", "", extensions, false);
+			string[] paths = SFB.StandaloneFileBrowser.OpenFilePanel(
+				"Выбрать изображение", "", new[] { new SFB.ExtensionFilter("Image Files", "png", "jpg", "jpeg", "psd") }, false);
+
 			if (paths == null || paths.Length == 0 || !File.Exists(paths[0])) return false;
 
 			string fileName = Path.GetFileName(paths[0]);
@@ -36,10 +37,10 @@ namespace KiberOneLearningApp
 
 			placement.sprite = LoadSprite(destPath);
 			placement.spritePath = $"{StaticStrings.ImagesSavesFloulderName}/{fileName}";
-
 			return true;
 #else
-        return false;
+    Debug.LogWarning("Выбор изображений доступен только в редакторе или Standalone.");
+    return false;
 #endif
 		}
 

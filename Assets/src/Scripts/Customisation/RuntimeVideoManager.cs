@@ -11,7 +11,9 @@ namespace KiberOneLearningApp
 		public static bool PickAndAssignVideo(RuntimeImagePlacement placement)
 		{
 #if UNITY_EDITOR || UNITY_STANDALONE
-			string[] paths = StandaloneFileBrowser.OpenFilePanel("Выберите видео", "", new[] { new ExtensionFilter("Video", "mp4") }, false);
+			string[] paths = SFB.StandaloneFileBrowser.OpenFilePanel(
+				"Выберите видео", "", new[] { new SFB.ExtensionFilter("Video", "mp4") }, false);
+
 			if (paths == null || paths.Length == 0 || !File.Exists(paths[0])) return false;
 
 			string fileName = Path.GetFileName(paths[0]);
@@ -25,7 +27,8 @@ namespace KiberOneLearningApp
 			placement.videoPath = $"{StaticStrings.VideoSavesFloulderName}/{fileName}";
 			return true;
 #else
-        return false;
+    Debug.LogWarning("Выбор видео доступен только в редакторе или Standalone.");
+    return false;
 #endif
 		}
 

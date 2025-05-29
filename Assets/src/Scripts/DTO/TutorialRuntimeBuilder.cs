@@ -77,7 +77,7 @@ namespace KiberOneLearningApp
             fullPath = sesondPartOfPath + fullPath;
             if (!File.Exists(fullPath)) return null;
 #else
-            string fullPath = Path.Combine(Application.persistentDataPath, relativePath);
+            fullPath = Path.Combine(Application.persistentDataPath, relativePath);
             if (!File.Exists(fullPath)) return null;
 #endif
 

@@ -6,70 +6,101 @@ using UnityEngine.UI;
 namespace KiberOneLearningApp
 {
 	public class RuntimeSpriteEditor : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
-	{
-		[SerializeField] private Image imageRenderer;
-		[SerializeField] private Button changeImageButton;
-		private RuntimeImagePlacement placement;
+    {
+        [SerializeField] private Image imageRenderer;
+        [SerializeField] private Button changeImageButton;
+        [SerializeField] private Button toggleButton;
 
-		private RectTransform rectTransform;
-		private Canvas canvas;
+        private RuntimeImagePlacement placement;
+        private RectTransform rectTransform;
+        private Canvas canvas;
 
-		public void Init(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
-		{
-			placement = linkedPlacement;
-			rectTransform = GetComponent<RectTransform>();
-			canvas = parentCanvas;
-			changeImageButton.onClick.AddListener(PickNewSprite);
+        private Vector2 resizeStartMouse;
+        private Vector2 resizeStartSize;
 
-			ApplyDataToUI();
-		}
+        private bool isInResizeMode;
 
-		private void ApplyDataToUI()
-		{
-			if (placement == null || imageRenderer == null) return;
+        public void Init(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
+        {
+            placement = linkedPlacement;
+            rectTransform = GetComponent<RectTransform>();
+            canvas = parentCanvas;
+            changeImageButton.onClick.AddListener(PickNewSprite);
+            toggleButton.onClick.AddListener(ToggleResizeMode);
 
-			imageRenderer.sprite = placement.sprite;
-			imageRenderer.color = placement.sprite != null ? Color.white : Color.clear;
+            ApplyDataToUI();
+        }
 
-			if (rectTransform != null)
-			{
-				rectTransform.localPosition = placement.position;
-				rectTransform.localRotation = placement.rotation;
-				rectTransform.sizeDelta = placement.size;
-			}
-		}
+        private void ApplyDataToUI()
+        {
+            if (placement == null || imageRenderer == null || rectTransform == null) return;
 
-		public void PickNewSprite()
-		{
-			if (placement == null) return;
+            imageRenderer.sprite = placement.sprite;
+            imageRenderer.color = placement.sprite != null ? Color.white : Color.clear;
 
-			bool picked = RuntimeSpriteManager.PickAndAssignSprite(placement);
-			if (picked)
-			{
-				ApplyDataToUI();
-			}
-		}
+            rectTransform.localPosition = placement.position;
+            rectTransform.localRotation = placement.rotation;
+            rectTransform.sizeDelta = new Vector2(placement.size.x, placement.size.y);
+        }
 
-		public void OnBeginDrag(PointerEventData eventData) { }
+        public void PickNewSprite()
+        {
+    #if UNITY_EDITOR || UNITY_STANDALONE
+            if (placement == null) return;
 
-		public void OnDrag(PointerEventData eventData)
-		{
-			if (rectTransform == null || canvas == null) return;
+            bool picked = RuntimeSpriteManager.PickAndAssignSprite(placement);
+            if (picked)
+            {
+                ApplyDataToUI();
+            }
+    #endif
+        }
 
-			Vector2 moveDelta = eventData.delta / canvas.scaleFactor;
-			rectTransform.anchoredPosition += moveDelta;
+        public void ToggleResizeMode()
+        {
+            isInResizeMode = !isInResizeMode;
+            Debug.Log("Режим редактирования: " + (isInResizeMode ? "Изменение размера" : "Перемещение"));
+            // Если есть UI-индикатор — обнови его здесь
+        }
 
-			placement.position = rectTransform.localPosition;
-		}
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (isInResizeMode)
+            {
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out resizeStartMouse);
+                resizeStartSize = rectTransform.sizeDelta;
+            }
+        }
 
-		public void OnEndDrag(PointerEventData eventData)
-		{
-			placement.position = rectTransform.localPosition;
-		}
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (canvas == null || rectTransform == null || placement == null) return;
 
-		private void OnDestroy()
-		{
-			changeImageButton.onClick.RemoveListener(PickNewSprite);
-		}
-	}
+            if (isInResizeMode)
+            {
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out var localPoint);
+                Vector2 delta = localPoint - resizeStartMouse;
+                Vector2 newSize = resizeStartSize + new Vector2(delta.x, delta.x);
+                newSize = Vector2.Max(newSize, new Vector2(10f, 10f)); // минимальный размер
+
+                rectTransform.sizeDelta = newSize;
+                placement.size = new Vector3(newSize.x, newSize.y, 0f);
+            }
+            else
+            {
+                Vector2 moveDelta = eventData.delta / canvas.scaleFactor;
+                rectTransform.anchoredPosition += moveDelta;
+                placement.position = rectTransform.localPosition;
+            }
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (placement != null && rectTransform != null)
+            {
+                placement.position = rectTransform.localPosition;
+                placement.size = new Vector3(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y, 0f);
+            }
+        }
+    }
 }
