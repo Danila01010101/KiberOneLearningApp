@@ -27,6 +27,7 @@ namespace KiberOneLearningApp
 		public VideoClip TutorialVideo;
 		public Sprite CharacterIcon;
 		public Vector3 CharacterPosition;
+		public Vector3 CharacterSize = Vector3.one * 100f;
 		public string Text;
 		public string TutorialVideoPath;
 	}

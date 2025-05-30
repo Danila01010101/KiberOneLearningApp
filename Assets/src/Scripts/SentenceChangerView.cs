@@ -70,16 +70,27 @@ namespace KiberOneLearningApp
             int sentenceCount)
         {
             characterText.text = sentenceData.Text;
-
-            // Персонаж
+            
+            /*
             if (sentenceData.CharacterIcon != null)
             {
                 character.color = Color.white;
-                character.sprite = sentenceData.CharacterIcon;
             }
             else
             {
                 character.color = Color.clear;
+            }
+            */
+
+            if (sentenceData.CharacterIcon != null)
+            {
+                character.sprite = sentenceData.CharacterIcon;
+                character.transform.localPosition = sentenceData.CharacterPosition;
+
+                character.rectTransform.sizeDelta = new Vector2(
+                    sentenceData.CharacterSize.x,
+                    sentenceData.CharacterSize.y
+                );
             }
 
             character.transform.localPosition = sentenceData.CharacterPosition;

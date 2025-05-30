@@ -40,5 +40,10 @@ public class SentencesChanger : UIWindow
         }
     }
 
-    protected virtual void OnDestroy() => sentenceChangerView.UnsubscribeButtons();
+    protected virtual void OnDestroy()
+    {
+        RuntimeLessonEditorView.NewSentenceAdded -= ShowNextSentence;
+        RuntimeLessonEditorView.CurrentSentenceDeleted -= ShowPreviousSentence;
+        sentenceChangerView.UnsubscribeButtons();
+    }
 }

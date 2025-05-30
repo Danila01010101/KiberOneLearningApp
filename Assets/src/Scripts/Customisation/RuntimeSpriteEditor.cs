@@ -19,14 +19,21 @@ namespace KiberOneLearningApp
         private Vector2 resizeStartSize;
 
         private bool isInResizeMode;
+        
+        public event Action OnEditorChanged;
 
-        public void Init(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
+        private void Awake()
         {
+            changeImageButton.onClick.AddListener(PickNewSprite);
+            toggleButton.onClick.AddListener(ToggleResizeMode);
+        }
+
+        public void InitAndResetSubscribes(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
+        {
+            OnEditorChanged = null;
             placement = linkedPlacement;
             rectTransform = GetComponent<RectTransform>();
             canvas = parentCanvas;
-            changeImageButton.onClick.AddListener(PickNewSprite);
-            toggleButton.onClick.AddListener(ToggleResizeMode);
 
             ApplyDataToUI();
         }
@@ -100,7 +107,14 @@ namespace KiberOneLearningApp
             {
                 placement.position = rectTransform.localPosition;
                 placement.size = new Vector3(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y, 0f);
+                OnEditorChanged?.Invoke();
             }
+        }
+
+        private void OnDestroy()
+        {
+            changeImageButton.onClick.RemoveListener(PickNewSprite);
+            toggleButton.onClick.RemoveListener(ToggleResizeMode);
         }
     }
 }

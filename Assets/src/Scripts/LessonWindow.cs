@@ -12,11 +12,18 @@ namespace KiberOneLearningApp
         [SerializeField] private GameObject writeLessonButton;
 
         private List<LessonWithTasksWindow> taskWindows;
-        private List<int> taskSentenceIndexes = new(); // индексы предложений, после которых задания[Inject]
+        private List<int> taskSentenceIndexes = new();
 
         public override void Initialize()
         {
-            runtimeData = LessonSceneWithDataOpener.CurrentTutorialData;
+            if (GetComponent<RuntimeLessonEditorView>() == null)
+            {
+                runtimeData = LessonSceneWithDataOpener.CurrentTutorialData;
+            }
+            else
+            {
+                runtimeData = RuntimeLessonEditorManager.Instance.CurrentLesson;
+            }
             
             if (runtimeData == null)
                 return;

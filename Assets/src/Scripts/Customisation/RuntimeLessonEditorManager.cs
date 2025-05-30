@@ -20,6 +20,7 @@ namespace KiberOneLearningApp
                 return;
             
             Instance = this;
+            RuntimeLessonEditorView.SentenceIndexChanged += DetectIndexChange;
         }
 
         public List<string> GetAvailableLessonFiles()
@@ -33,6 +34,13 @@ namespace KiberOneLearningApp
             files.AddRange(GetFilesInFolder(streamingAssetsPathFolder));  
             
             return files;
+        }
+        
+        private void DetectIndexChange(int newIndex)
+        {
+            CurrentSentenceIndex = newIndex;
+            Debug.Log(newIndex);
+            TriggerSentenceChanged();
         }
 
         private List<string> GetFilesInFolder(string folder)
@@ -129,6 +137,7 @@ namespace KiberOneLearningApp
 
             var dto = TutorialConverter.ToDTO(CurrentLesson);
             File.WriteAllText(path, JsonUtility.ToJson(dto, true));
+            TriggerSentenceChanged();
         }
 
         private void TriggerSentenceChanged()

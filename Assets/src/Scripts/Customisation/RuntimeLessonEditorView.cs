@@ -9,11 +9,12 @@ namespace KiberOneLearningApp
     public class RuntimeLessonEditorView : MonoBehaviour
     {
         [Header("UI Buttons")]
-        [SerializeField] private Button changeCharacterButton;
         [SerializeField] private Button changeVideoButton;
         [SerializeField] private Button addSentenceButton;
         [SerializeField] private Button removeSentenceButton;
         [SerializeField] private Button addImageButton;
+        [SerializeField] private Button nextButton;
+        [SerializeField] private Button previousButton;
         
         [Header("Editor References")]
         [SerializeField] private RuntimeSpriteEditor characterEditor;
@@ -24,22 +25,63 @@ namespace KiberOneLearningApp
 
         private RuntimeLessonEditorManager lessonManager;
         private int currentSentenceIndex = 0;
+        private readonly List<RuntimeSpriteEditor> spawnedImageEditors = new();
         
         public static Action NewSentenceAdded;
         public static Action CurrentSentenceDeleted;
-        public static Action<RuntimeImagePlacement> CurrentCharacterImageChanged;
+        public static Action<int> SentenceIndexChanged;
 
         private void Start()
         {
             lessonManager = RuntimeLessonEditorManager.Instance;
 
-            changeCharacterButton.onClick.AddListener(OnChangeCharacterIcon);
             changeVideoButton.onClick.AddListener(OnChangeTutorialVideo);
             addSentenceButton.onClick.AddListener(OnAddSentence);
             removeSentenceButton.onClick.AddListener(OnRemoveCurrentSentence);
             addImageButton.onClick.AddListener(OnAddImage);
+            nextButton.onClick.AddListener(SetNextSentenceIndex);
+            previousButton.onClick.AddListener(SetPreviousSentenceIndex);
             lessonNameInputField.onValueChanged.AddListener(OnLessonNameChange);
             lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = lessonManager.CurrentLesson.TutorialName;
+            RuntimeLessonEditorManager.Instance.SentenceChanged += DetectSentenceChange;
+            InitializeCharacterIcon();
+        }
+        
+        public void RefreshImageEditors()
+        {
+            foreach (var editor in spawnedImageEditors)
+            {
+                if (editor != null)
+                    Destroy(editor.gameObject);
+            }
+
+            spawnedImageEditors.Clear();
+
+            var sentence = GetCurrentSentence();
+            if (sentence == null || sentence.Images == null) return;
+
+            foreach (var image in sentence.Images)
+            {
+                var newEditor = Instantiate(spriteEditorPrefab, imageContainer);
+                newEditor.InitAndResetSubscribes(image, canvas);
+                spawnedImageEditors.Add(newEditor);
+            }
+        }
+
+        private void InitializeCharacterIcon()
+        {
+            var sentence = GetCurrentSentence();
+            
+            if (sentence == null)
+            {
+                Debug.LogWarning("Нет доступного предложения.");
+                return;
+            }
+            
+            var characterPlacement = new CharacterEditorPlacement(sentence);
+            characterEditor.InitAndResetSubscribes(characterPlacement, canvas);
+
+            characterEditor.OnEditorChanged += characterPlacement.ApplyChanges;
         }
 
         private RuntimeSentenceData GetCurrentSentence()
@@ -51,6 +93,7 @@ namespace KiberOneLearningApp
             return lessonManager.CurrentLesson.Sentences[currentSentenceIndex];
         }
 
+        /*
         private void OnChangeCharacterIcon()
         {
             var sentence = GetCurrentSentence();
@@ -65,9 +108,23 @@ namespace KiberOneLearningApp
             {
                 sentence.CharacterIcon = tempPlacement.sprite;
                 sentence.CharacterIcon.name = tempPlacement.sprite.name;
-                CurrentCharacterImageChanged?.Invoke(tempPlacement);
+                characterEditor.Init(tempPlacement, canvas);
                 Debug.Log("Иконка персонажа обновлена.");
             }
+        }
+        */
+        
+
+        public void SetPreviousSentenceIndex()
+        {
+            SentenceIndexChanged?.Invoke(--currentSentenceIndex);
+            InitializeCharacterIcon();
+        }
+
+        public void SetNextSentenceIndex()
+        {
+            SentenceIndexChanged?.Invoke(++currentSentenceIndex);
+            InitializeCharacterIcon();
         }
 
         private void OnChangeTutorialVideo()
@@ -106,7 +163,7 @@ namespace KiberOneLearningApp
             };
 
             lessonManager.CurrentLesson.Sentences.Add(newSentence);
-            currentSentenceIndex = lessonManager.CurrentLesson.Sentences.Count - 1;
+            SentenceIndexChanged?.Invoke(--currentSentenceIndex);
             NewSentenceAdded?.Invoke();
 
             Debug.Log("Добавлено новое предложение.");
@@ -142,13 +199,20 @@ namespace KiberOneLearningApp
             sentence.Images ??= new List<RuntimeImagePlacement>();
             sentence.Images.Add(newPlacement);
 
-            RuntimeSpriteEditor editor = Instantiate(spriteEditorPrefab, imageContainer);
-            editor.Init(newPlacement, canvas);
+            RefreshImageEditors(); // отрисовать все заново
         }
 
         private void OnLessonNameChange(string text)
         {
             lessonManager.CurrentLesson.TutorialName = text;
+        }
+
+        private void DetectSentenceChange(RuntimeSentenceData i, Sprite j, int k, int z) => RefreshImageEditors();
+        
+        private void OnDestroy()
+        {
+            if (RuntimeLessonEditorManager.Instance != null)
+                RuntimeLessonEditorManager.Instance.SentenceChanged -= DetectSentenceChange;
         }
     }
 }
