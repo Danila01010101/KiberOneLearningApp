@@ -12,12 +12,12 @@ namespace KiberOneLearningApp
         {
             return new RuntimeTutorialData
             {
-                ThemeName = dto?.ThemeName ?? "",
-                TutorialName = dto?.TutorialName ?? "",
-                DefaultBackground = LoadSprite(dto?.DefaultBackgroundPath),
-                DefaultText = LoadSprite(dto?.DefaultTextPath),
-                Tasks = dto?.Tasks?.Select(FromDTO).ToList() ?? new List<RuntimeTutorialData>(),
-                Sentences = dto?.Sentences?.Select(FromSentenceDTO).ToList() ?? new List<RuntimeSentenceData>()
+                ThemeName = dto.ThemeName,
+                TutorialName = dto.TutorialName,
+                DefaultBackground = LoadSprite(dto.DefaultBackgroundPath),
+                DefaultText = LoadSprite(dto.DefaultTextPath),
+                Tasks = dto.Tasks?.Select(FromDTO).ToList(),
+                Sentences = dto.Sentences?.Select(FromSentenceDTO).ToList()
             };
         }
 
@@ -25,44 +25,40 @@ namespace KiberOneLearningApp
         {
             return new RuntimeSentenceData
             {
-                Background = LoadSprite(dto?.BackgroundPath),
-                CharacterIcon = LoadSprite(dto?.CharacterIconPath),
-                TutorialVideoPath = dto?.TutorialVideoPath ?? "",
-                CharacterPosition = dto?.CharacterPosition.ToVector3() ?? Vector3.zero,
-                IsBeforeTask = dto?.IsBeforeTask ?? false,
-                HideCharacter = dto?.HideCharacter ?? false,
-                Text = dto?.Text ?? "",
+                Background = LoadSprite(dto.BackgroundPath),
+                CharacterIcon = LoadSprite(dto.CharacterIconPath),
+                CharacterPosition = dto.CharacterPosition.ToVector3(),
+                CharacterSize = dto.CharacterSize.ToVector3(),
+                IsBeforeTask = dto.IsBeforeTask,
+                HideCharacter = dto.HideCharacter,
+                TutorialVideoPath = dto.TutorialVideoPath,
+                Text = dto.Text,
 
-                InteractableImages = dto?.InteractableImages?
-                    .Where(i => i != null && i.imagePlacement != null)
-                    .Select(i => new RuntimeInteractablePlacement()
+                Images = dto.Images?.Select(i => new RuntimeImagePlacement
+                {
+                    position = i.position.ToVector3(),
+                    size = i.size.ToVector3(),
+                    rotation = i.rotation.ToQuaternion(),
+                    sprite = LoadSprite(i.spritePath),
+                    spritePath = i.spritePath
+                }).ToList(),
+
+                InteractableImages = dto.InteractableImages?.Select(i => new RuntimeInteractablePlacement
+                {
+                    colliderPosition = i.colliderPosition.ToVector3(),
+                    colliderSize = i.colliderSize.ToVector3(),
+                    colliderType = i.colliderType,
+                    rotation = i.rotation.ToQuaternion(),
+                    keyCode = Enum.TryParse<KeyCode>(i.keyCode, out var parsedKey) ? parsedKey : KeyCode.Mouse0,
+                    imagePlacement = new RuntimeImagePlacement
                     {
-                        colliderPosition = i.colliderPosition.ToVector3(),
-                        colliderType = i.colliderType,
-                        colliderSize = i.colliderSize.ToVector3(),
-                        rotation = i.rotation.ToQuaternion(),
-
-                        keyCode = !string.IsNullOrEmpty(i.keyCode) && Enum.TryParse(i.keyCode, out KeyCode parsedKey)
-                            ? parsedKey : KeyCode.Mouse0,
-
-                        imagePlacement = new RuntimeImagePlacement
-                        {
-                            position = i.imagePlacement.position.ToVector3(),
-                            size = i.imagePlacement.size.ToVector3(),
-                            rotation = i.imagePlacement.rotation.ToQuaternion(),
-                            sprite = LoadSprite(i.imagePlacement.spritePath)
-                        }
-                    }).ToList() ?? new List<RuntimeInteractablePlacement>(),
-
-                Images = dto?.Images?
-                    .Where(i => i != null)
-                    .Select(i => new RuntimeImagePlacement
-                    {
-                        position = i.position.ToVector3(),
-                        size = i.size.ToVector3(),
-                        rotation = i.rotation.ToQuaternion(),
-                        sprite = LoadSprite(i.spritePath)
-                    }).ToList() ?? new List<RuntimeImagePlacement>()
+                        position = i.imagePlacement.position.ToVector3(),
+                        size = i.imagePlacement.size.ToVector3(),
+                        rotation = i.imagePlacement.rotation.ToQuaternion(),
+                        sprite = LoadSprite(i.imagePlacement.spritePath),
+                        spritePath = i.imagePlacement.spritePath
+                    }
+                }).ToList()
             };
         }
         

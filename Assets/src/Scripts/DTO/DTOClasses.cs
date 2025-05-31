@@ -27,9 +27,11 @@ namespace KiberOneLearningApp
 			public bool HideCharacter;
 			public string CharacterIconPath;
 			public SerializableVector3 CharacterPosition;
+			public SerializableVector3 CharacterSize;
 			public string Text;
 			public string TutorialVideoPath;
 		}
+
 
 		[Serializable]
 		public class ImagePlacementDTO

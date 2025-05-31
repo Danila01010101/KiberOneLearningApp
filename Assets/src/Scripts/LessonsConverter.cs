@@ -22,20 +22,28 @@ namespace KiberOneLearningApp
 		        {
 		            BackgroundPath = SafeGetSpritePath(s.Background),
 		            CharacterIconPath = SafeGetSpritePath(s.CharacterIcon),
-		            TutorialVideoPath = !string.IsNullOrEmpty(s.TutorialVideoPath) ? s.TutorialVideoPath : "",
 		            CharacterPosition = SerializableVector3.From(s.CharacterPosition),
+		            CharacterSize = SerializableVector3.From(s.CharacterSize),
 		            IsBeforeTask = s.IsBeforeTask,
 		            HideCharacter = s.HideCharacter,
+		            TutorialVideoPath = s.TutorialVideoPath,
 		            Text = s.Text,
+
+		            Images = s.Images?.Select(i => new ImagePlacementDTO
+		            {
+		                position = SerializableVector3.From(i.position),
+		                size = SerializableVector3.From(i.size),
+		                rotation = SerializableQuaternion.From(i.rotation),
+		                spritePath = SafeGetSpritePath(i.sprite)
+		            }).ToList(),
 
 		            InteractableImages = s.InteractableImages?.Select(i => new InteractablePlacementDTO
 		            {
-		                colliderType = i.colliderType,
 		                colliderPosition = SerializableVector3.From(i.colliderPosition),
 		                colliderSize = SerializableVector3.From(i.colliderSize),
-		                rotation = SerializableQuaternion.From(i.rotation),
+		                colliderType = i.colliderType,
 		                keyCode = i.keyCode.ToString(),
-
+		                rotation = SerializableQuaternion.From(i.rotation),
 		                imagePlacement = new ImagePlacementDTO
 		                {
 		                    position = SerializableVector3.From(i.imagePlacement.position),
@@ -43,15 +51,6 @@ namespace KiberOneLearningApp
 		                    rotation = SerializableQuaternion.From(i.imagePlacement.rotation),
 		                    spritePath = SafeGetSpritePath(i.imagePlacement.sprite)
 		                }
-		            }).ToList(),
-
-		            Images = s.Images?.Select(i => new ImagePlacementDTO
-		            {
-		                position = SerializableVector3.From(i.position),
-		                size = SerializableVector3.From(i.size),
-		                rotation = SerializableQuaternion.From(i.rotation),
-		                spritePath = SafeGetSpritePath(i.sprite),
-		                videoPath = i.videoPath
 		            }).ToList()
 		        }).ToList()
 		    };
