@@ -29,11 +29,9 @@ public class TopicChooseWindow : UIWindow
     
     public void DisplayThemes(Dictionary<string, List<RuntimeTutorialData>> lessonsByTheme)
     {
-        // Очистить предыдущие кнопки
         foreach (Transform child in themeListParent)
             Destroy(child.gameObject);
 
-        // Создать кнопку на каждую тему
         foreach (var kvp in lessonsByTheme)
         {
             string themeName = kvp.Key;
@@ -48,6 +46,8 @@ public class TopicChooseWindow : UIWindow
                 UIWindowManager.Show<LessonChooseWindow>();
             });
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(themeListParent as RectTransform);
     }
 
     public override void Show()
