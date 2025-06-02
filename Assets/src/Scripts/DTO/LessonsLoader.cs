@@ -26,22 +26,22 @@ namespace KiberOneLearningApp
 		public static List<RuntimeTutorialData> LoadAllLessons()
 		{
 			var allLessons = new List<RuntimeTutorialData>();
-
-			string builtInFolder = Path.Combine(Application.streamingAssetsPath, StaticStrings.LessonSavesFloulderName);
-			if (Directory.Exists(builtInFolder))
+			
+			string userFolder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
+			if (Directory.Exists(userFolder))
 			{
-				foreach (var file in Directory.GetFiles(builtInFolder, "*.json"))
+				foreach (var file in Directory.GetFiles(userFolder, "*.json"))
 				{
 					var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
 					if (dto != null)
 						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
 				}
 			}
-			
-			string userFolder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
-			if (Directory.Exists(userFolder))
+
+			string builtInFolder = Path.Combine(Application.streamingAssetsPath, StaticStrings.LessonSavesFloulderName);
+			if (Directory.Exists(builtInFolder))
 			{
-				foreach (var file in Directory.GetFiles(userFolder, "*.json"))
+				foreach (var file in Directory.GetFiles(builtInFolder, "*.json"))
 				{
 					var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
 					if (dto != null)

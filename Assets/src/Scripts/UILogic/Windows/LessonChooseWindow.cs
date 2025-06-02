@@ -36,6 +36,8 @@ namespace KiberOneLearningApp
 					OnLessonSelected?.Invoke(lesson);
 				});
 			}
+
+			LayoutRebuilder.ForceRebuildLayoutImmediate(lessonListParent as RectTransform);
 		}
 	}
 }
