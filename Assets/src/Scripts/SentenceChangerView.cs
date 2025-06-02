@@ -99,8 +99,11 @@ namespace KiberOneLearningApp
             backButton.gameObject.SetActive(currentIndex != 0);
 
             sentenceSlider.value = (currentIndex + 1) / (float)sentenceCount;
+            
+            /*
             background.sprite = sentenceData.Background != null ? sentenceData.Background : defaultBackground;
-
+            */
+            
             // Видео
             
             if (!string.IsNullOrEmpty(sentenceData.TutorialVideoPath))
