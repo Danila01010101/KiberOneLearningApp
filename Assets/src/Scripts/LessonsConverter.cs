@@ -21,7 +21,7 @@ namespace KiberOneLearningApp
 		        Sentences = data.Sentences.Select(s => new SentenceDataDTO
 		        {
 		            BackgroundPath = SafeGetSpritePath(s.Background),
-		            CharacterIconPath = SafeGetSpritePath(s.CharacterIcon),
+		            CharacterIconPath = s.CharacterIconPath,
 		            CharacterPosition = SerializableVector3.From(s.CharacterPosition),
 		            CharacterSize = SerializableVector3.From(s.CharacterSize),
 		            IsBeforeTask = s.IsBeforeTask,
@@ -34,7 +34,8 @@ namespace KiberOneLearningApp
 		                position = SerializableVector3.From(i.position),
 		                size = SerializableVector3.From(i.size),
 		                rotation = SerializableQuaternion.From(i.rotation),
-		                spritePath = SafeGetSpritePath(i.sprite)
+		                spritePath = i.spritePath,
+		                videoPath = i.videoPath
 		            }).ToList(),
 
 		            InteractableImages = s.InteractableImages?.Select(i => new InteractablePlacementDTO

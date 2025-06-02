@@ -27,6 +27,7 @@ namespace KiberOneLearningApp
             {
                 Background = LoadSprite(dto.BackgroundPath),
                 CharacterIcon = LoadSprite(dto.CharacterIconPath),
+                CharacterIconPath = dto.CharacterIconPath,
                 CharacterPosition = dto.CharacterPosition.ToVector3(),
                 CharacterSize = dto.CharacterSize.ToVector3(),
                 IsBeforeTask = dto.IsBeforeTask,
@@ -66,23 +67,22 @@ namespace KiberOneLearningApp
         {
             if (string.IsNullOrEmpty(relativePath)) return null;
 
-            string fullPath = relativePath;
-            
-#if UNITY_EDITOR
-            string sesondPartOfPath = "D:\\Unity\\UnityProjects\\KiberOneLearningApp\\Assets\\";
-            fullPath = sesondPartOfPath + fullPath;
-            if (!File.Exists(fullPath)) return null;
-#else
-            fullPath = Path.Combine(Application.persistentDataPath, relativePath);
-            if (!File.Exists(fullPath)) return null;
-#endif
-
+            string fullPath = Path.Combine(Application.persistentDataPath, relativePath);
+            if (!File.Exists(fullPath))
+            {
+                Debug.LogWarning($"Файл не найден: {fullPath}");
+                return null;
+            }
 
             byte[] data = File.ReadAllBytes(fullPath);
-            Texture2D texture = new Texture2D(2, 2);
-            if (!texture.LoadImage(data)) return null;
-            
-            return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+            Texture2D tex = new Texture2D(2, 2);
+            if (!tex.LoadImage(data))
+            {
+                Debug.LogWarning("Не удалось загрузить изображение в Texture2D");
+                return null;
+            }
+
+            return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
         }
 
         private static GameObject LoadTaskPrefab(string name)

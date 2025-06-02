@@ -12,6 +12,7 @@ namespace KiberOneLearningApp
 			this.sentence = sentence;
 
 			position = sentence.CharacterPosition;
+			spritePath = sentence.CharacterIconPath;
 			sprite = sentence.CharacterIcon;
 			size = sentence.CharacterSize;
 			rotation = Quaternion.identity;
@@ -20,6 +21,7 @@ namespace KiberOneLearningApp
 		public void ApplyChanges()
 		{
 			sentence.CharacterPosition = position;
+			sentence.CharacterIconPath = spritePath;
 			sentence.CharacterIcon = sprite;
 			sentence.CharacterSize = size;
 		}

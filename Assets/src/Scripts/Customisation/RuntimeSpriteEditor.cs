@@ -59,6 +59,7 @@ namespace KiberOneLearningApp
             if (picked)
             {
                 ApplyDataToUI();
+                OnEditorChanged?.Invoke();
             }
     #endif
         }

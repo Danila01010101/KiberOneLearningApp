@@ -31,6 +31,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Transform videoWindow;
     
         private GifOpener gifOpener;
+        private bool isEditing;
 
         public Action TaskCompleted;
 		
@@ -61,6 +62,7 @@ namespace KiberOneLearningApp
         {
             gifOpener = new GifOpener(player, videoWindow);
             RuntimeLessonEditorManager.Instance.SentenceChanged += UpdateView;
+            isEditing = GetComponent<RuntimeLessonEditorView>();
         }
 
         public void UpdateView(
@@ -82,7 +84,7 @@ namespace KiberOneLearningApp
             }
             */
 
-            if (sentenceData.CharacterIcon != null)
+            if (sentenceData.CharacterIcon != null && isEditing == false)
             {
                 character.sprite = sentenceData.CharacterIcon;
                 character.transform.localPosition = sentenceData.CharacterPosition;

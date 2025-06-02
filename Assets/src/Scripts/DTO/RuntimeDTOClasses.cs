@@ -26,6 +26,7 @@ namespace KiberOneLearningApp
 		public bool HideCharacter;
 		public VideoClip TutorialVideo;
 		public Sprite CharacterIcon;
+		public string CharacterIconPath;
 		public Vector3 CharacterPosition;
 		public Vector3 CharacterSize = Vector3.one * 100f;
 		public string Text;
