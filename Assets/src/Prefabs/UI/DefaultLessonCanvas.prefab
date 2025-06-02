@@ -3449,6 +3449,7 @@ MonoBehaviour:
   tutorialData: {fileID: 11400000, guid: 333caedf5cdc19a41995ea6860ce9247, type: 2}
   taskWindowsCreator: {fileID: 7702268307461949907}
   openTaskButton: {fileID: 7352505668402384501}
+  writeLessonButton: {fileID: 4931621371005440929}
 --- !u!114 &5410625221506551854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4167,11 +4168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285330550353411373, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1285330550353411373, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 500
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1285330550353411373, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4203,11 +4204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1285330550353411373, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 353
+      value: 425.6045
       objectReference: {fileID: 0}
     - target: {fileID: 1285330550353411373, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -215
+      value: -157.52142
       objectReference: {fileID: 0}
     - target: {fileID: 1285330550353411373, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4228,6 +4229,14 @@ PrefabInstance:
     - target: {fileID: 4695274451992798413, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
       propertyPath: m_Name
       value: Gif Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175034395906027890, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 208
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175034395906027890, guid: 0d16a3f030706174690268c7ec5ed08b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 239
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4951,6 +4960,11 @@ PrefabInstance:
 --- !u!224 &4931621371005440928 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1968373806953840000, guid: 676614c30efe6fc4b82edb9eddfa3ad6, type: 3}
+  m_PrefabInstance: {fileID: 6854955883133906464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4931621371005440929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1968373806953840001, guid: 676614c30efe6fc4b82edb9eddfa3ad6, type: 3}
   m_PrefabInstance: {fileID: 6854955883133906464}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7955257623176082439
