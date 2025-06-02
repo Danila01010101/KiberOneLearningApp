@@ -116,13 +116,14 @@ namespace KiberOneLearningApp
 
             character.gameObject.SetActive(!sentenceData.HideCharacter);
 
-            // Очистка старых изображений
+            if (isEditing)
+                return;
+            
             foreach (Transform child in imagesParent)
             {
                 Destroy(child.gameObject);
             }
 
-            // Отображение новых изображений
             if (sentenceData.Images != null)
             {
                 foreach (var placement in sentenceData.Images)

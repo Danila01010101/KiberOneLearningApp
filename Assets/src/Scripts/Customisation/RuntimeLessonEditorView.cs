@@ -45,6 +45,7 @@ namespace KiberOneLearningApp
             lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = lessonManager.CurrentLesson.TutorialName;
             RuntimeLessonEditorManager.Instance.SentenceChanged += DetectSentenceChange;
             InitializeCharacterIcon();
+            RefreshImageEditors();
         }
         
         public void RefreshImageEditors()
@@ -163,7 +164,7 @@ namespace KiberOneLearningApp
             };
 
             lessonManager.CurrentLesson.Sentences.Add(newSentence);
-            SentenceIndexChanged?.Invoke(--currentSentenceIndex);
+            SentenceIndexChanged?.Invoke(++currentSentenceIndex);
             NewSentenceAdded?.Invoke();
 
             Debug.Log("Добавлено новое предложение.");
@@ -178,7 +179,7 @@ namespace KiberOneLearningApp
             }
 
             lessonManager.CurrentLesson.Sentences.RemoveAt(currentSentenceIndex);
-            currentSentenceIndex = Mathf.Clamp(currentSentenceIndex - 1, 0, lessonManager.CurrentLesson.Sentences.Count - 1);
+            currentSentenceIndex = Mathf.Clamp(currentSentenceIndex, 0, lessonManager.CurrentLesson.Sentences.Count - 1);
             CurrentSentenceDeleted?.Invoke();
 
             Debug.Log("Предложение удалено.");
