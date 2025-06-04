@@ -13,8 +13,10 @@ public class UIWindowManager : MonoBehaviour
 	private UIWindow _currentView;
 
 	private readonly Stack<UIWindow> _history = new Stack<UIWindow>();
-
+	
 	public static void AddWindow(UIWindow newWindow) => _instance._views.Add(newWindow);
+	
+	public static void RemoveWindow(UIWindow newWindow) => _instance._views.Remove(newWindow);
 
 	public static T GetView<T>() where T : UIWindow
 	{

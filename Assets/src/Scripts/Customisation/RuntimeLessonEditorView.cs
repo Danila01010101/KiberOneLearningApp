@@ -10,6 +10,7 @@ namespace KiberOneLearningApp
     {
         [Header("UI Buttons")]
         [SerializeField] private Button changeVideoButton;
+        [SerializeField] private Button addNewTaskButton;
         [SerializeField] private Button addSentenceButton;
         [SerializeField] private Button removeSentenceButton;
         [SerializeField] private Button addImageButton;
@@ -17,7 +18,10 @@ namespace KiberOneLearningApp
         [SerializeField] private Button previousButton;
         
         [Header("Editor References")]
+        [SerializeField] private TaskWindowsCreator taskWindowsCreator;
         [SerializeField] private RuntimeSpriteEditor characterEditor;
+        [SerializeField] private TMP_InputField newTaskName;
+        [SerializeField] private TMP_InputField newTaskSentenceNumber;
         [SerializeField] private RectTransform imageContainer;
         [SerializeField] private Canvas canvas;
         [SerializeField] private RuntimeSpriteEditor spriteEditorPrefab;
@@ -42,6 +46,7 @@ namespace KiberOneLearningApp
             nextButton.onClick.AddListener(SetNextSentenceIndex);
             previousButton.onClick.AddListener(SetPreviousSentenceIndex);
             lessonNameInputField.onValueChanged.AddListener(OnLessonNameChange);
+            addNewTaskButton.onClick.AddListener(OnAddNewTask);
             lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = lessonManager.CurrentLesson.TutorialName;
             RuntimeLessonEditorManager.Instance.SentenceChanged += DetectSentenceChange;
             InitializeCharacterIcon();
@@ -83,6 +88,7 @@ namespace KiberOneLearningApp
             characterEditor.InitAndResetSubscribes(characterPlacement, canvas);
 
             characterEditor.OnEditorChanged += characterPlacement.ApplyChanges;
+            newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
         }
 
         private RuntimeSentenceData GetCurrentSentence()
@@ -119,12 +125,14 @@ namespace KiberOneLearningApp
         public void SetPreviousSentenceIndex()
         {
             SentenceIndexChanged?.Invoke(--currentSentenceIndex);
+            newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
         }
 
         public void SetNextSentenceIndex()
         {
             SentenceIndexChanged?.Invoke(++currentSentenceIndex);
+            newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
         }
 
@@ -168,6 +176,46 @@ namespace KiberOneLearningApp
             NewSentenceAdded?.Invoke();
 
             Debug.Log("Добавлено новое предложение.");
+        }
+        
+        private void OnAddNewTask()
+        {
+            if (lessonManager.CurrentLesson == null)
+            {
+                Debug.LogWarning("Урок не инициализирован.");
+                return;
+            }
+
+            // Создание нового задания
+            RuntimeTutorialData newTask = new RuntimeTutorialData
+            {
+                TutorialName = $"Новое задание {lessonManager.CurrentLesson.Tasks?.Count + 1 ?? 1}",
+                ThemeName = lessonManager.CurrentLesson.ThemeName,
+                Sentences = new List<RuntimeSentenceData>
+                {
+                    new RuntimeSentenceData
+                    {
+                        Text = newTaskName.text,
+                        CharacterPosition = new Vector3(353, -195, 0),
+                        Images = new List<RuntimeImagePlacement>(),
+                        InteractableImages = new List<RuntimeInteractablePlacement>(),
+                        IsBeforeTask = false,
+                        HideCharacter = false
+                    }
+                }
+            };
+            
+            lessonManager.CurrentLesson.Sentences[currentSentenceIndex].IsBeforeTask = true;
+
+            // Добавление в список заданий
+            if (lessonManager.CurrentLesson.Tasks == null)
+                lessonManager.CurrentLesson.Tasks = new List<RuntimeTutorialData>();
+
+            lessonManager.CurrentLesson.Tasks.Add(newTask);
+            taskWindowsCreator.SetRuntimeTasks(lessonManager.CurrentLesson.Tasks, GetComponent<LessonWindow>());
+            taskWindowsCreator.OpenTaskWindow(currentSentenceIndex);
+
+            Debug.Log("Новое задание добавлено.");
         }
 
         private void OnRemoveCurrentSentence()

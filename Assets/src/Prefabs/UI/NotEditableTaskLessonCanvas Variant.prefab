@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018036, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_Name
-      value: TaskLessonCanvas Variant
+      value: NotEditableTaskLessonCanvas Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8093201932730708124, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: taskWindowsCreator
@@ -448,6 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101c519809e950349a56aae63965b29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskPrefab: {fileID: 0}
+  taskObjectsParent: {fileID: 0}
   character: {fileID: 453391059615385472}
   background: {fileID: 6935930389519236478}
   characterText: {fileID: 5293720126268752491}
@@ -473,7 +475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentenceChangerView: {fileID: 6132896535297579729}
-  tutorialData: {fileID: 0}
 --- !u!328 &2757728374682690581 stripped
 VideoPlayer:
   m_CorrespondingSourceObject: {fileID: 5832403035778102285, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}

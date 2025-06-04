@@ -20,11 +20,17 @@ public class TaskWindowsCreator : MonoBehaviour
         this.tasksData = tasksData;
         return SpawnTasks();
     }
-
+    
     private List<LessonWithTasksWindow> SpawnTasks()
     {
         dropdown.options.Clear();
         spawnedTutorialWindows.Clear();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            UIWindowManager.RemoveWindow(transform.GetChild(0).gameObject.GetComponent<UIWindow>());
+            Destroy(transform.GetChild(0).gameObject);
+        }
 
         for (int i = 0; i < tasksData.Count; i++)
         {
@@ -71,7 +77,7 @@ public class TaskWindowsCreator : MonoBehaviour
 
     private void DetectLessonWithTasksCompleted()
     {
-        UIWindowManager.ShowLast(); // Вернуться к предыдущему UI
+        UIWindowManager.ShowLast();
         lessonWindow.DetectCompletedTasks();
     }
 
