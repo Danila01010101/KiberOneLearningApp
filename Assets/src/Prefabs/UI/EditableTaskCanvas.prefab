@@ -3983,7 +3983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018036, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_Name
-      value: EditableLessonCanvas Variant
+      value: EditableTaskCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 7714013201612018036, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_IsActive
@@ -4054,6 +4054,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7714013200362153698, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8602913001080201389}
+    - targetCorrespondingSourceObject: {fileID: 7714013200362153698, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5835776058691167560}
     - targetCorrespondingSourceObject: {fileID: 347482504524971147, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 129573887672934980}
@@ -4136,7 +4139,10 @@ MonoBehaviour:
   addImageButton: {fileID: 662143743373662063}
   nextButton: {fileID: 1402308383629580714}
   previousButton: {fileID: 6217907682273752981}
+  taskWindowsCreator: {fileID: 0}
   characterEditor: {fileID: 129573887672934980}
+  newTaskName: {fileID: 0}
+  newTaskSentenceNumber: {fileID: 0}
   imageContainer: {fileID: 9096902116348697973}
   canvas: {fileID: 3663842819418429265}
   spriteEditorPrefab: {fileID: 1425333666457210969, guid: 1de1697b2a1d5eb4e9e7e95fafc18df2, type: 3}
@@ -4154,6 +4160,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 7692784877908040011}
+--- !u!114 &5835776058691167560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663842818252447938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3df90f8f08b7534fbcfc84d8d934f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runtimeLessonEditorView: {fileID: 0}
+  taskObjectPrefab: {fileID: 0}
+  taskObjectContainer: {fileID: 0}
 --- !u!223 &3663842819418429265 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 7714013201612018033, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}

@@ -91,7 +91,7 @@ namespace KiberOneLearningApp
             newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
         }
 
-        private RuntimeSentenceData GetCurrentSentence()
+        public RuntimeSentenceData GetCurrentSentence()
         {
             if (lessonManager.CurrentLesson == null || lessonManager.CurrentLesson.Sentences == null || lessonManager.CurrentLesson.Sentences.Count == 0)
                 return null;
