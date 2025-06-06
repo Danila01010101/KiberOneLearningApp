@@ -47,8 +47,8 @@ namespace KiberOneLearningApp
         {
             if (placement == null || imageRenderer == null || rectTransform == null) return;
 
-            imageRenderer.sprite = placement.sprite;
-            imageRenderer.color = placement.sprite != null ? Color.white : Color.clear;
+            imageRenderer.sprite = placement.sprite == null ? imageRenderer.sprite : placement.sprite;
+            //imageRenderer.color = placement.sprite == null ? Color.white : Color.clear;
 
             rectTransform.localPosition = placement.position;
             rectTransform.localRotation = placement.rotation;
