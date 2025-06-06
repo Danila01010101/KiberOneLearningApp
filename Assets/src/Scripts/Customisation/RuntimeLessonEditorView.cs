@@ -226,7 +226,7 @@ namespace KiberOneLearningApp
             var newPlacement = new RuntimeImagePlacement
             {
                 position = Vector3.zero,
-                size = Vector3.one * 100f,
+                size = Vector3.one * 300f,
                 rotation = Quaternion.identity
             };
 
@@ -255,7 +255,7 @@ namespace KiberOneLearningApp
                 imagePlacement = new RuntimeImagePlacement
                 {
                     position = Vector3.zero,
-                    size = Vector3.one * 100f,
+                    size = Vector3.one * 300f,
                     rotation = Quaternion.identity
                 },
                 colliderType = ColliderType.rectangle,
