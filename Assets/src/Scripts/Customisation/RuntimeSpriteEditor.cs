@@ -10,6 +10,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Image imageRenderer;
         [SerializeField] private Button changeImageButton;
         [SerializeField] private Button toggleButton;
+        [SerializeField] private Button deleteButton;
 
         private RuntimeImagePlacement placement;
         private RectTransform rectTransform;
@@ -20,12 +21,16 @@ namespace KiberOneLearningApp
 
         private bool isInResizeMode;
         
+        public static event Action<RuntimeImagePlacement> ImageRemoved;
         public event Action OnEditorChanged;
 
         private void Awake()
         {
             changeImageButton.onClick.AddListener(PickNewSprite);
             toggleButton.onClick.AddListener(ToggleResizeMode);
+            
+            if (deleteButton != null)
+                deleteButton.onClick.AddListener(Delete);
         }
 
         public virtual void InitAndResetSubscribes(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
@@ -114,10 +119,15 @@ namespace KiberOneLearningApp
         
         protected void CallEditorChangedEvent() => OnEditorChanged?.Invoke();
 
+        protected virtual void Delete() => ImageRemoved?.Invoke(placement);
+
         private void OnDestroy()
         {
             changeImageButton.onClick.RemoveListener(PickNewSprite);
             toggleButton.onClick.RemoveListener(ToggleResizeMode);
+            
+            if (deleteButton != null)
+                deleteButton.onClick.RemoveListener(Delete);
         }
     }
 }

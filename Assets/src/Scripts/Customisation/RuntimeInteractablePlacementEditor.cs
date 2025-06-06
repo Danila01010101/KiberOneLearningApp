@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace KiberOneLearningApp
 		[SerializeField] private TMP_Dropdown colliderTypeDropdown;
 
 		private RuntimeInteractablePlacement taskPlacement;
+		
+		public static event Action<RuntimeInteractablePlacement> InteractableRemoved;
 
 		public void InitAndResetSubscribesPlacement(RuntimeInteractablePlacement placement, Canvas canvas)
 		{
@@ -77,5 +80,7 @@ namespace KiberOneLearningApp
 				CallEditorChangedEvent();
 			});
 		}
+
+		protected override void Delete() => InteractableRemoved?.Invoke(taskPlacement);
 	}
 }

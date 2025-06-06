@@ -52,6 +52,8 @@ namespace KiberOneLearningApp
             addNewTaskButton.onClick.AddListener(OnAddNewTask);
             addInteractableObjectButton.onClick.AddListener(OnAddInteractableObject);
             lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = lessonManager.CurrentLesson.TutorialName;
+            RuntimeSpriteEditor.ImageRemoved += RemoveImage;
+            RuntimeInteractablePlacementEditor.InteractableRemoved += RemoveInteractable;
             RuntimeLessonEditorManager.Instance.SentenceChanged += DetectSentenceChange;
             InitializeCharacterIcon();
             visualElementsManager.RefreshVisuals(GetCurrentSentence());
@@ -234,6 +236,15 @@ namespace KiberOneLearningApp
             visualElementsManager.RefreshVisuals(GetCurrentSentence());
         }
         
+        public void RemoveImage(RuntimeImagePlacement image)
+        {
+            var sentence = GetCurrentSentence();
+            if (sentence == null || sentence.Images == null) return;
+
+            sentence.Images.Remove(image);
+            visualElementsManager.RefreshVisuals(sentence);
+        }
+        
         private void OnAddInteractableObject()
         {
             var sentence = GetCurrentSentence();
@@ -259,6 +270,15 @@ namespace KiberOneLearningApp
 
             visualElementsManager.RefreshVisuals(GetCurrentSentence());
         }
+        
+        public void RemoveInteractable(RuntimeInteractablePlacement interactable)
+        {
+            var sentence = GetCurrentSentence();
+            if (sentence == null || sentence.InteractableImages == null) return;
+
+            sentence.InteractableImages.Remove(interactable);
+            visualElementsManager.RefreshVisuals(sentence);
+        }
 
         private void OnLessonNameChange(string text)
         {
@@ -269,6 +289,9 @@ namespace KiberOneLearningApp
         
         private void OnDestroy()
         {
+            RuntimeSpriteEditor.ImageRemoved -= RemoveImage;
+            RuntimeInteractablePlacementEditor.InteractableRemoved -= RemoveInteractable;
+            
             if (RuntimeLessonEditorManager.Instance != null)
                 RuntimeLessonEditorManager.Instance.SentenceChanged -= DetectSentenceChange;
         }
