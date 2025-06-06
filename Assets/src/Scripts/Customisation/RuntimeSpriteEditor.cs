@@ -28,7 +28,7 @@ namespace KiberOneLearningApp
             toggleButton.onClick.AddListener(ToggleResizeMode);
         }
 
-        public void InitAndResetSubscribes(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
+        public virtual void InitAndResetSubscribes(RuntimeImagePlacement linkedPlacement, Canvas parentCanvas)
         {
             OnEditorChanged = null;
             placement = linkedPlacement;
@@ -59,7 +59,7 @@ namespace KiberOneLearningApp
             if (picked)
             {
                 ApplyDataToUI();
-                OnEditorChanged?.Invoke();
+                CallEditorChangedEvent();
             }
     #endif
         }
@@ -108,9 +108,11 @@ namespace KiberOneLearningApp
             {
                 placement.position = rectTransform.localPosition;
                 placement.size = new Vector3(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y, 0f);
-                OnEditorChanged?.Invoke();
+                CallEditorChangedEvent();
             }
         }
+        
+        protected void CallEditorChangedEvent() => OnEditorChanged?.Invoke();
 
         private void OnDestroy()
         {

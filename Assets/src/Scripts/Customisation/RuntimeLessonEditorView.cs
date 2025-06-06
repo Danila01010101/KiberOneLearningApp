@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace KiberOneLearningApp
@@ -14,10 +15,12 @@ namespace KiberOneLearningApp
         [SerializeField] private Button addSentenceButton;
         [SerializeField] private Button removeSentenceButton;
         [SerializeField] private Button addImageButton;
+        [FormerlySerializedAs("addTaskButton")] [SerializeField] private Button addInteractableObjectButton;
         [SerializeField] private Button nextButton;
         [SerializeField] private Button previousButton;
         
         [Header("Editor References")]
+        [SerializeField] private RuntimeVisualElementsManager visualElementsManager;
         [SerializeField] private TaskWindowsCreator taskWindowsCreator;
         [SerializeField] private RuntimeSpriteEditor characterEditor;
         [SerializeField] private TMP_InputField newTaskName;
@@ -47,31 +50,11 @@ namespace KiberOneLearningApp
             previousButton.onClick.AddListener(SetPreviousSentenceIndex);
             lessonNameInputField.onValueChanged.AddListener(OnLessonNameChange);
             addNewTaskButton.onClick.AddListener(OnAddNewTask);
+            addInteractableObjectButton.onClick.AddListener(OnAddInteractableObject);
             lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = lessonManager.CurrentLesson.TutorialName;
             RuntimeLessonEditorManager.Instance.SentenceChanged += DetectSentenceChange;
             InitializeCharacterIcon();
-            RefreshImageEditors();
-        }
-        
-        public void RefreshImageEditors()
-        {
-            foreach (var editor in spawnedImageEditors)
-            {
-                if (editor != null)
-                    Destroy(editor.gameObject);
-            }
-
-            spawnedImageEditors.Clear();
-
-            var sentence = GetCurrentSentence();
-            if (sentence == null || sentence.Images == null) return;
-
-            foreach (var image in sentence.Images)
-            {
-                var newEditor = Instantiate(spriteEditorPrefab, imageContainer);
-                newEditor.InitAndResetSubscribes(image, canvas);
-                spawnedImageEditors.Add(newEditor);
-            }
+            visualElementsManager.RefreshVisuals(GetCurrentSentence());
         }
 
         private void InitializeCharacterIcon()
@@ -248,7 +231,33 @@ namespace KiberOneLearningApp
             sentence.Images ??= new List<RuntimeImagePlacement>();
             sentence.Images.Add(newPlacement);
 
-            RefreshImageEditors(); // отрисовать все заново
+            visualElementsManager.RefreshVisuals(GetCurrentSentence());
+        }
+        
+        private void OnAddInteractableObject()
+        {
+            var sentence = GetCurrentSentence();
+            if (sentence == null) return;
+
+            var newPlacement = new RuntimeInteractablePlacement
+            {
+                imagePlacement = new RuntimeImagePlacement
+                {
+                    position = Vector3.zero,
+                    size = Vector3.one * 100f,
+                    rotation = Quaternion.identity
+                },
+                colliderType = ColliderType.rectangle,
+                colliderPosition = Vector3.zero,
+                colliderSize = new Vector3(100f, 100f, 0f),
+                rotation = Quaternion.identity,
+                keyCode = KeyCode.Mouse0
+            };
+
+            sentence.InteractableImages ??= new List<RuntimeInteractablePlacement>();
+            sentence.InteractableImages.Add(newPlacement);
+
+            visualElementsManager.RefreshVisuals(GetCurrentSentence());
         }
 
         private void OnLessonNameChange(string text)
@@ -256,7 +265,7 @@ namespace KiberOneLearningApp
             lessonManager.CurrentLesson.TutorialName = text;
         }
 
-        private void DetectSentenceChange(RuntimeSentenceData i, Sprite j, int k, int z) => RefreshImageEditors();
+        private void DetectSentenceChange(RuntimeSentenceData i, Sprite j, int k, int z) => visualElementsManager.RefreshVisuals(GetCurrentSentence());
         
         private void OnDestroy()
         {
