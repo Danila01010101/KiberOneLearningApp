@@ -65,7 +65,7 @@ namespace KiberOneLearningApp
 			ResetCurrentSentence();
             DeactivateIfExist(CurrentIndex + 1);
         }
-
+		
 		private void SetupNewTask(ObjectForTask spawnedTask)
 		{
 			tasks.Add(spawnedTask);

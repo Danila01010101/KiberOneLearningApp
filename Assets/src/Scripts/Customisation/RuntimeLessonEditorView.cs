@@ -41,6 +41,7 @@ namespace KiberOneLearningApp
         public static Action NewSentenceAdded;
         public static Action CurrentSentenceDeleted;
         public static Action<int> SentenceIndexChanged;
+        public static Action TaskCreated;
 
         private void Awake()
         {
@@ -229,6 +230,7 @@ namespace KiberOneLearningApp
                 editTaskWindowsCreator.OpenEditorWindow(currentSentenceIndex);
             }
 
+            TaskCreated?.Invoke();
             Debug.Log("Новое задание добавлено.");
         }
 

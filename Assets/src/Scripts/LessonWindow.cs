@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace KiberOneLearningApp
 
         public override void Initialize()
         {
+            RuntimeLessonEditorView.TaskCreated += RefreshTaskIndexes;
             if (GetComponent<RuntimeLessonEditorView>() == null)
             {
                 runtimeData = LessonSceneWithDataOpener.CurrentTutorialData;
@@ -42,18 +44,14 @@ namespace KiberOneLearningApp
             {
                 if (editTaskWindowsCreator != null)
                 {
-                    editableTaskWindow = editTaskWindowsCreator.SetRuntimeLessons(runtimeData.Tasks);
+                    editableTaskWindow = editTaskWindowsCreator.SetRuntimeLessons(RuntimeLessonEditorManager.Instance.CurrentLesson.Tasks);
                 }
                 else if (taskWindowsCreator != null)
                 {
                     taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
                 }
 
-                for (int i = 0; i < runtimeData.Sentences.Count; i++)
-                {
-                    if (runtimeData.Sentences[i].IsBeforeTask)
-                        taskSentenceIndexes.Add(i);
-                }
+                RefreshTaskIndexes();
             }
 
             ShowNextSentence();
@@ -63,7 +61,7 @@ namespace KiberOneLearningApp
         {
             base.ShowNextSentence();
 
-            var sentence = runtimeData.Sentences[CurrentIndex];
+            var sentence = RuntimeLessonEditorManager.Instance != null ? RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences[CurrentIndex] : runtimeData.Sentences[CurrentIndex];
 
             // Обновление визуала предложения
             lessonWindowView.UpdateView(
@@ -98,6 +96,18 @@ namespace KiberOneLearningApp
             lessonWindowView.TaskCompleted += DetectCompletedTasks;
         }
 
+        private void RefreshTaskIndexes()
+        {
+            taskSentenceIndexes.Clear();
+            
+            for (int i = 0; i < RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences.Count; i++)
+            {
+                Debug.Log(gameObject.name);
+                if (RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences[i].IsBeforeTask)
+                    taskSentenceIndexes.Add(i);
+            }
+        }
+
         public void DetectCompletedTasks()
         {
             ShowNextSentence(); // Переход к следующему после выполнения
@@ -105,13 +115,24 @@ namespace KiberOneLearningApp
 
         private void SelectCurrentTask(int index)
         {
-            taskWindowsCreator.OpenTaskWindow(index);
+            if (editTaskWindowsCreator == null)
+                taskWindowsCreator.OpenTaskWindow(index);
+            else
+            {
+                editTaskWindowsCreator.OpenEditorWindow(index);
+            }
         }
 
         private int GetTaskIndexBySentence(int sentenceID)
         {
             // Индекс задания = его порядковый номер среди всех IsBeforeTask
             return taskSentenceIndexes.IndexOf(sentenceID);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            RuntimeLessonEditorView.TaskCreated -= RefreshTaskIndexes;
         }
     }
 }
