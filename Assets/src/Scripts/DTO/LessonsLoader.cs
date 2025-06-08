@@ -44,7 +44,8 @@ namespace KiberOneLearningApp
 				foreach (var file in Directory.GetFiles(builtInFolder, "*.json"))
 				{
 					var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
-					if (dto != null)
+					bool equals = allLessons.All(item => item.TutorialName == dto.TutorialName && item.TutorialName.SequenceEqual(dto.TutorialName));
+					if (dto != null && equals)
 						allLessons.Add(TutorialRuntimeBuilder.FromDTO(dto));
 				}
 			}
