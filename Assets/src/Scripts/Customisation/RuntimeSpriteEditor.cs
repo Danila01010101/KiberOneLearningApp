@@ -80,6 +80,9 @@ namespace KiberOneLearningApp
         {
             if (isInResizeMode)
             {
+                if (canvas == null)
+                    canvas = FindObjectOfType<Canvas>();
+                
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out resizeStartMouse);
                 resizeStartSize = rectTransform.sizeDelta;
             }

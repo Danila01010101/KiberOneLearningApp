@@ -9,6 +9,7 @@ namespace KiberOneLearningApp
 	{
 		public static RuntimeLessonEditorManager Instance { get; private set; }
 		public RuntimeTutorialData CurrentLesson { get; private set; }
+		public RuntimeTutorialData CurrentTask { get; set; }
 
         public int CurrentSentenceIndex { get; private set; } = 0;
 
@@ -88,6 +89,7 @@ namespace KiberOneLearningApp
             }
 
             CurrentLesson = TutorialRuntimeBuilder.FromDTO(dto);
+            CurrentTask = CurrentLesson.Tasks[0];
             CurrentSentenceIndex = 0;
             TriggerSentenceChanged();
 

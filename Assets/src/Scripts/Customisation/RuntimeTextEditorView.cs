@@ -7,12 +7,12 @@ namespace KiberOneLearningApp
 	{
 		[SerializeField] private TMP_InputField inputField;
 
-		private RuntimeLessonEditorManager lessonManager;
+		private RuntimeLessonEditorView lessonEditorView;
 		private int sentenceIndex = 0;
 
 		public void Start()
 		{
-			lessonManager = RuntimeLessonEditorManager.Instance;
+			lessonEditorView = GetComponent<RuntimeLessonEditorView>();
 			sentenceIndex = 0;
 
 			inputField.onValueChanged.AddListener(OnTextChanged);
@@ -48,18 +48,17 @@ namespace KiberOneLearningApp
 		{
 			if (!IsSentenceAvailable()) return;
 
-			lessonManager.CurrentLesson.Sentences[sentenceIndex].Text = newText;
+			lessonEditorView.currentData.Sentences[sentenceIndex].Text = newText;
 		}
 
 		private bool IsSentenceAvailable()
 		{
-			return lessonManager != null &&
-			       lessonManager.CurrentLesson != null &&
-			       lessonManager.CurrentLesson.Sentences != null &&
+			return lessonEditorView.currentData != null &&
+			       lessonEditorView.currentData.Sentences != null &&
 			       sentenceIndex >= 0 &&
-			       sentenceIndex < lessonManager.CurrentLesson.Sentences.Count;
+			       sentenceIndex < lessonEditorView.currentData.Sentences.Count;
 		}
 
-		private RuntimeSentenceData GetSentence() => lessonManager.CurrentLesson.Sentences[sentenceIndex];
+		private RuntimeSentenceData GetSentence() => lessonEditorView.currentData.Sentences[sentenceIndex];
 	}
 }

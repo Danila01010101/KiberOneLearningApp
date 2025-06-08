@@ -7,11 +7,13 @@ namespace KiberOneLearningApp
     {
         [SerializeField] private LessonWindowView lessonWindowView;
         [SerializeField] private TaskWindowsCreator taskWindowsCreator;
+        [SerializeField] private EditorTaskWindowsCreator editTaskWindowsCreator;
         [SerializeField] private OpenTaskButton openTaskButton;
         [SerializeField] private GameObject writeLessonResultsButton;
         [SerializeField] private GameObject writeLessonButton;
 
         private List<LessonWithTasksWindow> taskWindows;
+        private RuntimeLessonEditorView editableTaskWindow;
         private List<int> taskSentenceIndexes = new();
 
         public override void Initialize()
@@ -38,7 +40,14 @@ namespace KiberOneLearningApp
         {
             if (runtimeData.Tasks != null)
             {
-                taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
+                if (editTaskWindowsCreator != null)
+                {
+                    editableTaskWindow = editTaskWindowsCreator.SetRuntimeLessons(runtimeData.Tasks);
+                }
+                else if (taskWindowsCreator != null)
+                {
+                    taskWindows = taskWindowsCreator.SetRuntimeTasks(runtimeData.Tasks, this);
+                }
 
                 for (int i = 0; i < runtimeData.Sentences.Count; i++)
                 {
