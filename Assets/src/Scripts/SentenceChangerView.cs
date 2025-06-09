@@ -18,8 +18,7 @@ namespace KiberOneLearningApp
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI characterText;
         [SerializeField] private Slider sentenceSlider;
-        [SerializeField] private ImagePlacementView imageViewPrefab;
-        [SerializeField] private Transform imagesParent;
+        [SerializeField] private NotEditableRuntimeViewManager visualElementsManager;
         [Header("Sentence buttons")]
         [SerializeField] protected Button nextButton;
         [SerializeField] protected Button openCurrentTaskButton;
@@ -115,26 +114,11 @@ namespace KiberOneLearningApp
             }
 
             character.gameObject.SetActive(!sentenceData.HideCharacter);
-
-            if (isEditing)
+            
+            if (isEditing == true)
                 return;
             
-            foreach (Transform child in imagesParent)
-            {
-                Destroy(child.gameObject);
-            }
-
-            if (sentenceData.Images != null)
-            {
-                foreach (var placement in sentenceData.Images)
-                {
-                    ImagePlacementView imageView = Instantiate(imageViewPrefab, imagesParent);
-                    imageView.Initialize(placement.sprite, placement.position, placement.size, placement.rotation);
-                }
-            }
-
-            // Кнопка задания — вызывается отдельно
-            // openTask добавляется в другом методе (UpdateTaskButton)
+            visualElementsManager.RefreshVisuals(sentenceData);
         }
 
 

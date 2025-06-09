@@ -3475,7 +3475,7 @@ GameObject:
   - component: {fileID: 7714013200362153697}
   - component: {fileID: 8093201932730708124}
   - component: {fileID: 5410625221506551854}
-  - component: {fileID: 350043981946706197}
+  - component: {fileID: 1250194535215053909}
   m_Layer: 5
   m_Name: MainWindow
   m_TagString: Untagged
@@ -3547,14 +3547,14 @@ MonoBehaviour:
   background: {fileID: 1654209747767651686}
   characterText: {fileID: 4594413347668578931}
   sentenceSlider: {fileID: 1383970495623324106}
-  visualElementsManager: {fileID: 350043981946706197}
+  visualElementsManager: {fileID: 1250194535215053909}
   nextButton: {fileID: 5378207837615038346}
   openCurrentTaskButton: {fileID: 3798610516961830260}
   backButton: {fileID: 1125699335604302261}
   openGifButton: {fileID: 7995393536050408469}
   player: {fileID: 5832403035778102285}
   videoWindow: {fileID: 2154946256888113423}
---- !u!114 &350043981946706197
+--- !u!114 &1250194535215053909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3563,14 +3563,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7714013200362153698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba012b986081d8d4d97af34f31ac4461, type: 3}
+  m_Script: {fileID: 11500000, guid: 7209d8330004abc4ba137904e8fbd833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteEditorPrefab: {fileID: 0}
-  taskPlacementPrefab: {fileID: 0}
+  imageViewPrefab: {fileID: 1668787164642876372, guid: 2dbb02c433bbc804b8bb4d6c3a662623, type: 3}
+  objectForTaskPrefab: {fileID: 9008222833471092172, guid: 7a91d84f76211924fbd593236318ab71, type: 3}
   imageContainer: {fileID: 5464790668018560411}
   taskObjectContainer: {fileID: 5664107205860114616}
-  canvas: {fileID: 7714013201612018033}
 --- !u!1 &7714013201612018036
 GameObject:
   m_ObjectHideFlags: 0

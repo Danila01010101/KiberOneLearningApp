@@ -571,7 +571,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7714013200362153698, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592489699}
   m_SourcePrefab: {fileID: 100100000, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
 --- !u!114 &1592489698 stripped
 MonoBehaviour:
@@ -584,6 +587,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619bcf6580385074987a38100c57bd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1592489699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206978363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba012b986081d8d4d97af34f31ac4461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteEditorPrefab: {fileID: 0}
+  taskPlacementPrefab: {fileID: 0}
+  imageContainer: {fileID: 0}
+  taskObjectContainer: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1001 &8553937615627593075
 PrefabInstance:
   m_ObjectHideFlags: 0

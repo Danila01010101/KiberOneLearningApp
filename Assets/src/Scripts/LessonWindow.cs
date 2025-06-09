@@ -61,7 +61,7 @@ namespace KiberOneLearningApp
         {
             base.ShowNextSentence();
 
-            var sentence = RuntimeLessonEditorManager.Instance != null ? RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences[CurrentIndex] : runtimeData.Sentences[CurrentIndex];
+            var sentence = RuntimeLessonEditorManager.Instance.CurrentLesson != null ? RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences[CurrentIndex] : runtimeData.Sentences[CurrentIndex];
 
             // Обновление визуала предложения
             lessonWindowView.UpdateView(
@@ -99,11 +99,12 @@ namespace KiberOneLearningApp
         private void RefreshTaskIndexes()
         {
             taskSentenceIndexes.Clear();
+            RuntimeTutorialData currentData = GetComponent<RuntimeLessonEditorView>() == null ? runtimeData : RuntimeLessonEditorManager.Instance.CurrentLesson;
             
-            for (int i = 0; i < RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences.Count; i++)
+            for (int i = 0; i < currentData.Sentences.Count; i++)
             {
                 Debug.Log(gameObject.name);
-                if (RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences[i].IsBeforeTask)
+                if (currentData.Sentences[i].IsBeforeTask)
                     taskSentenceIndexes.Add(i);
             }
         }
