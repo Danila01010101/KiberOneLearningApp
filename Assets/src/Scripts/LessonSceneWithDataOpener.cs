@@ -11,6 +11,7 @@ namespace KiberOneLearningApp
 		{
 			DontDestroyOnLoad(gameObject);
 			LessonChooseWindow.OnLessonSelected += LoadLessonScene;
+			LessonChooseWindow.OnLessonToDeleteSelected += DeleteChosenLesson;
 			RuntimeLessonEditorManagerView.OnLessonToEditSelected += LoadLessonEditorScene;
 		}
 
@@ -18,6 +19,12 @@ namespace KiberOneLearningApp
 		{
 			CurrentTutorialData = data;
 			SceneManager.LoadScene("BasicLessonScene");
+		}
+
+		private void DeleteChosenLesson(RuntimeTutorialData data)
+		{
+			RuntimeLessonEditorManager.DeleteLesson(data);
+			SceneManager.LoadScene("StartScene");
 		}
 
 		private void LoadLessonEditorScene(RuntimeTutorialData data)

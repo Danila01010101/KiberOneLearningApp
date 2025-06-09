@@ -9,9 +9,11 @@ namespace KiberOneLearningApp
 	{
 		[Header("UI References")]
 		[SerializeField] private Transform lessonListParent;
-		[SerializeField] private MenuButton lessonButtonPrefab;
+		[SerializeField] private LessonChooseButton lessonButtonPrefab;
 
 		public static System.Action<RuntimeTutorialData> OnLessonSelected;
+
+		public static System.Action<RuntimeTutorialData> OnLessonToDeleteSelected;
 		
 		public override void Initialize()
 		{
@@ -27,13 +29,19 @@ namespace KiberOneLearningApp
 			{
 				string title = $"Урок {lesson.LessonNumber}: {lesson.TutorialName}";
 
-				GameObject buttonGO = Instantiate(lessonButtonPrefab, lessonListParent).gameObject;
+				LessonChooseButton buttonGO = Instantiate(lessonButtonPrefab, lessonListParent);
 				buttonGO.GetComponentInChildren<TextMeshProUGUI>().text = title;
 
-				buttonGO.GetComponent<Button>().onClick.AddListener(() =>
+				buttonGO.ChooseButton.onClick.AddListener(() =>
 				{
 					Debug.Log($"Выбран урок: {title}");
 					OnLessonSelected?.Invoke(lesson);
+				});
+
+				buttonGO.DeleteButton.onClick.AddListener(() =>
+				{
+					Debug.Log($"Выбран на удаление урок: {title}");
+					OnLessonToDeleteSelected?.Invoke(lesson);
 				});
 			}
 

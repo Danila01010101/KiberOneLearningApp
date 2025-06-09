@@ -6625,15 +6625,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32729037122106566, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 32729037122106566, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 32729037122106566, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1654705379727517546, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_Pivot.x
@@ -6722,18 +6722,18 @@ PrefabInstance:
     - target: {fileID: 1890630388378906390, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: lessonButtonPrefab
       value: 
-      objectReference: {fileID: 5696206655622878647, guid: 6ce881d8732d954458ac29218033c768, type: 3}
+      objectReference: {fileID: 4954219208272712348, guid: 6ce881d8732d954458ac29218033c768, type: 3}
     - target: {fileID: 5401071894462363726, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_Name
       value: LessonSelectionDefault
       objectReference: {fileID: 0}
     - target: {fileID: 5401071894462363726, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7675706683918271243, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7675706683918271243, guid: 8f6e1534dc1b1d64da4d3bfb0e40d1fb, type: 3}
       propertyPath: m_AnchorMax.y

@@ -111,6 +111,44 @@ namespace KiberOneLearningApp
             CurrentSentenceIndex = 0;
             TriggerSentenceChanged();
         }
+        
+        public static bool DeleteLesson(RuntimeTutorialData lessonToDelete)
+        {
+            if (lessonToDelete == null || string.IsNullOrEmpty(lessonToDelete.TutorialName))
+            {
+                Debug.LogWarning("Удаление урока: данные урока не заданы.");
+                return false;
+            }
+
+            string userFolder = Path.Combine(Application.persistentDataPath, StaticStrings.LessonSavesFloulderName);
+            if (!Directory.Exists(userFolder))
+            {
+                Debug.LogWarning("Папка с уроками не существует.");
+                return false;
+            }
+
+            foreach (var file in Directory.GetFiles(userFolder, "*.json"))
+            {
+                var dto = JsonIO.LoadFromJson<TutorialDataDTO>(file);
+                if (dto != null && dto.TutorialName == lessonToDelete.TutorialName)
+                {
+                    try
+                    {
+                        File.Delete(file);
+                        Debug.Log($"Урок \"{dto.TutorialName}\" удалён. Путь: {file}");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"Ошибка при удалении урока: {ex.Message}");
+                        return false;
+                    }
+                }
+            }
+
+            Debug.LogWarning($"Файл урока \"{lessonToDelete.TutorialName}\" не найден для удаления или является предустановленным.");
+            return false;
+        }
 
         public bool LoadLesson(string filename)
         {
