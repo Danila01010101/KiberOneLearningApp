@@ -4479,6 +4479,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5410625221506551854, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: taskPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410625221506551854, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+      propertyPath: visualElementsManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5441520135749490400, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4693,6 +4701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7702268307461949907, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
+    - {fileID: 1250194535215053909, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7714013200362153697, guid: b2d0c7fd7056b874986df76f0205588f, type: 3}

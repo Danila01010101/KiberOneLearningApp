@@ -38,7 +38,7 @@ namespace KiberOneLearningApp
         {
             ObjectForTask previousTask = null;
 			
-            if (taskImagesData != null)
+            if (taskImagesData != null && isEditing == false)
             {
                 foreach (var placement in taskImagesData)
                 {
