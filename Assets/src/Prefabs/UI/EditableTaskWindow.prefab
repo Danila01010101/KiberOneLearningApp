@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4238190692944051638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5192,8 +5192,7 @@ MonoBehaviour:
   background: {fileID: 7535397909483027849}
   characterText: {fileID: 6751726483978951103}
   sentenceSlider: {fileID: 4208914595135762273}
-  imageViewPrefab: {fileID: 1668787164642876372, guid: 2dbb02c433bbc804b8bb4d6c3a662623, type: 3}
-  imagesParent: {fileID: 8366827621055977904}
+  visualElementsManager: {fileID: 0}
   nextButton: {fileID: 8901220824919153748}
   openCurrentTaskButton: {fileID: 2080058009235256487}
   backButton: {fileID: 963544911037835778}
