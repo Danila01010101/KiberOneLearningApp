@@ -4876,6 +4876,7 @@ MonoBehaviour:
   previousButton: {fileID: 6217907682273752981}
   visualElementsManager: {fileID: 4637653702862171594}
   taskWindowsCreator: {fileID: 0}
+  runtimeTextEditorView: {fileID: 8602913001080201389}
   editTaskWindowsCreator: {fileID: 7150400943565360936}
   characterEditor: {fileID: 129573887672934980}
   newTaskName: {fileID: 1450642501754645142}

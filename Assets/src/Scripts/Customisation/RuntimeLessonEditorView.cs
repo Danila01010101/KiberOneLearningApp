@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -24,6 +25,7 @@ namespace KiberOneLearningApp
         [Header("Editor References")]
         [SerializeField] private RuntimeVisualElementsManager visualElementsManager;
         [SerializeField] private TaskWindowsCreator taskWindowsCreator;
+        [SerializeField] private RuntimeTextEditorView runtimeTextEditorView;
         [SerializeField] private EditorTaskWindowsCreator editTaskWindowsCreator;
         [SerializeField] private RuntimeSpriteEditor characterEditor;
         [SerializeField] private TMP_InputField newTaskName;
@@ -136,6 +138,9 @@ namespace KiberOneLearningApp
 
         public void SetPreviousSentenceIndex()
         {
+            if (currentSentenceIndex <= 0)
+                return;
+            
             SentenceIndexChanged?.Invoke(--currentSentenceIndex);
             newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
@@ -183,8 +188,9 @@ namespace KiberOneLearningApp
                 HideCharacter = false
             };
 
-            currentData.Sentences.Add(newSentence);
-            SentenceIndexChanged?.Invoke(++currentSentenceIndex);
+            
+            currentData.Sentences.Insert(currentSentenceIndex + 1, newSentence);
+            SetNextSentenceIndex();
             NewSentenceAdded?.Invoke();
 
             Debug.Log("Добавлено новое предложение.");
@@ -251,10 +257,12 @@ namespace KiberOneLearningApp
             }
 
             currentData.Sentences.RemoveAt(currentSentenceIndex);
-            currentSentenceIndex = Mathf.Clamp(currentSentenceIndex, 0, currentData.Sentences.Count - 1);
-            CurrentSentenceDeleted?.Invoke();
-
-            Debug.Log("Предложение удалено.");
+            runtimeTextEditorView.RefreshText();
+            
+            if (currentSentenceIndex >= currentData.Sentences.Count)
+                currentSentenceIndex = currentData.Sentences.Count - 1;
+            
+            SentenceIndexChanged?.Invoke(currentSentenceIndex);
         }
 
         private List<RuntimeTutorialData> InsertTaskInList(RuntimeTutorialData currentSentence, (RuntimeTutorialData task, int taskSentenceIndex) newTaskVariable)

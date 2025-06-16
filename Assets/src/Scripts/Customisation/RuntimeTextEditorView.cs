@@ -31,7 +31,7 @@ namespace KiberOneLearningApp
 			RefreshText();
 		}
 
-		private void RefreshText()
+		public void RefreshText()
 		{
 			if (!IsSentenceAvailable())
 			{
