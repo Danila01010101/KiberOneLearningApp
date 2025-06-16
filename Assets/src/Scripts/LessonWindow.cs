@@ -96,6 +96,13 @@ namespace KiberOneLearningApp
             lessonWindowView.TaskCompleted += DetectCompletedTasks;
         }
 
+        protected override void ShowPreviousSentence()
+        {
+            var sentence = RuntimeLessonEditorManager.Instance.CurrentLesson != null ? RuntimeLessonEditorManager.Instance.CurrentLesson.Sentences[CurrentIndex] : runtimeData.Sentences[CurrentIndex];
+            sentenceChangerView.UpdateTaskButton(true, sentence, null);
+            base.ShowPreviousSentence();
+        }
+
         private void RefreshTaskIndexes()
         {
             taskSentenceIndexes.Clear();
