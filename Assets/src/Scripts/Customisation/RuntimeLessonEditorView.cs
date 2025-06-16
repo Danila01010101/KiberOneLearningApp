@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -58,15 +59,16 @@ namespace KiberOneLearningApp
         {
             lessonManager = RuntimeLessonEditorManager.Instance;
 
-            changeVideoButton.onClick.AddListener(OnChangeTutorialVideo);
-            addSentenceButton.onClick.AddListener(OnAddSentence);
-            removeSentenceButton.onClick.AddListener(OnRemoveCurrentSentence);
-            addImageButton.onClick.AddListener(OnAddImage);
-            nextButton.onClick.AddListener(SetNextSentenceIndex);
-            previousButton.onClick.AddListener(SetPreviousSentenceIndex);
+            lessonNameInputField.onValueChanged.RemoveAllListeners();
             lessonNameInputField.onValueChanged.AddListener(OnLessonNameChange);
-            addNewTaskButton.onClick.AddListener(OnAddNewTask);
-            addInteractableObjectButton.onClick.AddListener(OnAddInteractableObject);
+            InitializeButton(changeVideoButton, OnChangeTutorialVideo);
+            InitializeButton(addSentenceButton, OnAddSentence);
+            InitializeButton(removeSentenceButton, OnRemoveCurrentSentence);
+            InitializeButton(addImageButton, OnAddImage);
+            InitializeButton(nextButton, SetNextSentenceIndex);
+            InitializeButton(previousButton, SetPreviousSentenceIndex);
+            InitializeButton(addNewTaskButton, OnAddNewTask);
+            InitializeButton(addInteractableObjectButton, OnAddInteractableObject);
             
             if (lessonManager.CurrentLesson.Tasks != null && lessonManager.CurrentLesson.Tasks.Count > 0)
                 lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = currentData.TutorialName;
@@ -76,6 +78,12 @@ namespace KiberOneLearningApp
             RuntimeLessonEditorManager.Instance.SentenceChanged += DetectSentenceChange;
             InitializeCharacterIcon();
             visualElementsManager.RefreshVisuals(GetCurrentSentence());
+        }
+
+        private void InitializeButton(Button buttonToInitialize, UnityAction clickAction)
+        {
+            buttonToInitialize.onClick.RemoveAllListeners();
+            buttonToInitialize.onClick.AddListener(clickAction);
         }
 
         private void InitializeCharacterIcon()

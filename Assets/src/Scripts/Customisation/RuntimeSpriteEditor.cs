@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -41,6 +42,9 @@ namespace KiberOneLearningApp
             canvas = parentCanvas;
 
             ApplyDataToUI();
+
+            if (canvas == null)
+                canvas = FindObjectOfType<Canvas>();
         }
 
         private void ApplyDataToUI()
@@ -79,10 +83,7 @@ namespace KiberOneLearningApp
         public void OnBeginDrag(PointerEventData eventData)
         {
             if (isInResizeMode)
-            {
-                if (canvas == null)
-                    canvas = FindObjectOfType<Canvas>();
-                
+            {   
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out resizeStartMouse);
                 resizeStartSize = rectTransform.sizeDelta;
             }
