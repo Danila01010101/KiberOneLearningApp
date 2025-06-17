@@ -1,8 +1,6 @@
 using UnityEngine;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -14,6 +12,7 @@ namespace KiberOneLearningApp
     {
         [Header("UI Buttons")]
         [SerializeField] private Button changeVideoButton;
+        [SerializeField] private Button continueButton;
         [SerializeField] private Button addNewTaskButton;
         [SerializeField] private Button addSentenceButton;
         [SerializeField] private Button removeSentenceButton;
@@ -43,7 +42,7 @@ namespace KiberOneLearningApp
         
         public static Action NewSentenceAdded;
         public static Action CurrentSentenceDeleted;
-        public static Action<int> SentenceIndexChanged;
+        public static Action<int, bool> SentenceIndexChanged;
         public static Action TaskCreated;
 
         private void Awake()
@@ -141,16 +140,28 @@ namespace KiberOneLearningApp
             if (currentSentenceIndex <= 0)
                 return;
             
-            SentenceIndexChanged?.Invoke(--currentSentenceIndex);
+            SentenceIndexChanged?.Invoke(--currentSentenceIndex, isTaskWindow);
             newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
+
+            if (isTaskWindow)
+            {
+                continueButton.onClick.RemoveAllListeners();
+                InitializeButton(nextButton, SetNextSentenceIndex);
+            }
         }
 
         public void SetNextSentenceIndex()
         {
-            SentenceIndexChanged?.Invoke(++currentSentenceIndex);
+            SentenceIndexChanged?.Invoke(++currentSentenceIndex, isTaskWindow);
             newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
+
+            if (isTaskWindow && currentSentenceIndex == currentData.Sentences.Count - 1)
+            {
+                continueButton.onClick.RemoveAllListeners();
+                continueButton.onClick.AddListener(delegate { UIWindowManager.ShowLast(); });
+            }
         }
 
         private void OnChangeTutorialVideo()
@@ -262,7 +273,7 @@ namespace KiberOneLearningApp
             if (currentSentenceIndex >= currentData.Sentences.Count)
                 currentSentenceIndex = currentData.Sentences.Count - 1;
             
-            SentenceIndexChanged?.Invoke(currentSentenceIndex);
+            SentenceIndexChanged?.Invoke(currentSentenceIndex, isTaskWindow);
         }
 
         private List<RuntimeTutorialData> InsertTaskInList(RuntimeTutorialData currentSentence, (RuntimeTutorialData task, int taskSentenceIndex) newTaskVariable)

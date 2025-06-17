@@ -14,6 +14,8 @@ namespace KiberOneLearningApp
         public int CurrentSentenceIndex { get; private set; } = 0;
 
         public event Action<RuntimeSentenceData, Sprite, int, int> SentenceChanged;
+        
+        private static bool isTaskSelected = false;
 
         public RuntimeLessonEditorManager()
         {
@@ -37,9 +39,10 @@ namespace KiberOneLearningApp
             return files;
         }
         
-        private void DetectIndexChange(int newIndex)
+        private void DetectIndexChange(int newIndex, bool isTask)
         {
             CurrentSentenceIndex = newIndex;
+            isTaskSelected = isTask;
             Debug.Log(newIndex);
             TriggerSentenceChanged();
         }
@@ -185,14 +188,15 @@ namespace KiberOneLearningApp
             if (CurrentLesson == null || CurrentLesson.Sentences.Count == 0)
                 return;
 
-            var sentence = CurrentLesson.Sentences[CurrentSentenceIndex];
-            var defaultBackground = CurrentLesson.DefaultBackground;
+            var sentence = isTaskSelected ? CurrentTask.Sentences[CurrentSentenceIndex] : CurrentLesson.Sentences[CurrentSentenceIndex];
+            var defaultBackground = isTaskSelected ? CurrentTask.DefaultBackground : CurrentLesson.DefaultBackground;
+            var lenght = isTaskSelected ? CurrentTask.Sentences.Count : CurrentLesson.Sentences.Count;
 
             SentenceChanged?.Invoke(
                 sentence,
                 defaultBackground,
                 CurrentSentenceIndex,
-                CurrentLesson.Sentences.Count
+                lenght
             );
         }
 	}

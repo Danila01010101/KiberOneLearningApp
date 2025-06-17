@@ -5212,6 +5212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeVideoButton: {fileID: 5318413219265496379}
+  continueButton: {fileID: 8901220824919153748}
+  endTaskButton: {fileID: 0}
   addNewTaskButton: {fileID: 9003307488247629992}
   addSentenceButton: {fileID: 1330301622949075704}
   removeSentenceButton: {fileID: 2742176407165887643}
@@ -5221,6 +5223,7 @@ MonoBehaviour:
   previousButton: {fileID: 963544911037835778}
   visualElementsManager: {fileID: 5355006871792714485}
   taskWindowsCreator: {fileID: 0}
+  runtimeTextEditorView: {fileID: 0}
   editTaskWindowsCreator: {fileID: 0}
   characterEditor: {fileID: 7972545180488174676}
   newTaskName: {fileID: 8378599588786051974}

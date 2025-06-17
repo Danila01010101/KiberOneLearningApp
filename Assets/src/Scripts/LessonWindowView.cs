@@ -1,4 +1,3 @@
-using System;
 using UnityEngine.Events;
 
 namespace KiberOneLearningApp
