@@ -185,7 +185,7 @@ namespace KiberOneLearningApp
 
         private void TriggerSentenceChanged()
         {
-            if (CurrentLesson == null || CurrentLesson.Sentences.Count == 0)
+            if (CurrentLesson == null || CurrentLesson.Sentences.Count == 0 || CurrentSentenceIndex >= CurrentLesson.Sentences.Count - 1)
                 return;
 
             var sentence = isTaskSelected ? CurrentTask.Sentences[CurrentSentenceIndex] : CurrentLesson.Sentences[CurrentSentenceIndex];

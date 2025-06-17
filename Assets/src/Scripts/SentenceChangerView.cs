@@ -30,6 +30,8 @@ namespace KiberOneLearningApp
         [SerializeField] private Transform videoWindow;
     
         private GifOpener gifOpener;
+        private TextMeshProUGUI buttonText;
+        private string buttonNameFromStart;
         private bool isEditing;
 
         public Action TaskCompleted;
@@ -62,6 +64,7 @@ namespace KiberOneLearningApp
             gifOpener = new GifOpener(player, videoWindow);
             RuntimeLessonEditorManager.Instance.SentenceChanged += UpdateView;
             isEditing = GetComponent<RuntimeLessonEditorView>();
+            buttonNameFromStart = nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text;
         }
 
         public void UpdateView(
@@ -114,6 +117,15 @@ namespace KiberOneLearningApp
             }
 
             character.gameObject.SetActive(!sentenceData.HideCharacter);
+            
+            if (currentIndex == sentenceCount - 1)
+            {
+                buttonText.text = "Закончить";
+            }
+            else if (currentIndex == sentenceCount - 2)
+            {
+                buttonText.text = buttonNameFromStart;
+            }
             
             if (isEditing == true)
                 return;
