@@ -123,7 +123,7 @@ namespace KiberOneLearningApp
             {
                 buttonText.text = "Закончить";
             }
-            else if (currentIndex == sentenceCount - 2)
+            else
             {
                 buttonText.text = buttonNameFromStart;
             }

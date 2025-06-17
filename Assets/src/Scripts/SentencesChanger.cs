@@ -7,8 +7,8 @@ public class SentencesChanger : UIWindow
     [SerializeField] protected SentenceChangerView sentenceChangerView;
     
     protected RuntimeTutorialData runtimeData;
-    
-    private int currentIndex = -1;
+
+    protected int currentIndex { get; private set; } = -1;
 
     public int CurrentIndex => currentIndex;
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -145,10 +146,10 @@ namespace KiberOneLearningApp
             newTaskSentenceNumber.text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
 
-            if (isTaskWindow)
+            if (currentSentenceIndex == currentData.Sentences.Count - 2)
             {
                 continueButton.onClick.RemoveAllListeners();
-                InitializeButton(nextButton, SetNextSentenceIndex);
+                InitializeButton(continueButton, SetNextSentenceIndex);
             }
         }
 
@@ -159,10 +160,21 @@ namespace KiberOneLearningApp
             newTaskSentenceNumber.text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
 
-            if (isTaskWindow && currentSentenceIndex == currentData.Sentences.Count - 1)
+            if (currentSentenceIndex == currentData.Sentences.Count - 1)
             {
-                continueButton.onClick.RemoveAllListeners();
-                continueButton.onClick.AddListener(delegate { UIWindowManager.ShowLast(); });
+                if (isTaskWindow)
+                {
+                    continueButton.onClick.RemoveAllListeners();
+                    continueButton.onClick.AddListener(delegate
+                    {
+                        UIWindowManager.ShowLast();
+                    });
+                }
+                else
+                {
+                    continueButton.onClick.RemoveAllListeners();
+                    continueButton.onClick.AddListener(delegate { SceneManager.LoadScene(StaticStrings.StartSceneName); });
+                }
             }
         }
 

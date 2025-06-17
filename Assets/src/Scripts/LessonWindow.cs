@@ -38,6 +38,12 @@ namespace KiberOneLearningApp
             ShowSentences();
         }
 
+        public override void Show()
+        {
+            base.Show();        
+            sentenceChangerView.UpdateView(runtimeData.Sentences[currentIndex], runtimeData.DefaultBackground, currentIndex, runtimeData.Sentences.Count);
+        }
+
         private void ShowSentences()
         {
             if (runtimeData.Tasks != null)
