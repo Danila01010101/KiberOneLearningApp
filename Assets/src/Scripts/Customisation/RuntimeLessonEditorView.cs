@@ -142,6 +142,7 @@ namespace KiberOneLearningApp
             
             SentenceIndexChanged?.Invoke(--currentSentenceIndex, isTaskWindow);
             newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
+            newTaskSentenceNumber.text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
 
             if (isTaskWindow)
@@ -155,6 +156,7 @@ namespace KiberOneLearningApp
         {
             SentenceIndexChanged?.Invoke(++currentSentenceIndex, isTaskWindow);
             newTaskSentenceNumber.placeholder.GetComponent<TMP_Text>().text = (currentSentenceIndex+1).ToString();
+            newTaskSentenceNumber.text = (currentSentenceIndex+1).ToString();
             InitializeCharacterIcon();
 
             if (isTaskWindow && currentSentenceIndex == currentData.Sentences.Count - 1)

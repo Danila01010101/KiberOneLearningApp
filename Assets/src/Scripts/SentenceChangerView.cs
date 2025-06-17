@@ -64,6 +64,7 @@ namespace KiberOneLearningApp
             gifOpener = new GifOpener(player, videoWindow);
             RuntimeLessonEditorManager.Instance.SentenceChanged += UpdateView;
             isEditing = GetComponent<RuntimeLessonEditorView>();
+            buttonText = nextButton.GetComponentInChildren<TextMeshProUGUI>();
             buttonNameFromStart = nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text;
         }
 
