@@ -66,6 +66,7 @@ namespace KiberOneLearningApp
             isEditing = GetComponent<RuntimeLessonEditorView>();
             buttonText = nextButton.GetComponentInChildren<TextMeshProUGUI>();
             buttonNameFromStart = nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text;
+            background.enabled = false;
         }
 
         public void UpdateView(
