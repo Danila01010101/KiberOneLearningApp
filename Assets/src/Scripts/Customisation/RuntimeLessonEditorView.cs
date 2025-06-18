@@ -14,6 +14,7 @@ namespace KiberOneLearningApp
         [Header("UI Buttons")]
         [SerializeField] private Button changeVideoButton;
         [SerializeField] private Button continueButton;
+        [SerializeField] private Button saveTaskButton;
         [SerializeField] private Button addNewTaskButton;
         [SerializeField] private Button addSentenceButton;
         [SerializeField] private Button removeSentenceButton;
@@ -71,6 +72,9 @@ namespace KiberOneLearningApp
             InitializeButton(previousButton, SetPreviousSentenceIndex);
             InitializeButton(addNewTaskButton, OnAddNewTask);
             InitializeButton(addInteractableObjectButton, OnAddInteractableObject);
+            
+            if (saveTaskButton != null)
+                InitializeButton(saveTaskButton, OnSaveClicked);
             
             if (lessonManager.CurrentLesson.Tasks != null && lessonManager.CurrentLesson.Tasks.Count > 0)
                 lessonNameInputField.placeholder.GetComponent<TMP_Text>().text = currentData.TutorialName;
@@ -176,6 +180,11 @@ namespace KiberOneLearningApp
                     continueButton.onClick.AddListener(delegate { SceneManager.LoadScene(StaticStrings.StartSceneName); });
                 }
             }
+        }
+
+        private void OnSaveClicked()
+        {
+            RuntimeLessonEditorManager.SaveCurrentTask();
         }
 
         private void OnChangeTutorialVideo()
