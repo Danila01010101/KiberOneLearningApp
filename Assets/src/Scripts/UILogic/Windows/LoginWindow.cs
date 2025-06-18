@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Collections;
+using ModestTree;
 using UnityEngine.UI;
 
 namespace KiberOneLearningApp
@@ -12,6 +13,7 @@ namespace KiberOneLearningApp
         [SerializeField] private TextMeshProUGUI wrongPasswordText;
         [SerializeField] private TopicChooseWindow nextWindow;
         [SerializeField] private Button loginButton;
+        [SerializeField] private Button changePasswordButton;
         [SerializeField] private Button backButton;
         
         public static Action OnLogin;
@@ -21,6 +23,13 @@ namespace KiberOneLearningApp
             wrongPasswordText.enabled = false;
             loginButton.onClick.AddListener(Login);
             backButton.onClick.AddListener(Back);
+            changePasswordButton.onClick.AddListener(ChangePassword);
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            changePasswordButton.gameObject.SetActive(GlobalValueSetter.Instance.IsTeacher);
         }
 
         private void Back() => UIWindowManager.Show<EnterWindow>();
@@ -30,11 +39,22 @@ namespace KiberOneLearningApp
             if (passwordInputField.text == GlobalValueSetter.Instance.Password)
             {
                 OnLogin?.Invoke();
+                passwordInputField.text = string.Empty;
                 UIWindowManager.Show(nextWindow);
             }
             else
             {
                 StartCoroutine(ShowWarning());
+            }
+        }
+
+        public void ChangePassword()
+        {
+            if (passwordInputField.text.IsEmpty() == false)
+            {
+                GlobalValueSetter.Instance.ChangePassword(passwordInputField.text);
+                passwordInputField.text = string.Empty;
+                UIWindowManager.Show(nextWindow);
             }
         }
 

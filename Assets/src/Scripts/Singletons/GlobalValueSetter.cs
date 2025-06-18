@@ -17,12 +17,19 @@ namespace KiberOneLearningApp
             if (Instance == null)
             {
                 Instance = this;
+                Password = PlayerPrefs.GetString("Password", Password);
                 DontDestroyOnLoad(gameObject);
             }            
             else
             {
                 Destroy(this);
             }
+        }
+
+        public void ChangePassword(string password)
+        {
+            Password = password;
+            PlayerPrefs.SetString("Password", password);
         }
 
         private void OnEnable()
