@@ -47,6 +47,7 @@ namespace KiberOneLearningApp
 			// Загружаем в Texture2D
 			Texture2D texture = LoadTexture(destPath);
 			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+			sprite.name = Path.GetFileNameWithoutExtension(fileName);
 			placement.sprite = sprite;
 
 			return true;
