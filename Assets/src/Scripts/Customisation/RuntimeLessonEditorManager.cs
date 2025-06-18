@@ -98,7 +98,8 @@ namespace KiberOneLearningApp
             }
 
             CurrentLesson = TutorialRuntimeBuilder.FromDTO(dto);
-            CurrentTask = CurrentLesson.Tasks[0];
+            if (CurrentLesson.Tasks != null && CurrentLesson.Tasks.Count > 0)
+                CurrentTask = CurrentLesson.Tasks[0];
             CurrentSentenceIndex = 0;
             TriggerSentenceChanged();
 
