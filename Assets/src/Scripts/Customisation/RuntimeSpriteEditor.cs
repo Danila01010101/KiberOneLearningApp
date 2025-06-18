@@ -51,7 +51,7 @@ namespace KiberOneLearningApp
         {
             if (placement == null || imageRenderer == null || rectTransform == null) return;
 
-            imageRenderer.sprite = placement.sprite == null ? imageRenderer.sprite : placement.sprite;
+            imageRenderer.sprite = placement.spritePath == null ? imageRenderer.sprite : RuntimeSpriteManager.LoadSpriteFromPath(placement.spritePath);
             //imageRenderer.color = placement.sprite == null ? Color.white : Color.clear;
 
             rectTransform.localPosition = placement.position;

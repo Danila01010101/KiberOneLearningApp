@@ -8,16 +8,20 @@ namespace KiberOneLearningApp
 {
 	public static class RuntimeSpriteManager
 	{
-		public static Sprite LoadSprite(string fullPath)
+		public static Sprite LoadSpriteFromPath(string spritePath)
 		{
-			if (!File.Exists(fullPath)) return null;
+			string fullPath = Path.Combine(Application.persistentDataPath, spritePath);
 
-			byte[] imageBytes = File.ReadAllBytes(fullPath);
-			Texture2D texture = new Texture2D(2, 2);
-			if (!texture.LoadImage(imageBytes)) return null;
+			if (!File.Exists(fullPath))
+			{
+				Debug.LogError($"Файл не найден: {fullPath}");
+				return null;
+			}
 
+			Texture2D texture = LoadTexture(fullPath);
 			return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
 		}
+
 
 		public static bool PickAndAssignSprite(RuntimeImagePlacement placement)
 		{
@@ -25,23 +29,38 @@ namespace KiberOneLearningApp
 			string[] paths = SFB.StandaloneFileBrowser.OpenFilePanel(
 				"Выбрать изображение", "", new[] { new SFB.ExtensionFilter("Image Files", "png", "jpg", "jpeg", "psd") }, false);
 
-			if (paths == null || paths.Length == 0 || !File.Exists(paths[0])) return false;
+			if (paths == null || paths.Length == 0 || !File.Exists(paths[0]))
+				return false;
 
 			string fileName = Path.GetFileName(paths[0]);
-			string folder = Path.Combine(Application.persistentDataPath, StaticStrings.ImagesSavesFloulderName);
+			string folder = Path.Combine(Application.persistentDataPath, "UserImages");
 			Directory.CreateDirectory(folder);
+
 			string destPath = Path.Combine(folder, fileName);
 
 			if (!File.Exists(destPath))
 				File.Copy(paths[0], destPath);
 
-			placement.sprite = LoadSprite(destPath);
-			placement.spritePath = $"{StaticStrings.ImagesSavesFloulderName}/{fileName}";
+			// Сохраняем путь
+			placement.spritePath = $"UserImages/{fileName}";
+
+			// Загружаем в Texture2D
+			Texture2D texture = LoadTexture(destPath);
+			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+			placement.sprite = sprite;
+
 			return true;
 #else
-    Debug.LogWarning("Выбор изображений доступен только в редакторе или Standalone.");
     return false;
 #endif
+		}
+		
+		private static Texture2D LoadTexture(string path)
+		{
+			byte[] imageData = File.ReadAllBytes(path);
+			Texture2D texture = new Texture2D(2, 2);
+			texture.LoadImage(imageData);
+			return texture;
 		}
 
 		public static void RemoveSprite(RuntimeImagePlacement placement)
