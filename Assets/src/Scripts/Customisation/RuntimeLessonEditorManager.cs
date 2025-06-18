@@ -38,6 +38,12 @@ namespace KiberOneLearningApp
             
             return files;
         }
+
+        public static void SaveCurrentTask()
+        {
+            int index = Instance.CurrentLesson.Tasks.FindIndex(task => task.TutorialName == Instance.CurrentTask.TutorialName);
+            Instance.CurrentLesson.Tasks[index] = Instance.CurrentTask;
+        }
         
         private void DetectIndexChange(int newIndex, bool isTask)
         {
